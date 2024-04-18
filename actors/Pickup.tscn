@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://o8nvplux6anp"]
+
+[ext_resource type="Script" path="res://actors/pickup.gd" id="1_47xoe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eip28"]
+radius = 32.0156
+
+[node name="Pickup" type="Node2D"]
+script = ExtResource("1_47xoe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_eip28")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, 3.69231)
+scale = Vector2(4.4, 3.46154)
+color = Color(0, 0.498039, 0.682353, 1)
+polygon = PackedVector2Array(-1, -8, -2, -4, -4, -1, -5, 4, -2, 5, 4, 5, 5, 2, 3, -1, 0, -4)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

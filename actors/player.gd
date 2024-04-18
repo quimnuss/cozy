@@ -5,7 +5,10 @@ class_name Player
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
+signal is_watered
 
+func water():
+    is_watered.emit()
 
 func _physics_process(delta):
 
