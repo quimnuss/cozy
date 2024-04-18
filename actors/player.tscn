@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmov2xrv47nx4"]
+[gd_scene load_steps=4 format=3 uid="uid://dmov2xrv47nx4"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_23gd1"]
+[ext_resource type="SpriteFrames" uid="uid://b017ye0m620hc" path="res://actors/player_spriteframes.tres" id="2_xixfa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjf"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_23gd1")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = ExtResource("2_xixfa")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_knhjf")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 color = Color(0.188235, 1, 0.337255, 1)
 polygon = PackedVector2Array(0, -16, -8, 8, 8, 8)
