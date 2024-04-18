@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmov2xrv47nx4"]
+
+[ext_resource type="Script" path="res://actors/player.gd" id="1_23gd1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjf"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_23gd1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_knhjf")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.188235, 1, 0.337255, 1)
+polygon = PackedVector2Array(0, -16, -8, 8, 8, 8)
