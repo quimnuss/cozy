@@ -20,6 +20,8 @@ fill_from = Vector2(0.509174, 0.486239)
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_23gd1")
+min_direction = null
+can_die = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv76m0v6d8lpg"]
+
+[ext_resource type="Script" path="res://actors/goal.gd" id="1_1ir0j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7q28"]
+radius = 8.0
+
+[node name="Goal" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_1ir0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color(0.984314, 1, 1, 1)
+color = Color(0.694118, 0.470588, 0.886275, 1)
+polygon = PackedVector2Array(-1, -4, -2, -2, -6, -2, -3, 0, -3, 4, 0, 1, 4, 4, 2, -1, 6, -2, 0, -2)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_h7q28")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

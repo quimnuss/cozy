@@ -15,6 +15,14 @@ run/main_scene="res://scenes/main_game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://actors/global.gd"
+
+[gui]
+
+theme/custom_font="res://assets/fonts/glacial_indifference/GlacialIndifference-Bold.otf"
+
 [input]
 
 move_left={

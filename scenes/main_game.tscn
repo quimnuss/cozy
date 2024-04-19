@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=27 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="6_m1yvx"]
 [ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="7_n56n6"]
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="10_jc0w2"]
+[ext_resource type="Script" path="res://actors/goal_label.gd" id="11_e8lhl"]
+[ext_resource type="Script" path="res://scripts/status_bar.gd" id="11_vpfa4"]
+[ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="11_yq3c3"]
+[ext_resource type="Curve" uid="uid://qdoxje4xv8l3" path="res://resources/sine_curve.tres" id="12_gvsh5"]
+[ext_resource type="Script" path="res://scenes/win_scene.gd" id="15_n7mu1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -17,15 +22,59 @@ polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 263
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1wmrw"]
 polygon = PackedVector2Array(2493, 1576, 2536, 1681, 2543, 1724, 2653, 1676, 2562, 1571)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s636m"]
+polygon = PackedVector2Array(2451, 1580, 2355, 1659, 2520, 1708, 2652, 1647, 2562, 1571)
+
 [sub_resource type="Gradient" id="Gradient_el8ii"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vg3c2"]
 gradient = SubResource("Gradient_el8ii")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jiywe"]
+size = Vector2(64, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6ujsm"]
+size = Vector2(64, 64)
+
 [sub_resource type="Environment" id="Environment_mtgnt"]
 glow_enabled = true
 fog_enabled = true
+
+[sub_resource type="Animation" id="Animation_41nk5"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p5ojj"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6y52f"]
+_data = {
+"RESET": SubResource("Animation_41nk5"),
+"fade_in": SubResource("Animation_p5ojj")
+}
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_q85br")
@@ -43,24 +92,29 @@ occluder = SubResource("OccluderPolygon2D_5qvnr")
 position = Vector2(296, 3)
 occluder = SubResource("OccluderPolygon2D_1wmrw")
 
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Ground"]
+position = Vector2(147, 101)
+occluder = SubResource("OccluderPolygon2D_s636m")
+
 [node name="MainLights" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="MainLights"]
 position = Vector2(3551, 1571)
 rotation = 2.45718
 scale = Vector2(46.3312, 32.2186)
-color = Color(1, 1, 0.501961, 1)
+color = Color(0.94902, 0.886275, 0.0196078, 1)
 energy = 0.55
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
 
 [node name="PointLight2D2" type="PointLight2D" parent="MainLights"]
+visible = false
 position = Vector2(4265.98, 2234.97)
 rotation = -2.35619
 scale = Vector2(91.2001, 28.4475)
-color = Color(1, 1, 0.447059, 1)
-energy = 0.54
+color = Color(0.94902, 0.886275, 0.0196078, 1)
+energy = 0.55
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
@@ -70,8 +124,8 @@ visible = false
 position = Vector2(2186, 1150)
 rotation = 0.523598
 scale = Vector2(47.1437, 15.9219)
-color = Color(1, 1, 0.447059, 1)
-energy = 0.54
+color = Color(0.94902, 0.886275, 0.0196078, 1)
+energy = 0.55
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
@@ -80,8 +134,8 @@ texture = SubResource("GradientTexture2D_vg3c2")
 position = Vector2(1662, 2116)
 rotation = -0.523598
 scale = Vector2(47.1437, 22.4531)
-color = Color(1, 1, 0.447059, 1)
-energy = 0.54
+color = Color(0.94902, 0.886275, 0.0196078, 1)
+energy = 0.55
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
@@ -90,8 +144,8 @@ texture = SubResource("GradientTexture2D_vg3c2")
 position = Vector2(2085, -406)
 rotation = 0.523598
 scale = Vector2(47.1437, 22.4531)
-color = Color(1, 1, 0.447059, 1)
-energy = 0.54
+color = Color(0.94902, 0.886275, 0.0196078, 1)
+energy = 0.55
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
@@ -100,8 +154,8 @@ texture = SubResource("GradientTexture2D_vg3c2")
 position = Vector2(1050, 1111)
 rotation = 0.261799
 scale = Vector2(47.1437, 15.9219)
-color = Color(1, 1, 0.447059, 1)
-energy = 0.54
+color = Color(0.94902, 0.886275, 0.0196078, 1)
+energy = 0.55
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
@@ -181,6 +235,7 @@ end_cap_mode = 2
 antialiased = true
 
 [node name="TrailFridge" type="Node2D" parent="TrailMan"]
+z_index = -1
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -218,38 +273,118 @@ position = Vector2(2871, 1326)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="CenterContainer" type="CenterContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 4.0
+offset_bottom = 100.0
 grow_horizontal = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="GridContainer" type="GridContainer" parent="UI/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
+columns = 2
 
-[node name="WaterProgressBar" type="ProgressBar" parent="UI/CenterContainer/GridContainer"]
+[node name="WaterIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_jiywe")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="WaterProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 modulate = Color(0, 0.517647, 0.517647, 1)
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 value = 100.0
 rounded = true
 show_percentage = false
+script = ExtResource("11_vpfa4")
+blink_curve = ExtResource("12_gvsh5")
 
-[node name="LightProgressBar" type="ProgressBar" parent="UI/CenterContainer/GridContainer"]
+[node name="LightIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_6ujsm")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="LightProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 modulate = Color(1, 0.905882, 0, 1)
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 value = 100.0
 rounded = true
 show_percentage = false
+script = ExtResource("11_vpfa4")
+blink_curve = ExtResource("12_gvsh5")
+
+[node name="Control" type="Control" parent="UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Goal0" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.368627, 0.807843, 0.972549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("11_e8lhl")
+
+[node name="Goal1" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584314, 0.85098, 0.0156863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("11_e8lhl")
+
+[node name="Goal2" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.282353, 0.54902, 0.0117647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("11_e8lhl")
+
+[node name="Goal3" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94902, 0.886275, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("11_e8lhl")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -269,5 +404,69 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mtgnt")
 
+[node name="Goal0" parent="." instance=ExtResource("11_yq3c3")]
+position = Vector2(1779, 994)
+
+[node name="Goal1" parent="." instance=ExtResource("11_yq3c3")]
+position = Vector2(3577, 157)
+goal_num = 1
+
+[node name="Goal2" parent="." instance=ExtResource("11_yq3c3")]
+modulate = Color(0.94902, 0.752941, 0.580392, 1)
+position = Vector2(1437, -90)
+goal_num = 2
+
+[node name="Goal3" parent="." instance=ExtResource("11_yq3c3")]
+modulate = Color(0.94902, 0.886275, 0.0196078, 1)
+position = Vector2(3706, -1446)
+goal_num = 3
+
+[node name="WinScene" type="CanvasLayer" parent="."]
+script = ExtResource("15_n7mu1")
+
+[node name="CenterContainer" type="CenterContainer" parent="WinScene"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.5
+offset_top = -50.0
+offset_right = 422.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WinScene/CenterContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.282353, 0.54902, 0.0117647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 16
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+bbcode_enabled = true
+text = "[wave amp=40.0 freq=2.0 connected=1][fade start=25 length=6]You're up for a new world . . .[/fade][/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="SceneModulate" type="CanvasModulate" parent="WinScene"]
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WinScene/SceneModulate"]
+libraries = {
+"": SubResource("AnimationLibrary_6y52f")
+}
+
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]
+[connection signal="distance_changed" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_distance_changed"]
+[connection signal="distance_changed" from="Goal1" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal1" method="_on_goal_distance_changed"]
+[connection signal="distance_changed" from="Goal2" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal2" method="_on_goal_distance_changed"]
+[connection signal="distance_changed" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_distance_changed"]
+[connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]

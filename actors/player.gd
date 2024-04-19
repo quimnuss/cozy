@@ -28,7 +28,10 @@ signal light_changed(level_percent : float)
 
 signal death
 
-@export var can_die : bool = true
+@export var can_die : bool = false
+
+func _ready():
+    Global.player = self
 
 func water():
     water_level = clamp(water_level+water_delta,0,max_water_level)
@@ -73,3 +76,15 @@ func _physics_process(delta):
         rotation = velocity.angle() + PI/2
 
     move_and_slide()
+
+func goal0():
+    pass
+
+func goal1():
+    pass
+
+func goal2():
+    pass
+
+func goal3():
+    pass
