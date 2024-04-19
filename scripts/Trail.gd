@@ -2,6 +2,8 @@ extends Node2D
 
 @export var target : Node2D
 @onready var trail = $Trail
+@onready var trail_fridge = $TrailFridge
+
 
 var previous_point : Vector2
 
@@ -11,8 +13,17 @@ var elapsed = 0
 
 var elapsed_death = 5
 
+
 @export var HEALTHY_COLOR : Color = Color(0,150/255,0,1)
 @export var DEATH_COLOR : Color = Color(75/255,40/255,0,1)
+
+func to_freezer():
+    var new_trail : Line2D = trail.duplicate()
+    trail.reparent(trail_fridge)
+    trail = new_trail
+    trail.clear_points()
+    elapsed = 0
+    self.add_child(trail)
 
 
 func _process(delta):
