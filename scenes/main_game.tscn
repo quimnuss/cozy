@@ -50,7 +50,6 @@ centered = false
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-modulate = Color(1, 1, 1, 0.615686)
 z_index = -5
 texture = ExtResource("6_m1yvx")
 centered = false
