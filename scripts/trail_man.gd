@@ -14,8 +14,8 @@ var elapsed = 0
 var elapsed_death = 5
 
 
-@export var HEALTHY_COLOR : Color = Color(0,150/255,0,1)
-@export var DEATH_COLOR : Color = Color(75/255,40/255,0,1)
+@export var HEALTHY_COLOR : Color = Color('#95D904')
+@export var DEATH_COLOR : Color = Color('#8C3211')
 
 func to_freezer():
     var new_trail : Line2D = trail.duplicate()

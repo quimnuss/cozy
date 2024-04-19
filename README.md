@@ -4,7 +4,7 @@ wasd to control
 
 # color palette
 
-```json
+```css
     #488C03
     #95D904
     #F2E205
@@ -13,6 +13,14 @@ wasd to control
     #5ecef8
     #ffd0ed
 ```
+
+#488C03
+#95D904
+#F2E205
+#F2C094
+#8C3211
+#5ecef8
+#ffd0ed
 
 # attributions
 
