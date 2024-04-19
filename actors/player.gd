@@ -28,7 +28,9 @@ signal light_changed(level_percent : float)
 
 signal death
 
-@export var can_die : bool = true
+@export var can_die : bool = false
+
+var can_move : bool = true
 
 func _ready():
     Global.player = self
@@ -60,10 +62,9 @@ func _process(delta):
         death.emit()
 
 func _physics_process(delta):
-
-    # Handle jump.
-    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-        velocity.y = JUMP_VELOCITY
+    if not can_move:
+        velocity = Vector2(0,0)
+        return
 
     var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
     if direction:

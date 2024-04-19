@@ -5,6 +5,7 @@ extends Node2D
 @onready var start_position = $StartPosition
 @onready var trail_man = $TrailMan
 @onready var win_scene = $WinScene
+@onready var ui = $UI
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +32,12 @@ func _on_goal_reached(goal_num : int):
             player.goal3()
 
 func _process(delta):
+    if Input.is_action_just_pressed("respawn"):
+        respawn()
+
+    if Input.is_action_just_pressed("cheat"):
+        win()
+
     water_level.set_value_no_signal(player.water_level)
     light_level.set_value_no_signal(player.light_level)
 
@@ -42,8 +49,16 @@ func respawn():
 func _on_player_death():
     respawn()
 
-func show_win():
+func win():
     win_scene.play_win()
+    var spore = load("res://actors/spore.tscn").instantiate()
+    spore.global_position = player.global_position
+    ui.visible = false
+    player.can_move = false
+    player.velocity = Vector2(0,0)
+    player.set_process(false)
+    add_child(spore)
+
 
 func _on_goal_3_goal_reached(goal_num):
-    show_win()
+    win()
