@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmov2xrv47nx4"]
+[gd_scene load_steps=7 format=3 uid="uid://dmov2xrv47nx4"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_23gd1"]
 [ext_resource type="SpriteFrames" uid="uid://b017ye0m620hc" path="res://actors/player_spriteframes.tres" id="2_xixfa"]
@@ -6,7 +6,16 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4aly8"]
-polygon = PackedVector2Array(-1, -37, -16, -15, 0, 3, 22, -16)
+polygon = PackedVector2Array(6, -2, 7, -7, 18, -13, 15, -19, 6, -15, -1, -36, -4, -21, -15, -16, -12, -9, -4, -8, -4, -2)
+
+[sub_resource type="Gradient" id="Gradient_08n7m"]
+offsets = PackedFloat32Array(0, 0.798701)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k047h"]
+gradient = SubResource("Gradient_08n7m")
+fill = 1
+fill_from = Vector2(0.509174, 0.486239)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -26,5 +35,9 @@ color = Color(0.188235, 1, 0.337255, 1)
 polygon = PackedVector2Array(0, -16, -8, 8, 8, 8)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 occluder = SubResource("OccluderPolygon2D_4aly8")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, -19)
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_k047h")

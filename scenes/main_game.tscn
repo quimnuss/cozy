@@ -8,14 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="4_s7rqi"]
 [ext_resource type="Script" path="res://scripts/Trail.gd" id="6_d2lhm"]
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="6_m1yvx"]
-[ext_resource type="PackedScene" uid="uid://o8nvplux6anp" path="res://actors/WaterPickup.tscn" id="7_n56n6"]
-[ext_resource type="PackedScene" uid="uid://b5cav80i76s8l" path="res://actors/light_pickup.tscn" id="10_jc0w2"]
+[ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="7_n56n6"]
+[ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="10_jc0w2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
-polygon = PackedVector2Array(2441, 1502, 2335, 1552, 2310, 1684, 2319, 1752, 2335, 1791, 2348, 1787, 2327, 1709, 2349, 1580)
+polygon = PackedVector2Array(2352, 1556, 2313, 1637, 2312, 1704, 2335, 1791, 2332, 1713, 2327, 1629)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1wmrw"]
-polygon = PackedVector2Array(2584, 1471, 2561, 1579, 2543, 1724, 2552, 1724, 2590, 1483)
+polygon = PackedVector2Array(2493, 1576, 2536, 1681, 2543, 1724, 2653, 1676, 2562, 1571)
 
 [sub_resource type="Gradient" id="Gradient_el8ii"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -25,6 +25,80 @@ gradient = SubResource("Gradient_el8ii")
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_q85br")
+
+[node name="Ground" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("6_m1yvx")
+centered = false
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Ground"]
+occluder = SubResource("OccluderPolygon2D_5qvnr")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Ground"]
+position = Vector2(296, 3)
+occluder = SubResource("OccluderPolygon2D_1wmrw")
+
+[node name="MainLights" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="MainLights"]
+position = Vector2(3551, 1571)
+rotation = 2.45718
+scale = Vector2(46.3312, 32.2186)
+color = Color(1, 1, 0.501961, 1)
+energy = 0.55
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_vg3c2")
+
+[node name="PointLight2D2" type="PointLight2D" parent="MainLights"]
+position = Vector2(3813, 1672)
+rotation = -2.35619
+scale = Vector2(49.1527, 28.4475)
+color = Color(1, 1, 0.447059, 1)
+energy = 0.54
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_vg3c2")
+
+[node name="PointLight2D6" type="PointLight2D" parent="MainLights"]
+position = Vector2(2186, 1150)
+rotation = 0.523598
+scale = Vector2(47.1437, 15.9219)
+color = Color(1, 1, 0.447059, 1)
+energy = 0.54
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_vg3c2")
+
+[node name="PointLight2D5" type="PointLight2D" parent="MainLights"]
+position = Vector2(1662, 2116)
+rotation = -0.785397
+scale = Vector2(47.1437, 22.4531)
+color = Color(1, 1, 0.447059, 1)
+energy = 0.54
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_vg3c2")
+
+[node name="PointLight2D7" type="PointLight2D" parent="MainLights"]
+position = Vector2(2085, -406)
+rotation = 0.523598
+scale = Vector2(47.1437, 22.4531)
+color = Color(1, 1, 0.447059, 1)
+energy = 0.54
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_vg3c2")
+
+[node name="PointLight2D8" type="PointLight2D" parent="MainLights"]
+position = Vector2(2000, 1475)
+rotation = 0.523598
+scale = Vector2(47.1437, 15.9219)
+color = Color(1, 1, 0.447059, 1)
+energy = 0.54
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_vg3c2")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(2432, 1773)
@@ -40,6 +114,7 @@ script = ExtResource("1_wwqgf")
 player = NodePath("..")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -10
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = -10
@@ -62,6 +137,7 @@ texture = ExtResource("4_s7rqi")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 z_index = -5
@@ -173,25 +249,6 @@ visible = false
 energy = 0.28
 blend_mode = 1
 shadow_enabled = true
-
-[node name="MainLights" type="Node2D" parent="."]
-visible = false
-
-[node name="PointLight2D" type="PointLight2D" parent="MainLights"]
-position = Vector2(2973.83, 944.536)
-rotation = -0.63214
-scale = Vector2(47.1437, 15.9219)
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_vg3c2")
-
-[node name="PointLight2D2" type="PointLight2D" parent="MainLights"]
-position = Vector2(2538, 1297)
-rotation = -2.35619
-scale = Vector2(47.1437, 15.9219)
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_vg3c2")
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]
