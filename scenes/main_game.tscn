@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=16 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="10_jc0w2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
-polygon = PackedVector2Array(2352, 1556, 2313, 1637, 2312, 1704, 2335, 1791, 2332, 1713, 2327, 1629)
+polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1wmrw"]
 polygon = PackedVector2Array(2493, 1576, 2536, 1681, 2543, 1724, 2653, 1676, 2562, 1571)
@@ -23,6 +23,10 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vg3c2"]
 gradient = SubResource("Gradient_el8ii")
 
+[sub_resource type="Environment" id="Environment_mtgnt"]
+glow_enabled = true
+fog_enabled = true
+
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_q85br")
 
@@ -32,6 +36,7 @@ texture = ExtResource("6_m1yvx")
 centered = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ground"]
+position = Vector2(-742, -22)
 occluder = SubResource("OccluderPolygon2D_5qvnr")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Ground"]
@@ -91,7 +96,7 @@ shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
 
 [node name="PointLight2D8" type="PointLight2D" parent="MainLights"]
-position = Vector2(2000, 1475)
+position = Vector2(2081, 1541)
 rotation = 0.523598
 scale = Vector2(47.1437, 15.9219)
 color = Color(1, 1, 0.447059, 1)
@@ -249,6 +254,9 @@ visible = false
 energy = 0.28
 blend_mode = 1
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mtgnt")
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]

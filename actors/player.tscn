@@ -35,6 +35,7 @@ color = Color(0.188235, 1, 0.337255, 1)
 polygon = PackedVector2Array(0, -16, -8, 8, 8, 8)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_4aly8")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
