@@ -8,7 +8,7 @@ var elapsed = 0
 
 var base_color : Color
 
-const HIGH_COLOR : Color = Color('#8C3211')
+const HIGH_COLOR : Color = Color('#fb50c2')
 
 func _ready():
     base_color = self.modulate

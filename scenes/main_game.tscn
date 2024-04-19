@@ -166,6 +166,7 @@ shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
 
 [node name="StartPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(2432, 1773)
 
 [node name="Player" parent="." instance=ExtResource("2_obrol")]
@@ -338,7 +339,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-value = 100.0
+value = 50.0
 rounded = true
 show_percentage = false
 script = ExtResource("11_vpfa4")
@@ -459,7 +460,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/bold_italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
-text = "[wave amp=40.0 freq=2.0 connected=1][fade start=25 length=6]You're up for a new world . . .[/fade][/wave]"
+text = "[wave amp=40.0 freq=2.0 connected=1][fade start=25 length=6]You're up for a new world . . . [/fade][/wave]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -471,6 +472,9 @@ color = Color(1, 1, 1, 0)
 libraries = {
 "": SubResource("AnimationLibrary_6y52f")
 }
+
+[node name="Camera2D" type="Camera2D" parent="WinScene"]
+position_smoothing_enabled = true
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*res://actors/global.gd"
 
+[display]
+
+window/size/initial_position_type=2
+window/stretch/mode="canvas_items"
+
 [gui]
 
 theme/custom_font="res://assets/fonts/glacial_indifference/GlacialIndifference-Bold.otf"

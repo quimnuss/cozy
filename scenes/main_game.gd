@@ -6,6 +6,7 @@ extends Node2D
 @onready var trail_man = $TrailMan
 @onready var win_scene = $WinScene
 @onready var ui = $UI
+@onready var camera_2d = $WinScene/Camera2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,7 +52,8 @@ func _on_player_death():
 
 func win():
     win_scene.play_win()
-    var spore = load("res://actors/spore.tscn").instantiate()
+    var spore : Spore = load("res://actors/spore.tscn").instantiate()
+    spore.animation_finished.connect(play_outro)
     spore.global_position = player.global_position
     ui.visible = false
     player.can_move = false
@@ -59,6 +61,12 @@ func win():
     player.set_process(false)
     add_child(spore)
 
+func play_outro():
+    #camera_2d.global_position = get_viewport().get_camera_2d().global_position
+    camera_2d.make_current()
+    camera_2d.position_smoothing_speed = 1.0
+    await get_tree().create_timer(1).timeout
+    camera_2d.global_position = start_position.global_position
 
 func _on_goal_3_goal_reached(goal_num):
     win()
