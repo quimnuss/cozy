@@ -28,7 +28,7 @@ signal light_changed(level_percent : float)
 
 signal death
 
-@export var can_die : bool = false
+@export var can_die : bool = true
 
 func _ready():
     Global.player = self

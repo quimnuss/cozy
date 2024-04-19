@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=29 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -11,9 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="7_n56n6"]
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="10_jc0w2"]
 [ext_resource type="Script" path="res://actors/goal_label.gd" id="11_e8lhl"]
+[ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="11_rlwqj"]
 [ext_resource type="Script" path="res://scripts/status_bar.gd" id="11_vpfa4"]
 [ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="11_yq3c3"]
 [ext_resource type="Curve" uid="uid://qdoxje4xv8l3" path="res://resources/sine_curve.tres" id="12_gvsh5"]
+[ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="14_7028b"]
 [ext_resource type="Script" path="res://scenes/win_scene.gd" id="15_n7mu1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
@@ -26,16 +28,19 @@ polygon = PackedVector2Array(2493, 1576, 2536, 1681, 2543, 1724, 2653, 1676, 256
 polygon = PackedVector2Array(2451, 1580, 2355, 1659, 2520, 1708, 2652, 1647, 2562, 1571)
 
 [sub_resource type="Gradient" id="Gradient_el8ii"]
+offsets = PackedFloat32Array(0, 0.160494)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vg3c2"]
 gradient = SubResource("Gradient_el8ii")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jiywe"]
-size = Vector2(64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_27s2j"]
+atlas = ExtResource("11_rlwqj")
+region = Rect2(0, 0, 62, 62)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6ujsm"]
-size = Vector2(64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k82k"]
+atlas = ExtResource("14_7028b")
+region = Rect2(0, 0, 62, 62)
 
 [sub_resource type="Environment" id="Environment_mtgnt"]
 glow_enabled = true
@@ -100,7 +105,7 @@ occluder = SubResource("OccluderPolygon2D_s636m")
 
 [node name="PointLight2D" type="PointLight2D" parent="MainLights"]
 position = Vector2(3551, 1571)
-rotation = 2.45718
+rotation = 5.59902
 scale = Vector2(46.3312, 32.2186)
 color = Color(0.94902, 0.886275, 0.0196078, 1)
 energy = 0.55
@@ -294,20 +299,22 @@ alignment = 1
 [node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
+theme_override_constants/v_separation = 2
 columns = 2
 
 [node name="WaterIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_jiywe")
+texture = SubResource("AtlasTexture_27s2j")
 expand_mode = 2
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="WaterProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
 unique_name_in_owner = true
 modulate = Color(0, 0.517647, 0.517647, 1)
 custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 value = 100.0
@@ -317,8 +324,9 @@ script = ExtResource("11_vpfa4")
 blink_curve = ExtResource("12_gvsh5")
 
 [node name="LightIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_6ujsm")
+texture = SubResource("AtlasTexture_7k82k")
 expand_mode = 2
 stretch_mode = 4
 
@@ -327,6 +335,7 @@ unique_name_in_owner = true
 modulate = Color(1, 0.905882, 0, 1)
 custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 value = 100.0
