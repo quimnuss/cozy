@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=10 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="2_obrol"]
-[ext_resource type="Texture2D" uid="uid://0uf1ngxe638c" path="res://assets/vegetation-natural-plants-park.jpg" id="3_hep7m"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="3_jslog"]
+[ext_resource type="Texture2D" uid="uid://cshvm7wpsx54k" path="res://assets/background_simple.png" id="4_8ud6e"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="4_s7rqi"]
 [ext_resource type="Script" path="res://scripts/Trail.gd" id="6_d2lhm"]
+[ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="6_m1yvx"]
 [ext_resource type="PackedScene" uid="uid://o8nvplux6anp" path="res://actors/Pickup.tscn" id="7_n56n6"]
 
 [node name="MainGame" type="Node2D"]
@@ -30,10 +31,10 @@ player = NodePath("..")
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = -10
 motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(5502, 3138)
+motion_mirroring = Vector2(5994, 3179)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
-texture = ExtResource("3_hep7m")
+texture = ExtResource("4_8ud6e")
 centered = false
 
 [node name="DustBack" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -42,14 +43,16 @@ motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(4096, 4096)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DustBack"]
+texture_repeat = 3
 texture = ExtResource("4_s7rqi")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.615686)
 z_index = -5
-texture = ExtResource("3_hep7m")
+texture = ExtResource("6_m1yvx")
 centered = false
 
 [node name="DustFront" type="ParallaxLayer" parent="ParallaxBackground"]

@@ -28,6 +28,8 @@ signal light_changed(level_percent : float)
 
 signal death
 
+var can_die : bool = false
+
 func water():
     water_level = clamp(water_level+water_delta,0,max_water_level)
     is_watered.emit()
@@ -51,7 +53,7 @@ func _process(delta):
     water_changed.emit(water_level/max_water_level)
     light_changed.emit(light_level/max_light_level)
 
-    if water_level == 0 or light_level == 0:
+    if can_die and (water_level == 0 or light_level == 0):
         death.emit()
 
 func _physics_process(delta):
