@@ -28,7 +28,7 @@ signal light_changed(level_percent : float)
 
 signal death
 
-var can_die : bool = false
+@export var can_die : bool = true
 
 func water():
     water_level = clamp(water_level+water_delta,0,max_water_level)

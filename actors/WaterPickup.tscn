@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://o8nvplux6anp"]
 
-[ext_resource type="Script" path="res://actors/pickup.gd" id="1_47xoe"]
+[ext_resource type="Script" path="res://actors/water_pickup.gd" id="1_47xoe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eip28"]
 radius = 32.0156
 
-[node name="Pickup" type="Node2D"]
+[node name="WaterPickup" type="Node2D"]
 script = ExtResource("1_47xoe")
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5cav80i76s8l"]
+
+[ext_resource type="Script" path="res://actors/light_pickup.gd" id="1_fiwrm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5brva"]
+radius = 36.0
+height = 128.0
+
+[sub_resource type="Gradient" id="Gradient_kevmr"]
+offsets = PackedFloat32Array(0, 0.798701)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7tkf1"]
+gradient = SubResource("Gradient_kevmr")
+fill = 1
+fill_from = Vector2(0.527523, 0.477064)
+
+[node name="LightPickup" type="Node2D"]
+script = ExtResource("1_fiwrm")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-4.24, 2.38419e-07)
+scale = Vector2(10.08, 11.2966)
+color = Color(0.560784, 0.556863, 0, 1)
+polygon = PackedVector2Array(0, -3, -2, -1, 1, 1, -2, 5, 3, 2, 1, -1, 2, -5)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_5brva")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.71875, 2.3125)
+color = Color(0.772549, 0.768627, 0, 1)
+texture = SubResource("GradientTexture2D_7tkf1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

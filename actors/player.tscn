@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmov2xrv47nx4"]
+[gd_scene load_steps=5 format=3 uid="uid://dmov2xrv47nx4"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_23gd1"]
 [ext_resource type="SpriteFrames" uid="uid://b017ye0m620hc" path="res://actors/player_spriteframes.tres" id="2_xixfa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjf"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4aly8"]
+polygon = PackedVector2Array(-1, -37, -16, -15, 0, 3, 22, -16)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -21,3 +24,7 @@ shape = SubResource("CapsuleShape2D_knhjf")
 visible = false
 color = Color(0.188235, 1, 0.337255, 1)
 polygon = PackedVector2Array(0, -16, -8, 8, 8, 8)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_4aly8")
