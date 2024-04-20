@@ -32,7 +32,7 @@ background photos: [tirarchard](https://www.freepik.com/author/tirachard), [free
 [watersplash](waterstick 7.wav by larapoe -- https://freesound.org/s/544725/ -- License: Creative Commons 0)
 [goalsound](RPG SFX #1 - Item Jingle by Sirkoto51 -- https://freesound.org/s/346265/ -- License: Attribution 4.0)
 [music before game](Luminis by Vrymaa -- https://freesound.org/s/722399/ -- License: Creative Commons 0)
-[background music game](Romantic Background (loop ver.2) by AudioCoffee -- https://freesound.org/s/731660/ -- License: Attribution NonCommercial 4.0)
+[background music game](Happy Background Music Orchestra Loop by Migfus20 -- https://freesound.org/s/561383/ -- License: Attribution 4.0)
 
 ## fonts
 
