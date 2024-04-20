@@ -4,6 +4,7 @@ class_name Goal
 
 @export var goal_num : int
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var effects = $Effects
 
 signal distance_changed(distance : float)
 
@@ -14,8 +15,10 @@ func ready():
     var animation : String = 'goal_' + str(goal_num)
     if animation in animated_sprite_2d.animations:
         animated_sprite_2d.play(animation)
+        effects.play('default')
     else:
         animated_sprite_2d.play('default')
+        effects.play('default')
 
 
 func pick_up():
