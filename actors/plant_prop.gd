@@ -4,7 +4,7 @@ class_name PlantProp
 
 @onready var sprite_2d : Sprite2D = $Sprite2D
 
-@export var PROP_VARIATIONS : int = 8
+@export var PROP_VARIATIONS : int = 7
 
 func _ready():
     randomize()
