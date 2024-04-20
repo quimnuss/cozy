@@ -108,3 +108,7 @@ func _on_generic_goal_reached(goal_num):
 
 func _on_quit_button_pressed():
     get_tree().quit()
+
+
+func _on_restart_button_pressed():
+    get_tree().reload_current_scene()

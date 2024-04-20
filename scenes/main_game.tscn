@@ -173,6 +173,7 @@ can_die = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(-1, -1)
+offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("1_wwqgf")
@@ -373,8 +374,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.94902, 0.752941, 0.580392, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 50
-text = "Point of Interest"
+theme_override_font_sizes/font_size = 40
+text = "Points of Interest"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -422,13 +423,28 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("11_e8lhl")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
+[node name="Settings" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="QuitButton" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="QuitButton" type="Button" parent="UI/MarginContainer/HBoxContainer/Settings"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
 text = "X"
+flat = true
+
+[node name="Button" type="Button" parent="UI/MarginContainer/HBoxContainer/Settings"]
+visible = false
+layout_mode = 2
+text = "♫"
+flat = true
+
+[node name="RestartButton" type="Button" parent="UI/MarginContainer/HBoxContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "⟳"
+flat = true
 
 [node name="Goal0" parent="." instance=ExtResource("11_yq3c3")]
 position = Vector2(2142, 1312)
@@ -517,7 +533,8 @@ stream = ExtResource("19_pv63y")
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]
-[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Settings/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Settings/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="distance_changed" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
 [connection signal="goal_reached" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_reached"]
