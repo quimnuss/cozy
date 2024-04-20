@@ -42,7 +42,7 @@ var current_water_delta : float
 
 func _ready():
     Global.player = self
-    animated_sprite_2d.play('default')
+
 
 func water():
     current_water_delta = water_delta
