@@ -388,7 +388,7 @@ theme_override_constants/margin_bottom = 50
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 40
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="GridContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]

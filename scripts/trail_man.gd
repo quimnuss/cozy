@@ -8,11 +8,13 @@ extends Node2D
 var previous_point : Vector2
 
 const THRESHOLD = 10
+const PROP_THRESHOLD = 70
 
 
 
 @export var HEALTHY_COLOR : Color = Color('#95D904')
 @export var DEATH_COLOR : Color = Color('#8C3211')
+
 
 func to_freezer():
     var new_trail : Line2D = trail.duplicate()
@@ -27,6 +29,9 @@ func _process(_delta):
     var new_point : Vector2 = target.global_position
     if previous_point.distance_to(new_point) > THRESHOLD:
         trail.add_point(new_point)
+
+    if previous_point.distance_to(new_point) > PROP_THRESHOLD:
+        pass
 
     var ratio : float = 1
 

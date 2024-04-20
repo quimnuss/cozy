@@ -66,8 +66,8 @@ func water():
     water_level = clamp(water_level+water_delta,0,max_water_level)
     is_watered.emit()
     water_changed.emit(water_level/max_water_level)
-    if not water_audio.playing:
-        water_audio.play()
+    #if not water_audio.playing:
+    water_audio.play()
 
 func light(ratio = 1):
     lit = light_delta*ratio
