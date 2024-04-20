@@ -9,6 +9,7 @@ extends Node2D
 @onready var camera_2d = $WinScene/Camera2D
 
 @onready var sprout_label = $Info/SproutLabel
+@onready var goal_reached_audio = $GoalReachedAudio
 
 var is_welcome : bool = true
 
@@ -95,3 +96,7 @@ func play_outro():
 
 func _on_goal_3_goal_reached(_goal_num):
     win()
+
+
+func _on_generic_goal_reached(goal_num):
+    goal_reached_audio.play()
