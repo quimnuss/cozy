@@ -28,7 +28,7 @@ dust specks: [dinvstudio](https://dinvstudio.itch.io/dynamic-space-background-li
 
 background photos: [tirarchard](https://www.freepik.com/author/tirachard), [freepik](https://www.freepik.com/author/freepik)
 
-Sound and music: [Fire Sound Effect by Mikhail from Pixabay](https://pixabay.com/sound-effects/campfire-crackling-fireplace-sound-119594/)
+Sound and music: [Fire Sound Effect](petit feu - little fire (3).wav by Glaneur de sons -- https://freesound.org/s/104956/ -- License: Attribution 4.0)
 [charging light sound](MUSICSynth_Gronky Bells Synth Melody_Dmaj 136 bpm by Riley_Garinger -- https://freesound.org/s/731870/ -- License: Attribution 4.0)
 [watersplash](waterstick 7.wav by larapoe -- https://freesound.org/s/544725/ -- License: Creative Commons 0)
 [goalsound](Harp Melody 1.wav by luckylittleraven -- https://freesound.org/s/415389/ -- License: Creative Commons 0)
