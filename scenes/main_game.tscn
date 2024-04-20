@@ -643,6 +643,7 @@ stream = ExtResource("22_nl4aj")
 volume_db = -10.0
 
 [node name="Credits" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -808,3 +809,4 @@ flat = true
 [connection signal="distance_changed" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_distance_changed"]
 [connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]
 [connection signal="goal_reached" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_reached"]
+[connection signal="pressed" from="Credits/Button" to="." method="_on_quit_button_pressed"]
