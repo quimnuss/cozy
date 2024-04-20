@@ -233,7 +233,8 @@ HEALTHY_COLOR = Color(0, 0.572549, 0, 1)
 DEATH_COLOR = Color(0.294118, 0.14902, 0, 1)
 
 [node name="Trail" type="Line2D" parent="TrailMan"]
-width = 5.0
+z_index = -1
+width = 8.0
 default_color = Color(0.117647, 0.568627, 0.266667, 1)
 joint_mode = 2
 begin_cap_mode = 2
@@ -241,7 +242,7 @@ end_cap_mode = 2
 antialiased = true
 
 [node name="TrailFridge" type="Node2D" parent="TrailMan"]
-z_index = -1
+z_index = -2
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -479,7 +480,11 @@ position_smoothing_enabled = true
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]
 [connection signal="distance_changed" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_distance_changed"]
+[connection signal="goal_reached" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_reached"]
 [connection signal="distance_changed" from="Goal1" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal1" method="_on_goal_distance_changed"]
+[connection signal="goal_reached" from="Goal1" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal1" method="_on_goal_reached"]
 [connection signal="distance_changed" from="Goal2" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal2" method="_on_goal_distance_changed"]
+[connection signal="goal_reached" from="Goal2" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal2" method="_on_goal_reached"]
 [connection signal="distance_changed" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_distance_changed"]
 [connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]
+[connection signal="goal_reached" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_reached"]

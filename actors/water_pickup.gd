@@ -17,5 +17,10 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_animated_sprite_2d_animation_finished():
-    if animated_sprite_2d.animation == 'dissolve':
-        queue_free()
+    if animated_sprite_2d.animation == 'undissolve':
+        animated_sprite_2d.play('default')
+
+
+func _on_area_2d_body_exited(body):
+    animated_sprite_2d.play('undissolve')
+    is_pickable = true

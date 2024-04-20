@@ -9,6 +9,7 @@ var invader : Player
 @onready var light_collision_shape_2d : CollisionShape2D = $LightArea2D/CollisionShape2D
 @onready var burn_collision_shape_2d = $BurnArea2D/CollisionShape2D
 
+
 var light_range_max : float
 var light_range_min : float
 
@@ -25,16 +26,15 @@ func picked_up(player : Player):
 func _physics_process(delta):
     if invader:
         var invader_distance : float = self.global_position.distance_to(invader.global_position)
+        # TODO use curve maybe its easier and we can make exp
         var ratio = clamp((invader_distance - light_range_min)/(light_range_max - light_range_min),0,1)
         invader.light(ratio)
-
-
 
 
 func _on_light_area_2d_body_entered(body):
     if body is Player:
         animated_sprite_2d.play('light')
-        point_light_2d.energy = 0.8
+        point_light_2d.energy = 0.7
         invader = body as Player
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dy21sqe4fqm1v"]
+[gd_scene load_steps=21 format=3 uid="uid://dy21sqe4fqm1v"]
 
 [ext_resource type="Script" path="res://actors/water_pickup.gd" id="1_47xoe"]
 [ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="2_ogpej"]
@@ -50,6 +50,26 @@ region = Rect2(434, 62, 62, 62)
 atlas = ExtResource("2_ogpej")
 region = Rect2(496, 62, 62, 62)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g38ao"]
+atlas = ExtResource("2_ogpej")
+region = Rect2(248, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jurv5"]
+atlas = ExtResource("2_ogpej")
+region = Rect2(186, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdqjl"]
+atlas = ExtResource("2_ogpej")
+region = Rect2(124, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxi5a"]
+atlas = ExtResource("2_ogpej")
+region = Rect2(62, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogra8"]
+atlas = ExtResource("2_ogpej")
+region = Rect2(0, 62, 62, 62)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_konie"]
 animations = [{
 "frames": [{
@@ -94,6 +114,26 @@ animations = [{
 "loop": false,
 "name": &"dissolve",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g38ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jurv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdqjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxi5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogra8")
+}],
+"loop": false,
+"name": &"undissolve",
+"speed": 5.0
 }]
 
 [node name="WaterPickup" type="Node2D"]
@@ -116,7 +156,8 @@ polygon = PackedVector2Array(-1, -8, -2, -4, -4, -1, -5, 4, -2, 5, 4, 5, 5, 2, 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_konie")
-frame_progress = 0.0133484
+animation = &"undissolve"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

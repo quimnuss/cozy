@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_23gd1"]
 [ext_resource type="SpriteFrames" uid="uid://b017ye0m620hc" path="res://actors/player_spriteframes.tres" id="2_xixfa"]
-[ext_resource type="Texture2D" uid="uid://hc2f2piv8h0u" path="res://assets/fire_propietary.png" id="3_px10d"]
+[ext_resource type="Texture2D" uid="uid://cfovqjrp4784b" path="res://assets/fire.png" id="3_yjdad"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjf"]
+height = 34.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4aly8"]
 polygon = PackedVector2Array(6, -2, 7, -7, 18, -13, 15, -19, 6, -15, -1, -36, -4, -21, -15, -16, -12, -9, -4, -8, -4, -2)
@@ -32,20 +33,21 @@ initial_velocity_max = 10.0
 radial_velocity_min = -10.0
 radial_velocity_max = 10.0
 gravity = Vector3(0, -10, 0)
-scale_min = 0.5
+scale_min = 0.3
+scale_max = 0.8
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_23gd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(-1, -30)
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_xixfa")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -17)
 shape = SubResource("CapsuleShape2D_knhjf")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -67,6 +69,6 @@ material = SubResource("CanvasItemMaterial_tlc30")
 position = Vector2(1, -10)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_gjvae")
-texture = ExtResource("3_px10d")
+texture = ExtResource("3_yjdad")
 lifetime = 2.0
 explosiveness = 0.8

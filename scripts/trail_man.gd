@@ -20,6 +20,7 @@ var elapsed_death = 5
 func to_freezer():
     var new_trail : Line2D = trail.duplicate()
     trail.reparent(trail_fridge)
+    trail.modulate.a = 0.5
     trail = new_trail
     trail.clear_points()
     elapsed = 0
