@@ -8,10 +8,11 @@ const SPEED = 200.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var fire_particles = $FireParticles
 @onready var sparkles = $Sparkles
-@onready var lit_audio = $LitAudio
-@onready var burn_audio = $BurnAudio
-@onready var background_music = $BackgroundMusic
-@onready var water_audio = $WaterAudio
+@onready var lit_audio = $AudioSfx/LitAudio
+@onready var burn_audio = $AudioSfx/BurnAudio
+@onready var background_music = $AudioSfx/BackgroundMusic
+@onready var water_audio = $AudioSfx/WaterAudio
+@onready var audio_sfx = $AudioSfx
 
 var water_level : float = 100
 var max_water_level : float = 100
@@ -79,7 +80,8 @@ func light(ratio = 1):
     else:
         sparkles.visible = false
         if lit_audio.playing:
-            lit_audio.stop()
+            audio_sfx.fade_out(lit_audio)
+
     #light_level = clamp(current_light_delta,0,max_light_level)
     #is_lit.emit()
     #light_changed.emit(light_level/max_light_level)
@@ -94,7 +96,7 @@ func set_burn(new_is_burning : bool):
     else:
         fire_particles.emitting = false
         if burn_audio.playing:
-            burn_audio.stop()
+            audio_sfx.fade_out(burn_audio)
 
 func respawn():
     light_level = max_light_level

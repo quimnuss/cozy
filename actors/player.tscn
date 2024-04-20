@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmov2xrv47nx4"]
+[gd_scene load_steps=20 format=3 uid="uid://dmov2xrv47nx4"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_23gd1"]
 [ext_resource type="SpriteFrames" uid="uid://b017ye0m620hc" path="res://actors/player_spriteframes.tres" id="2_xixfa"]
 [ext_resource type="Texture2D" uid="uid://cfovqjrp4784b" path="res://assets/fire.png" id="3_yjdad"]
 [ext_resource type="Texture2D" uid="uid://bg8fu6g7gl1bt" path="res://assets/sparkle.png" id="4_n1n7s"]
 [ext_resource type="AudioStream" uid="uid://drjpcekgy5pb1" path="res://assets/audio/burningfire.wav" id="5_5xf75"]
+[ext_resource type="Script" path="res://actors/audiosfx.gd" id="5_ongow"]
 [ext_resource type="AudioStream" uid="uid://3tgufmmfgytc" path="res://assets/audio/lightchargingsound.wav" id="5_rlxog"]
 [ext_resource type="AudioStream" uid="uid://ddoge2ps3wjj4" path="res://assets/audio/watersoundsplash.wav" id="7_4tje1"]
 
@@ -85,8 +86,6 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_23gd1")
-min_direction = null
-can_die = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
@@ -128,17 +127,20 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_hu7k5")
 autoplay = "default"
 
-[node name="LitAudio" type="AudioStreamPlayer" parent="."]
+[node name="AudioSfx" type="Node" parent="."]
+script = ExtResource("5_ongow")
+
+[node name="LitAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("5_rlxog")
 volume_db = -10.0
 
-[node name="BurnAudio" type="AudioStreamPlayer" parent="."]
+[node name="BurnAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("5_5xf75")
 volume_db = 24.0
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("5_rlxog")
 
-[node name="WaterAudio" type="AudioStreamPlayer" parent="."]
+[node name="WaterAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("7_4tje1")
 volume_db = 20.0
