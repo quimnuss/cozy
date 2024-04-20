@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=28 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -41,10 +41,6 @@ region = Rect2(0, 0, 62, 62)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7k82k"]
 atlas = ExtResource("14_7028b")
 region = Rect2(0, 0, 62, 62)
-
-[sub_resource type="Environment" id="Environment_mtgnt"]
-glow_enabled = true
-fog_enabled = true
 
 [sub_resource type="Animation" id="Animation_41nk5"]
 tracks/0/type = "value"
@@ -396,24 +392,6 @@ text = "30 cm"
 horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("11_e8lhl")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
-rotation = -1.0472
-color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.12
-shadow_enabled = true
-
-[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="."]
-visible = false
-position = Vector2(5992, -4.00024)
-rotation = 0.785397
-color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.12
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_mtgnt")
 
 [node name="Goal0" parent="." instance=ExtResource("11_yq3c3")]
 position = Vector2(1779, 994)

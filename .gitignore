@@ -2,3 +2,7 @@
 .godot/
 
 .vscode/
+
+build/
+!build/.gitkeep
+!build/.gdignore
