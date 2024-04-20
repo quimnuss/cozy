@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=31 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="14_7028b"]
 [ext_resource type="Script" path="res://scenes/win_scene.gd" id="15_n7mu1"]
 [ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="19_pv63y"]
+[ext_resource type="AudioStream" uid="uid://cf4mawq2uo75f" path="res://assets/audio/endmelody.wav" id="20_04oqs"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -169,7 +170,6 @@ position = Vector2(2432, 1773)
 
 [node name="Player" parent="." instance=ExtResource("2_obrol")]
 position = Vector2(2432, 1773)
-can_die = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(-1, -1)
@@ -529,6 +529,10 @@ fit_content = true
 
 [node name="GoalReachedAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_pv63y")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_04oqs")
+autoplay = true
 
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
