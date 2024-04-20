@@ -138,9 +138,6 @@ volume_db = -10.0
 stream = ExtResource("5_5xf75")
 volume_db = 24.0
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("5_rlxog")
-
 [node name="WaterAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("7_4tje1")
 volume_db = 20.0

@@ -10,7 +10,6 @@ const SPEED = 200.0
 @onready var sparkles = $Sparkles
 @onready var lit_audio = $AudioSfx/LitAudio
 @onready var burn_audio = $AudioSfx/BurnAudio
-@onready var background_music = $AudioSfx/BackgroundMusic
 @onready var water_audio = $AudioSfx/WaterAudio
 @onready var audio_sfx = $AudioSfx
 

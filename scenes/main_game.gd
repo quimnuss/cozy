@@ -9,7 +9,10 @@ extends Node2D
 @onready var camera_2d = $WinScene/Camera2D
 
 @onready var sprout_label = $Info/SproutLabel
-@onready var goal_reached_audio = $GoalReachedAudio
+@onready var goal_reached_audio = $AudioSfx/GoalReachedAudio
+@onready var welcome_background_music = $AudioSfx/WelcomeBackgroundMusic
+@onready var game_background_music = $AudioSfx/GameBackgroundMusic
+@onready var audio_sfx = $AudioSfx
 
 var is_welcome : bool = true
 
@@ -45,7 +48,8 @@ func start_game():
     player.set_process(true)
     trail_man.set_process(true)
     player.can_move = true
-
+    audio_sfx.fade_out(welcome_background_music)
+    game_background_music.play()
 
 func _input(event):
     if is_welcome and (event.is_action_pressed("move_left") \
