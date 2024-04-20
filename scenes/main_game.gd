@@ -7,6 +7,7 @@ extends Node2D
 @onready var win_scene = $WinScene
 @onready var ui = $UI
 @onready var camera_2d = $WinScene/Camera2D
+@onready var outro_animation_player = $WinScene/SceneModulate/AnimationPlayer
 
 @onready var sprout_label = $Info/SproutLabel
 @onready var goal_reached_audio = $AudioSfx/GoalReachedAudio
@@ -102,8 +103,9 @@ func play_outro():
 
     camera_2d.make_current()
     camera_2d.position_smoothing_speed = 1.0
-    await get_tree().create_timer(1).timeout
     camera_2d.global_position = start_position.global_position
+    await get_tree().create_timer(1).timeout
+    outro_animation_player.play('credits')
 
 func _on_goal_3_goal_reached(_goal_num):
     win()
