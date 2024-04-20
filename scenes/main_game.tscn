@@ -171,6 +171,8 @@ position = Vector2(2432, 1773)
 
 [node name="Player" parent="." instance=ExtResource("2_obrol")]
 position = Vector2(2432, 1773)
+min_direction = null
+can_die = null
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(-1, -1)

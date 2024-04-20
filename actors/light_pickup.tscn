@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://excc8c2neq53"]
+[gd_scene load_steps=24 format=3 uid="uid://excc8c2neq53"]
 
 [ext_resource type="Script" path="res://actors/light_pickup.gd" id="1_fiwrm"]
 [ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="2_d7h6w"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5brva"]
-radius = 19.0
-height = 40.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ouom"]
+radius = 35.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqwbp"]
+radius = 154.029
 
 [sub_resource type="Gradient" id="Gradient_kevmr"]
 offsets = PackedFloat32Array(0, 0.798701)
@@ -68,6 +70,18 @@ region = Rect2(310, 62, 62, 62)
 atlas = ExtResource("2_d7h6w")
 region = Rect2(372, 62, 62, 62)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfwrg"]
+atlas = ExtResource("2_d7h6w")
+region = Rect2(62, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcxdp"]
+atlas = ExtResource("2_d7h6w")
+region = Rect2(124, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k61r2"]
+atlas = ExtResource("2_d7h6w")
+region = Rect2(186, 62, 62, 62)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_y3ysy"]
 animations = [{
 "frames": [{
@@ -115,9 +129,29 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ocgvj")
 }],
-"loop": false,
+"loop": true,
 "name": &"dissolve",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfwrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcxdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k61r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcxdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfwrg")
+}],
+"loop": true,
+"name": &"light",
+"speed": 4.0
 }]
 
 [node name="LightPickup" type="Node2D"]
@@ -131,20 +165,33 @@ scale = Vector2(10.08, 11.2966)
 color = Color(0.560784, 0.556863, 0, 1)
 polygon = PackedVector2Array(0, -3, -2, -1, 1, 1, -2, 5, 3, 2, 1, -1, 2, -5)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="BurnArea2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_5brva")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BurnArea2D"]
+shape = SubResource("CircleShape2D_2ouom")
+
+[node name="LightArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea2D"]
+shape = SubResource("CircleShape2D_cqwbp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(4.21875, 4.28125)
+position = Vector2(0, 1.74046e-05)
+scale = Vector2(4.84375, 4.75)
 color = Color(0.772549, 0.768627, 0, 1)
 texture = SubResource("GradientTexture2D_7tkf1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y3ysy")
+animation = &"light"
+autoplay = "default"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="BurnArea2D" to="." method="_on_burn_area_2d_body_entered"]
+[connection signal="body_exited" from="BurnArea2D" to="." method="_on_burn_area_2d_body_exited"]
+[connection signal="body_entered" from="LightArea2D" to="." method="_on_light_area_2d_body_entered"]
+[connection signal="body_exited" from="LightArea2D" to="." method="_on_light_area_2d_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
