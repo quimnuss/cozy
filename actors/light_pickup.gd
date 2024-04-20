@@ -34,13 +34,13 @@ func _physics_process(delta):
 func _on_light_area_2d_body_entered(body):
     if body is Player:
         animated_sprite_2d.play('light')
-        point_light_2d.modulate.a = 0.6
+        point_light_2d.energy = 0.8
         invader = body as Player
 
 
 func _on_light_area_2d_body_exited(body):
     animated_sprite_2d.play('default')
-    point_light_2d.modulate.a = 1
+    point_light_2d.energy = 1
     invader.light(0)
     invader = null
 

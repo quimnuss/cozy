@@ -70,10 +70,6 @@ region = Rect2(310, 62, 62, 62)
 atlas = ExtResource("2_d7h6w")
 region = Rect2(372, 62, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dfwrg"]
-atlas = ExtResource("2_d7h6w")
-region = Rect2(62, 62, 62, 62)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcxdp"]
 atlas = ExtResource("2_d7h6w")
 region = Rect2(124, 62, 62, 62)
@@ -81,6 +77,10 @@ region = Rect2(124, 62, 62, 62)
 [sub_resource type="AtlasTexture" id="AtlasTexture_k61r2"]
 atlas = ExtResource("2_d7h6w")
 region = Rect2(186, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysw0a"]
+atlas = ExtResource("2_d7h6w")
+region = Rect2(248, 62, 62, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y3ysy"]
 animations = [{
@@ -135,19 +135,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dfwrg")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_qcxdp")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k61r2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qcxdp")
+"texture": SubResource("AtlasTexture_ysw0a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dfwrg")
+"texture": SubResource("AtlasTexture_k61r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcxdp")
 }],
 "loop": true,
 "name": &"light",
@@ -182,7 +182,7 @@ shape = SubResource("CircleShape2D_cqwbp")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, 1.74046e-05)
 scale = Vector2(4.84375, 4.75)
-color = Color(0.772549, 0.768627, 0, 1)
+color = Color(0.772549, 0.768627, 0, 0.882353)
 texture = SubResource("GradientTexture2D_7tkf1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

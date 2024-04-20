@@ -15,7 +15,7 @@ var max_light_level : float = 100
 
 var water_delta : float = 25
 var light_delta : float = 50
-const BURN_DELTA : float = 60
+const BURN_DELTA : float = 30
 
 var water_degrowth_rate : float = 3
 var base_light_degrowth_rate : float = 10
@@ -32,7 +32,7 @@ signal light_changed(level_percent : float)
 
 signal death
 
-@export var can_die : bool = false
+@export var can_die : bool = true
 
 var can_move : bool = true
 
