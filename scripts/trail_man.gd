@@ -7,11 +7,8 @@ extends Node2D
 
 var previous_point : Vector2
 
-const THRESHOLD = 5
+const THRESHOLD = 10
 
-var elapsed = 0
-
-var elapsed_death = 5
 
 
 @export var HEALTHY_COLOR : Color = Color('#95D904')
@@ -23,20 +20,23 @@ func to_freezer():
     trail.modulate.a = 0.5
     trail = new_trail
     trail.clear_points()
-    elapsed = 0
     self.add_child(trail)
 
 
 func _process(delta):
-    elapsed += delta
     var new_point : Vector2 = target.global_position
     if previous_point.distance_to(new_point) > THRESHOLD:
         trail.add_point(new_point)
 
-    var ratio = min(elapsed/elapsed_death,1)
+    var ratio : float = 1
 
-    trail.default_color = ratio*DEATH_COLOR + (1 - ratio)*HEALTHY_COLOR
+    var worse_stat = min(Global.player.water_level, Global.player.light_level)
+    if worse_stat < Global.player.STAT_DANGER:
+        if Global.player.water_level < Global.player.light_level:
+            ratio = clamp(Global.player.water_level/Global.player.STAT_DANGER,0,1)
+        else:
+            ratio = clamp(Global.player.light_level/Global.player.STAT_DANGER,0,1)
+
+    trail.default_color = ratio*HEALTHY_COLOR + (1 - ratio)*DEATH_COLOR
 
 
-func _on_player_is_watered():
-    elapsed = 0

@@ -13,6 +13,8 @@ var max_water_level : float = 100
 var light_level : float = 100
 var max_light_level : float = 100
 
+const STAT_DANGER : float = 40
+
 var water_delta : float = 25
 var light_delta : float = 50
 const BURN_DELTA : float = 30
@@ -37,6 +39,7 @@ signal death
 var can_move : bool = true
 
 var is_burning : bool = false
+var is_danger : bool = false
 
 var current_water_delta : float
 
@@ -88,6 +91,22 @@ func _process(delta):
 
     water_level = clamp(water_level - velocity_water_degrowth_rate*delta, 0, max_water_level)
     light_level = clamp(light_level + current_light_growth_rate*delta, 0, max_light_level)
+
+    var worse_stat = min(water_level, light_level)
+    var danger_color = Color(1,1,1)
+    var ratio = 1
+    if worse_stat < STAT_DANGER:
+        is_danger = true
+        ratio = clamp(water_level/STAT_DANGER,0,1)
+        if water_level < light_level:
+            danger_color = Color(0.5,0,0)
+        else:
+            danger_color = Color(1,0,1)
+    elif is_danger:
+        is_danger = false
+        animated_sprite_2d.modulate = Color(1,1,1,1)
+
+    animated_sprite_2d.modulate = Color(1,1,1)*ratio + (1-ratio)*danger_color
 
     #water_changed.emit(water_level/max_water_level)
     #light_changed.emit(light_level/max_light_level)
