@@ -1,25 +1,20 @@
 extends Node
 
-@export var transition_duration = 1.00
-@export var transition_type = 1 # TRANS_SINE
 
-
-
-func fade_out(stream_player : AudioStreamPlayer):
+func fade_out(stream_player : AudioStreamPlayer, transition_duration = 1):
     var tween : Tween = get_tree().create_tween()
-    # tween music volume down to 0
     var old_volume = stream_player.volume_db
     tween.tween_property(stream_player, "volume_db", -80, transition_duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
     tween.play()
-    # when the tween ends, the music will be stopped
     tween.finished.connect(self.stop.bind(stream_player, old_volume))
 
-func fade_in(stream_player : AudioStreamPlayer):
+func fade_in(stream_player_in : AudioStreamPlayer, transition_duration = 1):
     var tween : Tween = get_tree().create_tween()
     # tween music volume down to 0
-    var final_volume = stream_player.volume_db
-    stream_player.volume_db = -80
-    tween.tween_property(stream_player, "volume_db", final_volume, transition_duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
+    var final_volume = stream_player_in.volume_db
+    stream_player_in.volume_db = -80
+    stream_player_in.play()
+    tween.tween_property(stream_player_in, "volume_db", 0, transition_duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
     tween.play()
 
 

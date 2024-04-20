@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=34 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -20,7 +20,8 @@
 [ext_resource type="Script" path="res://scenes/win_scene.gd" id="15_n7mu1"]
 [ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="19_pv63y"]
 [ext_resource type="Script" path="res://actors/audiosfx.gd" id="19_uapuf"]
-[ext_resource type="AudioStream" uid="uid://cf4mawq2uo75f" path="res://assets/audio/endmelody.wav" id="20_04oqs"]
+[ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="21_fhrjl"]
+[ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="22_nl4aj"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -571,6 +572,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="GameTitle" type="RichTextLabel" parent="Info"]
+layout_mode = 0
 offset_left = 1688.0
 offset_top = 1296.0
 offset_right = 3136.0
@@ -609,12 +611,11 @@ script = ExtResource("19_uapuf")
 stream = ExtResource("19_pv63y")
 
 [node name="WelcomeBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("20_04oqs")
+stream = ExtResource("21_fhrjl")
 autoplay = true
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("20_04oqs")
-autoplay = true
+stream = ExtResource("22_nl4aj")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -624,6 +625,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="GameTitle" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
 offset_left = 1528.0
 offset_top = 664.0
 offset_right = 2976.0
@@ -641,6 +643,7 @@ scroll_active = false
 selection_enabled = true
 
 [node name="GameTitle2" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
 offset_left = 2240.0
 offset_top = -1472.0
 offset_right = 3688.0
@@ -657,6 +660,7 @@ Cozy Grow
 selection_enabled = true
 
 [node name="RichTextLabel1" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
 offset_left = 1704.0
 offset_top = 288.0
 offset_right = 3152.0
@@ -674,6 +678,7 @@ scroll_active = false
 selection_enabled = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
 offset_left = 2024.0
 offset_top = -552.0
 offset_right = 3472.0
@@ -702,6 +707,7 @@ scroll_active = false
 selection_enabled = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
 offset_left = 2240.0
 offset_top = -1328.0
 offset_right = 3688.0

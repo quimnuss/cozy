@@ -58,8 +58,8 @@ func start_game():
     player.set_process(true)
     trail_man.set_process(true)
     player.can_move = true
-    audio_sfx.fade_out(welcome_background_music)
-    audio_sfx.fade_in(game_background_music)
+    audio_sfx.fade_out(welcome_background_music, 5)
+    audio_sfx.fade_in(game_background_music, 5)
 
 func _input(event):
     if is_welcome and (event.is_action_pressed("move_left") \
