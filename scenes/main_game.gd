@@ -8,6 +8,9 @@ extends Node2D
 @onready var ui = $UI
 @onready var camera_2d = $WinScene/Camera2D
 @onready var outro_animation_player = $WinScene/SceneModulate/AnimationPlayer
+@onready var final_phrase_label = $WinScene/CenterContainer/FinalPhraseLabel
+@onready var credits = $Credits
+@onready var info = $Info
 
 @onready var sprout_label = $Info/SproutLabel
 @onready var goal_reached_audio = $AudioSfx/GoalReachedAudio
@@ -44,8 +47,14 @@ func _on_goal_reached(goal_num : int):
         3:
             player.goal3()
 
+func fade_out(node : Node):
+    var tween : Tween = get_tree().create_tween()
+    tween.tween_property(node, "modulate:a", 0, 1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+    tween.play()
+    tween.finished.connect(node.queue_free)
+
 func start_game():
-    sprout_label.visible = false
+    fade_out(info)
     player.set_process(true)
     trail_man.set_process(true)
     player.can_move = true
@@ -67,7 +76,9 @@ func _process(_delta):
         respawn()
 
     if Input.is_action_just_pressed("cheat"):
+        #player.can_die = false
         win()
+        #play_outro()
 
     if Input.is_action_just_pressed("quit"):
         _on_quit_button_pressed()
@@ -105,6 +116,8 @@ func play_outro():
     camera_2d.position_smoothing_speed = 1.0
     camera_2d.global_position = start_position.global_position
     await get_tree().create_timer(1).timeout
+    credits.visible = true
+    final_phrase_label.reparent(credits)
     outro_animation_player.play('credits')
 
 func _on_goal_3_goal_reached(_goal_num):

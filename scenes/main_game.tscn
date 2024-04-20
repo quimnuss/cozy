@@ -84,24 +84,9 @@ tracks/2/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_p5ojj"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_swu43"]
 resource_name = "credits"
-length = 10.0
+length = 20.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,7 +94,7 @@ tracks/0/path = NodePath("../Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
+"times": PackedFloat32Array(0, 20),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(2432, 1773), Vector2(3000, -1000)]
@@ -125,6 +110,21 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_p5ojj"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6y52f"]
@@ -271,7 +271,7 @@ occluder = SubResource("OccluderPolygon2D_5qvnr")
 occluder = SubResource("OccluderPolygon2D_1wmrw")
 
 [node name="DustFront" type="ParallaxLayer" parent="ParallaxBackground"]
-z_index = -3
+z_index = 1
 motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(4096, 4096)
 
@@ -295,9 +295,10 @@ end_cap_mode = 2
 antialiased = true
 
 [node name="TrailFridge" type="Node2D" parent="TrailMan"]
-z_index = -2
+z_index = -3
 
 [node name="WaterPickups" type="Node2D" parent="."]
+z_index = -2
 
 [node name="Pickup" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2177, 978)
@@ -330,6 +331,7 @@ position = Vector2(2936, 854)
 position = Vector2(2497, 472)
 
 [node name="LightPickups" type="Node2D" parent="."]
+z_index = -2
 
 [node name="LightPickup" parent="LightPickups" instance=ExtResource("10_jc0w2")]
 position = Vector2(3395, 649)
@@ -428,7 +430,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.94902, 0.752941, 0.580392, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 20
 text = "Points of Interest"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -533,7 +535,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="WinScene/CenterContainer"]
+[node name="FinalPhraseLabel" type="RichTextLabel" parent="WinScene/CenterContainer"]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.282353, 0.54902, 0.0117647, 1)
@@ -568,6 +570,23 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="GameTitle" type="RichTextLabel" parent="Info"]
+offset_left = 1688.0
+offset_top = 1296.0
+offset_right = 3136.0
+offset_bottom = 1600.0
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 90
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
+Cozy Grow
+[/color][/center][/wave]"
+scroll_active = false
+selection_enabled = true
+
 [node name="SproutLabel" type="RichTextLabel" parent="Info"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 0
@@ -575,6 +594,8 @@ offset_left = 2282.0
 offset_top = 1598.0
 offset_right = 2582.0
 offset_bottom = 1694.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]Press ASDW to
@@ -594,6 +615,118 @@ autoplay = true
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("20_04oqs")
 autoplay = true
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameTitle" type="RichTextLabel" parent="Credits"]
+offset_left = 1528.0
+offset_top = 664.0
+offset_right = 2976.0
+offset_bottom = 968.0
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 90
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
+Cozy Grow
+[/color][/center][/wave]"
+scroll_active = false
+selection_enabled = true
+
+[node name="GameTitle2" type="RichTextLabel" parent="Credits"]
+offset_left = 2240.0
+offset_top = -1472.0
+offset_right = 3688.0
+offset_bottom = -1168.0
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 90
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
+Cozy Grow
+[/color][/center][/wave]"
+selection_enabled = true
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="Credits"]
+offset_left = 1704.0
+offset_top = 288.0
+offset_right = 3152.0
+offset_bottom = 592.0
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "[center]
+A game by [color=#488C03]Clicli[/color] and [color=#F2E205]Starlight Killjoy[/color]
+[/center]"
+scroll_active = false
+selection_enabled = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Credits"]
+offset_left = 2024.0
+offset_top = -552.0
+offset_right = 3472.0
+offset_bottom = 180.0
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "[center]
+
+
+[i]Spring: New Beginnings[/i]
+
+
+
+Created in 3 days
+for the [color=darkgreen]Cozy Games[/color] game jam 2024
+
+
+
+[/center]"
+fit_content = true
+scroll_active = false
+selection_enabled = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Credits"]
+offset_left = 2240.0
+offset_top = -1328.0
+offset_right = 3688.0
+offset_bottom = -592.0
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "[center]
+
+
+Thank [rainbow]you[/rainbow] for playing
+
+
+
+You might find more in the future at 
+[color=lightblue][url]clicligames.itch.io[/url][/color]
+
+
+
+[/center]"
+scroll_active = false
+selection_enabled = true
 
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
