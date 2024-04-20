@@ -1,18 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv76m0v6d8lpg"]
+[gd_scene load_steps=7 format=3 uid="uid://dv76m0v6d8lpg"]
 
 [ext_resource type="Script" path="res://actors/goal.gd" id="1_1ir0j"]
+[ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="2_2ml4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1gc4"]
+atlas = ExtResource("2_2ml4i")
+region = Rect2(0, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktvpb"]
+atlas = ExtResource("2_2ml4i")
+region = Rect2(62, 0, 62, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_as6fc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1gc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktvpb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1gc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktvpb")
+}],
+"loop": true,
+"name": &"goal_0",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7q28"]
-radius = 8.0
+radius = 21.2132
 
 [node name="Goal" type="Node2D"]
-scale = Vector2(5, 5)
+scale = Vector2(2, 2)
 script = ExtResource("1_1ir0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 modulate = Color(0.984314, 1, 1, 1)
 color = Color(0.694118, 0.470588, 0.886275, 1)
 polygon = PackedVector2Array(-1, -4, -2, -2, -6, -2, -3, 0, -3, 4, 0, 1, 4, 4, 2, -1, 6, -2, 0, -2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_as6fc")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

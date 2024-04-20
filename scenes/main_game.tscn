@@ -243,36 +243,36 @@ z_index = -2
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="Pickup" parent="Pickups" instance=ExtResource("7_n56n6")]
-position = Vector2(2426, 1413)
+position = Vector2(2177, 978)
 
 [node name="Pickup2" parent="Pickups" instance=ExtResource("7_n56n6")]
-position = Vector2(2339, 1324)
+position = Vector2(3437, 958)
 
 [node name="Pickup3" parent="Pickups" instance=ExtResource("7_n56n6")]
-position = Vector2(2557, 1246)
+position = Vector2(1936, 769)
 
 [node name="Pickup4" parent="Pickups" instance=ExtResource("7_n56n6")]
-position = Vector2(2418, 1227)
+position = Vector2(2280, 744)
 
 [node name="Pickup5" parent="Pickups" instance=ExtResource("7_n56n6")]
-position = Vector2(2729, 1226)
+position = Vector2(2936, 854)
 
 [node name="Pickup6" parent="Pickups" instance=ExtResource("7_n56n6")]
-position = Vector2(2674, 1309)
+position = Vector2(2497, 472)
 
 [node name="LightPickups" type="Node2D" parent="."]
 
 [node name="LightPickup" parent="LightPickups" instance=ExtResource("10_jc0w2")]
-position = Vector2(2890, 1034)
+position = Vector2(3395, 649)
 
 [node name="LightPickup2" parent="LightPickups" instance=ExtResource("10_jc0w2")]
-position = Vector2(2527, 928)
+position = Vector2(2026, 439)
 
 [node name="LightPickup3" parent="LightPickups" instance=ExtResource("10_jc0w2")]
-position = Vector2(2570, 1370)
+position = Vector2(2588, 830)
 
 [node name="LightPickup4" parent="LightPickups" instance=ExtResource("10_jc0w2")]
-position = Vector2(2871, 1326)
+position = Vector2(2895, 363)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -394,7 +394,7 @@ vertical_alignment = 1
 script = ExtResource("11_e8lhl")
 
 [node name="Goal0" parent="." instance=ExtResource("11_yq3c3")]
-position = Vector2(1779, 994)
+position = Vector2(2142, 1312)
 
 [node name="Goal1" parent="." instance=ExtResource("11_yq3c3")]
 position = Vector2(3577, 157)
