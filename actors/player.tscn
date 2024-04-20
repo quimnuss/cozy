@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmov2xrv47nx4"]
+[gd_scene load_steps=16 format=3 uid="uid://dmov2xrv47nx4"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_23gd1"]
 [ext_resource type="SpriteFrames" uid="uid://b017ye0m620hc" path="res://actors/player_spriteframes.tres" id="2_xixfa"]
 [ext_resource type="Texture2D" uid="uid://cfovqjrp4784b" path="res://assets/fire.png" id="3_yjdad"]
+[ext_resource type="Texture2D" uid="uid://bg8fu6g7gl1bt" path="res://assets/sparkle.png" id="4_n1n7s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjf"]
 height = 34.0
@@ -35,6 +36,48 @@ radial_velocity_max = 10.0
 gravity = Vector3(0, -10, 0)
 scale_min = 0.3
 scale_max = 0.8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ebua"]
+atlas = ExtResource("4_n1n7s")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js13r"]
+atlas = ExtResource("4_n1n7s")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rgku"]
+atlas = ExtResource("4_n1n7s")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esodb"]
+atlas = ExtResource("4_n1n7s")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hu7k5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ebua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js13r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rgku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esodb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rgku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js13r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -72,3 +115,8 @@ process_material = SubResource("ParticleProcessMaterial_gjvae")
 texture = ExtResource("3_yjdad")
 lifetime = 2.0
 explosiveness = 0.8
+
+[node name="Sparkles" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_hu7k5")
+autoplay = "default"

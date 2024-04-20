@@ -27,7 +27,7 @@ func _physics_process(delta):
     if invader:
         var invader_distance : float = self.global_position.distance_to(invader.global_position)
         # TODO use curve maybe its easier and we can make exp
-        var ratio = clamp((invader_distance - light_range_min)/(light_range_max - light_range_min),0,1)
+        var ratio = 1 - clamp((invader_distance - light_range_min)/(light_range_max - light_range_min),0,1)
         invader.light(ratio)
 
 

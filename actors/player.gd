@@ -7,6 +7,7 @@ const SPEED = 200.0
 @export var min_direction : Vector2 = Vector2(1, -0.1)
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var fire_particles = $FireParticles
+@onready var sparkles = $Sparkles
 
 var water_level : float = 100
 var max_water_level : float = 100
@@ -64,6 +65,11 @@ func water():
 
 func light(ratio = 1):
     lit = light_delta*ratio
+    if ratio > 0:
+        sparkles.visible = true
+        sparkles.modulate.a = ratio
+    else:
+        sparkles.visible = false
     #light_level = clamp(current_light_delta,0,max_light_level)
     #is_lit.emit()
     #light_changed.emit(light_level/max_light_level)
