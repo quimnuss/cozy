@@ -4,7 +4,6 @@ class_name Goal
 
 @export var goal_num : int
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var audio_stream_player = $AudioStreamPlayer
 
 signal distance_changed(distance : float)
 

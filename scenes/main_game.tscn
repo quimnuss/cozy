@@ -306,7 +306,7 @@ theme_override_constants/margin_bottom = 50
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="GridContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
@@ -422,6 +422,14 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("11_e8lhl")
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "X"
+
 [node name="Goal0" parent="." instance=ExtResource("11_yq3c3")]
 position = Vector2(2142, 1312)
 
@@ -509,6 +517,7 @@ stream = ExtResource("19_pv63y")
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="distance_changed" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
 [connection signal="goal_reached" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_reached"]

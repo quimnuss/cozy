@@ -64,6 +64,10 @@ func _process(_delta):
     if Input.is_action_just_pressed("cheat"):
         win()
 
+    if Input.is_action_just_pressed("quit"):
+        _on_quit_button_pressed()
+
+
     water_level.set_value_no_signal(player.water_level*100/player.max_water_level)
     light_level.set_value_no_signal(player.light_level*100/player.max_light_level)
 
@@ -100,3 +104,7 @@ func _on_goal_3_goal_reached(_goal_num):
 
 func _on_generic_goal_reached(goal_num):
     goal_reached_audio.play()
+
+
+func _on_quit_button_pressed():
+    get_tree().quit()
