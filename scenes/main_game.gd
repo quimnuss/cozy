@@ -96,7 +96,10 @@ func win():
     add_child(spore)
 
 func play_outro():
-    camera_2d.global_position = get_viewport().get_camera_2d().global_position
+    var previous_camera : Camera2D = get_viewport().get_camera_2d()
+    camera_2d.global_position = previous_camera.global_position
+    camera_2d.offset = previous_camera.offset
+
     camera_2d.make_current()
     camera_2d.position_smoothing_speed = 1.0
     await get_tree().create_timer(1).timeout
