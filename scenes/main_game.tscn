@@ -84,10 +84,22 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Credits/Button:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_swu43"]
 resource_name = "credits"
-length = 20.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -95,10 +107,10 @@ tracks/0/path = NodePath("../Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 20),
+"times": PackedFloat32Array(0, 27.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2432, 1773), Vector2(3000, -1000)]
+"values": [Vector2(2432, 1773), Vector2(3300, -1300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -111,6 +123,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Credits/Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_p5ojj"]
@@ -616,9 +640,9 @@ autoplay = true
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("22_nl4aj")
+volume_db = -10.0
 
 [node name="Credits" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -626,10 +650,10 @@ offset_bottom = 40.0
 
 [node name="GameTitle" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 1528.0
-offset_top = 664.0
-offset_right = 2976.0
-offset_bottom = 968.0
+offset_left = 1632.0
+offset_top = 688.0
+offset_right = 3080.0
+offset_bottom = 992.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
@@ -644,10 +668,10 @@ selection_enabled = true
 
 [node name="GameTitle2" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 2240.0
-offset_top = -1472.0
-offset_right = 3688.0
-offset_bottom = -1168.0
+offset_left = 2608.0
+offset_top = -1800.0
+offset_right = 4056.0
+offset_bottom = -1496.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
@@ -661,10 +685,10 @@ selection_enabled = true
 
 [node name="RichTextLabel1" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 1704.0
-offset_top = 288.0
-offset_right = 3152.0
-offset_bottom = 592.0
+offset_left = 1856.0
+offset_top = 272.0
+offset_right = 3304.0
+offset_bottom = 576.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -679,10 +703,29 @@ selection_enabled = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 2024.0
-offset_top = -552.0
-offset_right = 3472.0
-offset_bottom = 180.0
+offset_left = 2296.0
+offset_top = -792.0
+offset_right = 3744.0
+offset_bottom = -488.0
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "[center]
+[color=#488C03]Clicli[/color]  concept and coding
+ [color=#F2E205]Starlight Killjoy[/color] concept and art
+[/center]"
+scroll_active = false
+selection_enabled = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Credits"]
+layout_mode = 0
+offset_left = 2040.0
+offset_top = -512.0
+offset_right = 3488.0
+offset_bottom = 220.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -708,10 +751,10 @@ selection_enabled = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 2240.0
-offset_top = -1328.0
-offset_right = 3688.0
-offset_bottom = -592.0
+offset_left = 2600.0
+offset_top = -1600.0
+offset_right = 4048.0
+offset_bottom = -864.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -733,6 +776,20 @@ You might find more in the future at
 [/center]"
 scroll_active = false
 selection_enabled = true
+
+[node name="Button" type="Button" parent="Credits"]
+visible = false
+layout_mode = 0
+offset_left = 3904.0
+offset_top = -1800.0
+offset_right = 4215.0
+offset_bottom = -1720.0
+theme_override_colors/font_color = Color(0.368627, 0.807843, 0.972549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 60
+text = "Go outside →"
+flat = true
 
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]

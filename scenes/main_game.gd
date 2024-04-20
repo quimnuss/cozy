@@ -77,8 +77,8 @@ func _process(_delta):
 
     if Input.is_action_just_pressed("cheat"):
         #player.can_die = false
-        win()
-        #play_outro()
+        #win()
+        play_outro()
 
     if Input.is_action_just_pressed("quit"):
         _on_quit_button_pressed()
