@@ -90,7 +90,7 @@ func respawn():
 
 func _process(delta):
 
-    var actual_burn_impact = BURN_DELTA if is_burning else 0
+    var actual_burn_impact = BURN_DELTA if is_burning else 0.0
     var velocity_water_degrowth_rate : float = water_degrowth_rate + (velocity.length()/SPEED)*velocity_degrowth_impact + actual_burn_impact
 
     current_light_growth_rate = -base_light_degrowth_rate + lit
@@ -103,7 +103,7 @@ func _process(delta):
     var ratio = 1
     if worse_stat < STAT_DANGER:
         is_danger = true
-        ratio = clamp(water_level/STAT_DANGER,0,1)
+        ratio = clamp(worse_stat/STAT_DANGER,0,1)
         if water_level < light_level:
             danger_color = Color(0.5,0,0)
         else:

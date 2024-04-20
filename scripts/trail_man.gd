@@ -23,7 +23,7 @@ func to_freezer():
     self.add_child(trail)
 
 
-func _process(delta):
+func _process(_delta):
     var new_point : Vector2 = target.global_position
     if previous_point.distance_to(new_point) > THRESHOLD:
         trail.add_point(new_point)

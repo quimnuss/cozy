@@ -17,7 +17,7 @@ func _ready():
 func _process(delta):
     elapsed += delta
     if ratio < BLINK_THRESHOLD:
-        var blink_rate = max(ratio/BLINK_THRESHOLD,0.2)
+        blink_rate = max(ratio/BLINK_THRESHOLD,0.2)
         elapsed = fmod(elapsed,blink_rate)
         var white_ratio : float = blink_curve.sample(elapsed/blink_rate)
         self.modulate = HIGH_COLOR*white_ratio + (1-white_ratio)*self.base_color

@@ -84,10 +84,12 @@ collision_layer = 2
 script = ExtResource("1_23gd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -30)
+position = Vector2(0, -30)
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_xixfa")
 autoplay = "default"
+frame = 3
+frame_progress = 0.311667
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)

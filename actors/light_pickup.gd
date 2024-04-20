@@ -23,7 +23,7 @@ func picked_up(player : Player):
     point_light_2d.visible = false
     is_pickable = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
     if invader:
         var invader_distance : float = self.global_position.distance_to(invader.global_position)
         # TODO use curve maybe its easier and we can make exp
@@ -39,10 +39,11 @@ func _on_light_area_2d_body_entered(body):
 
 
 func _on_light_area_2d_body_exited(body):
-    animated_sprite_2d.play('default')
-    point_light_2d.energy = 1
-    invader.light(0)
-    invader = null
+    if body is Player:
+        animated_sprite_2d.play('default')
+        point_light_2d.energy = 1
+        invader.light(0)
+        invader = null
 
 
 func _on_burn_area_2d_body_entered(body):

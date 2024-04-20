@@ -22,7 +22,7 @@ func pick_up():
     goal_reached.emit(goal_num)
     queue_free()
 
-func _process(delta):
+func _process(_delta):
     var distance : float = self.global_position.distance_to(Global.player.global_position)
     distance_changed.emit(distance)
 

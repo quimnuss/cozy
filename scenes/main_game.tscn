@@ -226,8 +226,7 @@ centered = false
 position = Vector2(0, -4)
 script = ExtResource("6_d2lhm")
 target = NodePath("../Player")
-HEALTHY_COLOR = Color(0, 0.572549, 0, 1)
-DEATH_COLOR = Color(0.294118, 0.14902, 0, 1)
+HEALTHY_COLOR = Color(0.243137, 0.462745, 0.0117647, 1)
 
 [node name="Trail" type="Line2D" parent="TrailMan"]
 z_index = -1
@@ -241,33 +240,36 @@ antialiased = true
 [node name="TrailFridge" type="Node2D" parent="TrailMan"]
 z_index = -2
 
-[node name="Pickups" type="Node2D" parent="."]
+[node name="WaterPickups" type="Node2D" parent="."]
 
-[node name="Pickup" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2177, 978)
 
-[node name="Pickup7" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup7" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2172, 1218)
 
-[node name="Pickup9" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup9" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2104, 1153)
 
-[node name="Pickup8" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup8" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2048, 1236)
 
-[node name="Pickup2" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup10" parent="WaterPickups" instance=ExtResource("7_n56n6")]
+position = Vector2(3349, -256)
+
+[node name="Pickup2" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(3437, 958)
 
-[node name="Pickup3" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup3" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(1936, 769)
 
-[node name="Pickup4" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup4" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2280, 744)
 
-[node name="Pickup5" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup5" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2936, 854)
 
-[node name="Pickup6" parent="Pickups" instance=ExtResource("7_n56n6")]
+[node name="Pickup6" parent="WaterPickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2497, 472)
 
 [node name="LightPickups" type="Node2D" parent="."]
@@ -410,6 +412,7 @@ script = ExtResource("11_e8lhl")
 
 [node name="Goal0" parent="." instance=ExtResource("11_yq3c3")]
 position = Vector2(2142, 1312)
+goal_num = 0
 
 [node name="Goal1" parent="." instance=ExtResource("11_yq3c3")]
 position = Vector2(3577, 157)

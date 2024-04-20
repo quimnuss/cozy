@@ -22,5 +22,7 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _on_area_2d_body_exited(body):
-    animated_sprite_2d.play('undissolve')
-    is_pickable = true
+    if body is Player:
+        await get_tree().create_timer(3).timeout
+        animated_sprite_2d.play('undissolve')
+        is_pickable = true

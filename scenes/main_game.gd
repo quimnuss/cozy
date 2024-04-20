@@ -56,7 +56,7 @@ func _input(event):
 
 
 
-func _process(delta):
+func _process(_delta):
     if Input.is_action_just_pressed("respawn"):
         respawn()
 
@@ -83,14 +83,15 @@ func win():
     player.can_move = false
     player.velocity = Vector2(0,0)
     player.set_process(false)
+    player.visible = false
     add_child(spore)
 
 func play_outro():
-    #camera_2d.global_position = get_viewport().get_camera_2d().global_position
+    camera_2d.global_position = get_viewport().get_camera_2d().global_position
     camera_2d.make_current()
     camera_2d.position_smoothing_speed = 1.0
     await get_tree().create_timer(1).timeout
     camera_2d.global_position = start_position.global_position
 
-func _on_goal_3_goal_reached(goal_num):
+func _on_goal_3_goal_reached(_goal_num):
     win()
