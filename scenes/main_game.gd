@@ -8,7 +8,7 @@ extends Node2D
 @onready var ui = $UI
 @onready var camera_2d = $WinScene/Camera2D
 
-@onready var sprout_label = $SproutLabel
+@onready var sprout_label = $Info/SproutLabel
 
 var is_welcome : bool = true
 

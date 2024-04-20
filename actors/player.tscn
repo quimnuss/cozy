@@ -130,9 +130,11 @@ autoplay = "default"
 
 [node name="LitAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rlxog")
+volume_db = -10.0
 
 [node name="BurnAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5xf75")
+volume_db = 24.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rlxog")

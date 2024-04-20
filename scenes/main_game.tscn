@@ -168,7 +168,6 @@ position = Vector2(2432, 1773)
 
 [node name="Player" parent="." instance=ExtResource("2_obrol")]
 position = Vector2(2432, 1773)
-min_direction = null
 can_die = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
@@ -484,8 +483,15 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="WinScene"]
 position_smoothing_enabled = true
 
-[node name="SproutLabel" type="RichTextLabel" parent="."]
+[node name="Info" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SproutLabel" type="RichTextLabel" parent="Info"]
 custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
 offset_left = 2282.0
 offset_top = 1598.0
 offset_right = 2582.0
