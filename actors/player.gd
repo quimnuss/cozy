@@ -40,9 +40,18 @@ var is_burning : bool = false
 
 var current_water_delta : float
 
+signal build_changed
+
 func _ready():
     Global.player = self
 
+func upgrade(goal_num : int):
+    match goal_num:
+        0:
+            max_water_level = 200
+            #water_level = max_water_level
+
+    build_changed.emit()
 
 func water():
     current_water_delta = water_delta
@@ -80,8 +89,8 @@ func _process(delta):
     water_level = clamp(water_level - velocity_water_degrowth_rate*delta, 0, max_water_level)
     light_level = clamp(light_level + current_light_growth_rate*delta, 0, max_light_level)
 
-    water_changed.emit(water_level/max_water_level)
-    light_changed.emit(light_level/max_light_level)
+    #water_changed.emit(water_level/max_water_level)
+    #light_changed.emit(light_level/max_light_level)
 
     if can_die and (water_level == 0 or light_level == 0):
         death.emit()

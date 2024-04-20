@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=29 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="7_n56n6"]
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="10_jc0w2"]
 [ext_resource type="Script" path="res://actors/goal_label.gd" id="11_e8lhl"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="11_oo86u"]
 [ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="11_rlwqj"]
 [ext_resource type="Script" path="res://scripts/status_bar.gd" id="11_vpfa4"]
 [ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="11_yq3c3"]
@@ -167,6 +168,7 @@ position = Vector2(2432, 1773)
 
 [node name="Player" parent="." instance=ExtResource("2_obrol")]
 position = Vector2(2432, 1773)
+can_die = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
 position = Vector2(-1, -1)
@@ -245,6 +247,15 @@ z_index = -2
 [node name="Pickup" parent="Pickups" instance=ExtResource("7_n56n6")]
 position = Vector2(2177, 978)
 
+[node name="Pickup7" parent="Pickups" instance=ExtResource("7_n56n6")]
+position = Vector2(2172, 1218)
+
+[node name="Pickup9" parent="Pickups" instance=ExtResource("7_n56n6")]
+position = Vector2(2104, 1153)
+
+[node name="Pickup8" parent="Pickups" instance=ExtResource("7_n56n6")]
+position = Vector2(2048, 1236)
+
 [node name="Pickup2" parent="Pickups" instance=ExtResource("7_n56n6")]
 position = Vector2(3437, 958)
 
@@ -275,6 +286,7 @@ position = Vector2(2588, 830)
 position = Vector2(2895, 363)
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("11_oo86u")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 100)
@@ -294,20 +306,21 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/HBoxContainer"]
+[node name="GridContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 2
-columns = 2
+theme_override_constants/separation = -15
 
-[node name="WaterIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="WaterIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_27s2j")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="WaterProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+[node name="WaterProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(0, 0.517647, 0.517647, 1)
 custom_minimum_size = Vector2(200, 25)
@@ -321,14 +334,17 @@ show_percentage = false
 script = ExtResource("11_vpfa4")
 blink_curve = ExtResource("12_gvsh5")
 
-[node name="LightIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="LightIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = SubResource("AtlasTexture_7k82k")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="LightProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+[node name="LightProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer2"]
 unique_name_in_owner = true
 modulate = Color(1, 0.905882, 0, 1)
 custom_minimum_size = Vector2(200, 25)
@@ -336,7 +352,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-value = 50.0
+value = 100.0
 rounded = true
 show_percentage = false
 script = ExtResource("11_vpfa4")
@@ -455,6 +471,7 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="WinScene"]
 position_smoothing_enabled = true
 
+[connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]
 [connection signal="distance_changed" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_distance_changed"]

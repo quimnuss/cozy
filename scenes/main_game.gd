@@ -39,8 +39,9 @@ func _process(delta):
     if Input.is_action_just_pressed("cheat"):
         win()
 
-    water_level.set_value_no_signal(player.water_level)
-    light_level.set_value_no_signal(player.light_level)
+
+    water_level.set_value_no_signal(player.water_level*100/player.max_water_level)
+    light_level.set_value_no_signal(player.light_level*100/player.max_light_level)
 
 func respawn():
     trail_man.to_freezer()
