@@ -75,9 +75,10 @@ func _process(_delta):
     if Input.is_action_just_pressed("respawn"):
         respawn()
 
-    if Input.is_action_just_pressed("cheat"):
-        #player.can_die = false
-        win()
+    if OS.is_debug_build() and Input.is_action_just_pressed("cheat"):
+        if not player.can_die:
+            win()
+        player.can_die = false
         #play_outro()
 
     if Input.is_action_just_pressed("quit"):

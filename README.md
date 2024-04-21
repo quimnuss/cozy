@@ -1,5 +1,7 @@
 # cozy
 
+Discover the world as a new plant sprout.
+
 A game about growing as a plant in a new environment while balancing light and humidity.
 Can you continue the cycle of life?
 
