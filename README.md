@@ -32,7 +32,7 @@ background photos: [tirarchard](https://www.freepik.com/author/tirachard), [free
 [Fire Sound Effect](petit feu - little fire (3).wav by Glaneur de sons -- https://freesound.org/s/104956/ -- License: Attribution 4.0)
 [charging light sound](pixies&fairies.wav by deprogram -- https://freesound.org/s/38138/ -- License: Attribution NonCommercial 4.0)
 [watersplash](waterstick 7.wav by larapoe -- https://freesound.org/s/544725/ -- License: Creative Commons 0)
-[goalsound](RPG SFX #1 - Item Jingle by Sirkoto51 -- https://freesound.org/s/346265/ -- License: Attribution 4.0)
+[goalsound](Success 04 by rhodesmas -- https://freesound.org/s/322929/ -- License: Attribution 3.0)
 [music before game](Luminis by Vrymaa -- https://freesound.org/s/722399/ -- License: Creative Commons 0)
 [background music game](Happy Background Music Orchestra Loop by Migfus20 -- https://freesound.org/s/561383/ -- License: Attribution 4.0)
 
