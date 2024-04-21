@@ -19,7 +19,7 @@ func _ready():
     #camera_2d = main_camera # loses animation track
 
     # call deferred
-    var foo = await get_tree().create_timer(0.3).timeout
+    var _foo = await get_tree().create_timer(0.3).timeout
     camera_2d.make_current() # bumps
     animation_player.play('fly_away', -1, 0.5)
     animated_sprite_2d.play('default')

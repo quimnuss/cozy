@@ -14,7 +14,7 @@ func fade_in(stream_player_in : AudioStreamPlayer, transition_duration = 1):
     var final_volume = stream_player_in.volume_db
     stream_player_in.volume_db = -80
     stream_player_in.play()
-    tween.tween_property(stream_player_in, "volume_db", 0, transition_duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+    tween.tween_property(stream_player_in, "volume_db", final_volume, transition_duration).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
     tween.play()
 
 

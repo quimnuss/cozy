@@ -18,6 +18,7 @@ extends Node2D
 @onready var game_background_music = $AudioSfx/GameBackgroundMusic
 @onready var audio_sfx = $AudioSfx
 @onready var game_won_audio = $AudioSfx/GameWonAudio
+@onready var credits_music = $AudioSfx/CreditsMusic
 
 var is_welcome : bool = true
 
@@ -103,6 +104,8 @@ func _on_player_death():
 
 func win():
     game_won_audio.play()
+    audio_sfx.fade_out(game_background_music, 5)
+    audio_sfx.fade_in(credits_music, 5)
     win_scene.play_win()
     var spore : Spore = load("res://actors/spore.tscn").instantiate()
     spore.animation_finished.connect(play_outro)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=43 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="22_nl4aj"]
 [ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="23_1262i"]
 [ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="23_ogi7g"]
+[ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="24_i2vxf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -486,7 +487,7 @@ script = ExtResource("11_e8lhl")
 
 [node name="Goal2" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.94902, 0.752941, 0.580392, 1)
+theme_override_colors/font_color = Color(0.0823529, 0.615686, 0.811765, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 40
@@ -599,10 +600,10 @@ offset_bottom = 40.0
 
 [node name="GameTitle" type="RichTextLabel" parent="Info"]
 layout_mode = 0
-offset_left = 1688.0
-offset_top = 1296.0
-offset_right = 3136.0
-offset_bottom = 1600.0
+offset_left = 1712.0
+offset_top = 1294.0
+offset_right = 3160.0
+offset_bottom = 1598.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
@@ -610,7 +611,7 @@ theme_override_font_sizes/normal_font_size = 90
 theme_override_font_sizes/italics_font_size = 50
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
-Cozy Grow
+Cozy Growth
 [/color][/center][/wave]"
 scroll_active = false
 selection_enabled = true
@@ -646,6 +647,9 @@ autoplay = true
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("22_nl4aj")
 volume_db = -10.0
+
+[node name="CreditsMusic" type="AudioStreamPlayer" parent="AudioSfx"]
+stream = ExtResource("24_i2vxf")
 
 [node name="Credits" type="Control" parent="."]
 visible = false

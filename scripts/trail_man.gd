@@ -14,7 +14,7 @@ const PROP_THRESHOLD = 200
 @export var HEALTHY_COLOR : Color = Color('#95D904')
 @export var DEATH_COLOR : Color = Color('#8C3211')
 
-var prop : PackedScene = preload('res://actors/plant_prop.tscn')
+var prop_scene : PackedScene = preload('res://actors/plant_prop.tscn')
 
 func _ready():
     randomize()
@@ -40,7 +40,7 @@ func _process(_delta):
 
 
     if previous_prop_point.distance_to(new_point) > rhythm_variation*PROP_THRESHOLD:
-        var prop : PlantProp = prop.instantiate()
+        var prop : PlantProp = prop_scene.instantiate()
         prop.global_position = new_point
         prop.rotation = target.rotation
         trail.add_child(prop)
@@ -61,8 +61,8 @@ func _process(_delta):
 
 
 
-func _on_goal_3_goal_reached(goal_num):
-    var prop : PlantProp = prop.instantiate()
+func _on_goal_3_goal_reached(_goal_num):
+    var prop : PlantProp = prop_scene.instantiate()
     prop.global_position = target.global_position
     prop.rotation = target.rotation
     trail.add_child(prop)

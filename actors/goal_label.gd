@@ -8,17 +8,17 @@ func _on_goal_distance_changed(distance : float):
     self.text = str(display_distance) + ' cm'
 
 func _on_goal_reached(goal_num : int):
-    var text : String = ''
+    var extra_text : String = ''
     match goal_num:
         0:
-            text = '+H20'
+            extra_text = '+H20'
         2:
-            text = '+H20'
+            extra_text = '+H20'
         1:
-            text = '+Light'
+            extra_text = '+Light'
         3:
-            text = 'Bloom'
+            extra_text = 'Bloom'
 
-    self.text = text + ' Visited!'
+    self.text = extra_text + ' Visited!'
     self.add_theme_font_size_override("font_size", 18)
     #queue_free()
