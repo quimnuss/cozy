@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=48 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -215,6 +215,27 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Environment" id="Environment_wue6f"]
+background_mode = 3
+tonemap_mode = 3
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_intensity = 1.5
+glow_strength = 1.2
+glow_blend_mode = 0
+glow_hdr_threshold = 1.5
+glow_hdr_luminance_cap = 2.0
+fog_enabled = true
+volumetric_fog_enabled = true
+adjustment_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_r6xnt"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_q85br")
@@ -844,6 +865,14 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 text = "Go outside >"
 flat = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wue6f")
+camera_attributes = SubResource("CameraAttributesPractical_r6xnt")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(1, 1, 0.607843, 1)
 
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
