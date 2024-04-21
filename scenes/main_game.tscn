@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=45 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="21_fhrjl"]
 [ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="22_nl4aj"]
 [ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="23_1262i"]
+[ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="23_ogi7g"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -51,6 +52,15 @@ region = Rect2(0, 0, 62, 62)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7k82k"]
 atlas = ExtResource("14_7028b")
 region = Rect2(0, 0, 62, 62)
+
+[sub_resource type="Gradient" id="Gradient_21bxe"]
+offsets = PackedFloat32Array(0, 0.790123)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gwiwj"]
+gradient = SubResource("Gradient_21bxe")
+fill = 1
+fill_from = Vector2(0.525641, 0.495726)
 
 [sub_resource type="Animation" id="Animation_41nk5"]
 tracks/0/type = "value"
@@ -591,6 +601,10 @@ modulate = Color(0.94902, 0.886275, 0.0196078, 1)
 position = Vector2(3706, -1446)
 goal_num = 3
 
+[node name="PointLight2D" type="PointLight2D" parent="Goal3"]
+scale = Vector2(5.26562, 5.26562)
+texture = SubResource("GradientTexture2D_gwiwj")
+
 [node name="WinScene" type="CanvasLayer" parent="."]
 script = ExtResource("15_n7mu1")
 
@@ -680,6 +694,9 @@ script = ExtResource("19_uapuf")
 
 [node name="GoalReachedAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("19_pv63y")
+
+[node name="GameWonAudio" type="AudioStreamPlayer" parent="AudioSfx"]
+stream = ExtResource("23_ogi7g")
 
 [node name="WelcomeBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("21_fhrjl")
