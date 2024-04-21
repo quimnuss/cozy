@@ -680,6 +680,7 @@ stream = ExtResource("22_nl4aj")
 volume_db = -10.0
 
 [node name="Credits" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
