@@ -35,6 +35,7 @@ background photos: [tirarchard](https://www.freepik.com/author/tirachard), [free
 [goalsound](Success 04 by rhodesmas -- https://freesound.org/s/322929/ -- License: Attribution 3.0)
 [music before game](Luminis by Vrymaa -- https://freesound.org/s/722399/ -- License: Creative Commons 0)
 [background music game](Happy Background Music Orchestra Loop by Migfus20 -- https://freesound.org/s/561383/ -- License: Attribution 4.0)
+[Game won sound](Win 02 by rhodesmas -- https://freesound.org/s/320775/ -- License: Attribution 3.0)
 
 ## fonts
 
