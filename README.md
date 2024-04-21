@@ -29,14 +29,14 @@ background photos: [tirarchard](https://www.freepik.com/author/tirachard), [free
 
 ## Sound and music
 
-[Fire Sound Effect](petit feu - little fire (3).wav by Glaneur de sons -- https://freesound.org/s/104956/ -- License: Attribution 4.0)
-[charging light sound](pixies&fairies.wav by deprogram -- https://freesound.org/s/38138/ -- License: Attribution NonCommercial 4.0)
-[watersplash](waterstick 7.wav by larapoe -- https://freesound.org/s/544725/ -- License: Creative Commons 0)
-[goalsound](Success 04 by rhodesmas -- https://freesound.org/s/322929/ -- License: Attribution 3.0)
-[music before game](Luminis by Vrymaa -- https://freesound.org/s/722399/ -- License: Creative Commons 0)
-[background music game](Happy Background Music Orchestra Loop by Migfus20 -- https://freesound.org/s/561383/ -- License: Attribution 4.0)
-[Game won sound](Win 02 by rhodesmas -- https://freesound.org/s/320775/ -- License: Attribution 3.0)
-[Game end music](Peaceful Fantasy Music by TheoJT -- https://freesound.org/s/698282/ -- License: Attribution 4.0)
+petit feu - little fire (3).wav by Glaneur de sons -- [Fire Sound Effect](https://freesound.org/s/104956/) -- License: Attribution 4.0
+pixies&fairies.wav by deprogram -- [charging light sound](https://freesound.org/s/38138/) -- License: Attribution NonCommercial 4.0
+waterstick 7.wav by larapoe -- [watersplash](https://freesound.org/s/544725/) -- License: Creative Commons 0
+Success 04 by rhodesmas -- [goalsound](https://freesound.org/s/322929/) -- License: Attribution 3.0
+Luminis by Vrymaa -- [music before game](https://freesound.org/s/722399/) -- License: Creative Commons 0
+Happy Background Music Orchestra Loop by Migfus20 -- [background music game](https://freesound.org/s/561383/) -- License: Attribution 4.0
+Win 02 by rhodesmas -- [Game won sound](https://freesound.org/s/320775/) -- License: Attribution 3.0
+Peaceful Fantasy Music by TheoJT -- [Game end music](https://freesound.org/s/698282/) -- License: Attribution 4.0
 
 ## Fonts
 

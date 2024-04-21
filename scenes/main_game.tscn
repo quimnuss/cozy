@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=47 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -166,36 +166,64 @@ _data = {
 "fade_in": SubResource("Animation_p5ojj")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3kgig"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqdbi"]
 atlas = ExtResource("23_1262i")
 region = Rect2(0, 0, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2d6ov"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_woyg6"]
 atlas = ExtResource("23_1262i")
 region = Rect2(62, 0, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lv4me"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ahl"]
 atlas = ExtResource("23_1262i")
 region = Rect2(124, 0, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x676o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gyrx"]
 atlas = ExtResource("23_1262i")
 region = Rect2(186, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivv6l"]
+atlas = ExtResource("23_1262i")
+region = Rect2(248, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5ynw"]
+atlas = ExtResource("23_1262i")
+region = Rect2(310, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rftas"]
+atlas = ExtResource("23_1262i")
+region = Rect2(372, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft7kb"]
+atlas = ExtResource("23_1262i")
+region = Rect2(434, 0, 62, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y6tys"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3kgig")
+"texture": SubResource("AtlasTexture_mqdbi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2d6ov")
+"texture": SubResource("AtlasTexture_woyg6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lv4me")
+"texture": SubResource("AtlasTexture_52ahl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x676o")
+"texture": SubResource("AtlasTexture_7gyrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivv6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5ynw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rftas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft7kb")
 }],
 "loop": true,
 "name": &"default",
@@ -576,7 +604,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/bold_italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
-text = "[wave amp=40.0 freq=2.0 connected=1][fade start=25 length=6]You're up for a new world . . . [/fade][/wave]"
+text = "[wave amp=40.0 freq=2.0 connected=1][fade start=30 length=6]Safe travels on a new journey . . . [/fade][/wave]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
