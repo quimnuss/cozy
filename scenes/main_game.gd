@@ -60,8 +60,8 @@ func start_game():
     player.set_process(true)
     trail_man.set_process(true)
     player.can_move = true
-    audio_sfx.fade_out(welcome_background_music, 5)
-    audio_sfx.fade_in(game_background_music, 5)
+    audio_sfx.fade_out(welcome_background_music, 3)
+    audio_sfx.fade_in(game_background_music, 3)
 
 func _input(event):
     if is_welcome:
@@ -104,8 +104,8 @@ func _on_player_death():
 
 func win():
     game_won_audio.play()
-    audio_sfx.fade_out(game_background_music, 5)
-    audio_sfx.fade_in(credits_music, 5)
+    audio_sfx.fade_out(game_background_music, 3)
+    audio_sfx.fade_in(credits_music, 2)
     win_scene.play_win()
     var spore : Spore = load("res://actors/spore.tscn").instantiate()
     spore.animation_finished.connect(play_outro)
@@ -126,6 +126,8 @@ func play_outro():
     camera_2d.position_smoothing_speed = 1.0
     camera_2d.global_position = start_position.global_position
     await get_tree().create_timer(1).timeout
+    audio_sfx.fade_out(credits_music, 4)
+    audio_sfx.fade_in(game_background_music, 4)
     credits.visible = true
     final_phrase_label.reparent(credits)
     outro_animation_player.play('credits')
