@@ -8,4 +8,6 @@ func _on_goal_distance_changed(distance : float):
     self.text = str(display_distance) + ' cm'
 
 func _on_goal_reached(_goal_num : int):
-    queue_free()
+    self.text = 'Visited!'
+    self.add_theme_font_size_override("font_size", 18)
+    #queue_free()

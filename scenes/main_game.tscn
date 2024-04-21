@@ -619,7 +619,7 @@ layout_mode = 0
 offset_left = 2282.0
 offset_top = 1598.0
 offset_right = 2582.0
-offset_bottom = 1694.0
+offset_bottom = 1710.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/normal_font_size = 40
@@ -643,7 +643,6 @@ stream = ExtResource("22_nl4aj")
 volume_db = -10.0
 
 [node name="Credits" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -704,10 +703,10 @@ selection_enabled = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 2296.0
-offset_top = -792.0
-offset_right = 3744.0
-offset_bottom = -488.0
+offset_left = 2277.0
+offset_top = -844.0
+offset_right = 3725.0
+offset_bottom = -393.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -717,16 +716,20 @@ bbcode_enabled = true
 text = "[center]
 [color=#488C03]Clicli[/color]  concept and coding
  [color=#F2E205]Starlight Killjoy[/color] concept and art
+
+
+
+Check music, pictures & sfx on attributions section
 [/center]"
 scroll_active = false
 selection_enabled = true
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Credits"]
 layout_mode = 0
-offset_left = 2040.0
-offset_top = -512.0
-offset_right = 3488.0
-offset_bottom = 220.0
+offset_left = 1972.0
+offset_top = -236.0
+offset_right = 3420.0
+offset_bottom = 191.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -734,11 +737,7 @@ theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
 bbcode_enabled = true
 text = "[center]
-
-
 [i]Spring: New Beginnings[/i]
-
-
 
 Created in 3 days
 for the [color=darkgreen]Cozy Games[/color] game jam 2024
