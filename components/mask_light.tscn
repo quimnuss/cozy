@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbcxcg8g0ee4y"]
+
+[sub_resource type="Gradient" id="Gradient_21bxe"]
+offsets = PackedFloat32Array(0, 0.625514)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gwiwj"]
+gradient = SubResource("Gradient_21bxe")
+fill = 1
+fill_from = Vector2(0.525641, 0.495726)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ykhbs"]
+light_mode = 2
+
+[node name="PointLight2D" type="PointLight2D"]
+show_behind_parent = true
+scale = Vector2(5.26562, 5.26562)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_gwiwj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_ykhbs")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -61.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
