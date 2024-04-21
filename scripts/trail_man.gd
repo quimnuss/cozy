@@ -59,3 +59,10 @@ func _process(_delta):
     trail.default_color = ratio*HEALTHY_COLOR + (1 - ratio)*DEATH_COLOR
 
 
+
+
+func _on_goal_3_goal_reached(goal_num):
+    var prop : PlantProp = prop.instantiate()
+    prop.global_position = target.global_position
+    prop.rotation = target.rotation
+    trail.add_child(prop)

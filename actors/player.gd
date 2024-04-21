@@ -56,8 +56,12 @@ func _ready():
 func upgrade(goal_num : int):
     match goal_num:
         0:
-            max_water_level = 200
+            max_water_level += 50
             #water_level = max_water_level
+        1:
+            max_light_level += 50
+        2:
+            max_water_level += 50
 
     build_changed.emit()
 

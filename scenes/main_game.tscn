@@ -808,5 +808,6 @@ flat = true
 [connection signal="goal_reached" from="Goal2" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal2" method="_on_goal_reached"]
 [connection signal="distance_changed" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_distance_changed"]
 [connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]
+[connection signal="goal_reached" from="Goal3" to="TrailMan" method="_on_goal_3_goal_reached"]
 [connection signal="goal_reached" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_reached"]
 [connection signal="pressed" from="Credits/Button" to="." method="_on_quit_button_pressed"]

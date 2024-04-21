@@ -3,17 +3,18 @@ extends Node2D
 class_name Goal
 
 @export var goal_num : int
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var effects = $Effects
 
 signal distance_changed(distance : float)
 
 signal goal_reached(goal_num : int)
 
-func ready():
+func _ready():
     add_to_group('goals')
     var animation : String = 'goal_' + str(goal_num)
-    if animation in animated_sprite_2d.animations:
+    if animation in animated_sprite_2d.sprite_frames.get_animation_names():
+        prints('found animation',animation)
         animated_sprite_2d.play(animation)
         effects.play('default')
     else:
