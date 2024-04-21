@@ -661,7 +661,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "[center]Press ASDW to
+text = "[center]Press ASDW or use mouse to
 [rainbow]Sprout[/rainbow][/center]"
 fit_content = true
 

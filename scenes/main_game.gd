@@ -62,14 +62,18 @@ func start_game():
     audio_sfx.fade_in(game_background_music, 5)
 
 func _input(event):
-    if is_welcome and (event.is_action_pressed("move_left") \
-    or event.is_action_pressed("move_right") \
-    or event.is_action_pressed("move_up") \
-    or event.is_action_pressed("move_down")):
-        is_welcome = false
-        start_game()
+    if is_welcome:
+        var is_keyboard = (event.is_action_pressed("move_left") \
+                        or event.is_action_pressed("move_right") \
+                        or event.is_action_pressed("move_up") \
+                        or event.is_action_pressed("move_down"))
+        var is_joy = event is InputEventJoypadButton
+        var is_mouse = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT
 
-
+        if is_keyboard or is_joy or is_mouse:
+            Global.mouse_movement = is_mouse
+            is_welcome = false
+            start_game()
 
 func _process(_delta):
     if Input.is_action_just_pressed("respawn"):

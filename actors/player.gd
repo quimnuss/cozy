@@ -143,7 +143,13 @@ func _physics_process(delta):
         velocity = Vector2(0,0)
         return
 
-    var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+    var direction: Vector2
+    if Global.mouse_movement:
+        if global_position.distance_to(get_global_mouse_position()) > 5:
+            direction = (get_global_mouse_position() - global_position).normalized()
+    else:
+        direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
     if direction:
         direction = direction.clamp(Vector2(-1,-1), min_direction)
         velocity = velocity.move_toward(direction*Vector2(SPEED,SPEED), SPEED*delta)
