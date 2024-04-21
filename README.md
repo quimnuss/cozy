@@ -1,4 +1,4 @@
-# cozy
+# Cozy Growth
 
 Discover the world as a new plant sprout.
 
@@ -10,15 +10,15 @@ r to force respawn
 
 # Credits
 
-A game made with love by aka [Clicli](https://clicligames.itch.io/) and [Ursula Graber](https://ursulagraber.com)
+A game made with love by aka [Clicli](https://clicligames.itch.io/) and aka [Starlight Killjoy](https://clicligames.itch.io/)
 
-**Concept and Idea** : Clicli and Ursula Graber
+**Concept and Idea** : Clicli and Starlight Killjoy
 
 **Programming** : Clicli
 
-**Pixel Art** : Ursula Graber
+**Pixel Art** : Starlight Killjoy
 
-**Sound Design** : Ursula Graber
+**Sound Design** : Starlight Killjoy
 
 # attributions
 
@@ -37,14 +37,14 @@ background photos: [tirarchard](https://www.freepik.com/author/tirachard), [free
 [background music game](Happy Background Music Orchestra Loop by Migfus20 -- https://freesound.org/s/561383/ -- License: Attribution 4.0)
 [Game won sound](Win 02 by rhodesmas -- https://freesound.org/s/320775/ -- License: Attribution 3.0)
 
-## fonts
+## Fonts
 
 [Glacial Indifference by Hanken Design Co.](https://www.fontsquirrel.com/fonts/glacial-indifference)
 [PromptFont by Yukari "Shinmera" Hafner](https://shinmera.com/promptfont)
 
 # Extras
 
-## color palette
+## game color palette
 
 ```css
 .colors {
