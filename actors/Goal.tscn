@@ -1,10 +1,11 @@
-[gd_scene load_steps=65 format=3 uid="uid://dv76m0v6d8lpg"]
+[gd_scene load_steps=70 format=3 uid="uid://dv76m0v6d8lpg"]
 
 [ext_resource type="Script" path="res://actors/goal.gd" id="1_1ir0j"]
 [ext_resource type="Texture2D" uid="uid://b7hmqa3i8djp7" path="res://assets/superdropsparkle.png" id="3_efi7m"]
 [ext_resource type="Texture2D" uid="uid://bg8fu6g7gl1bt" path="res://assets/sparkle.png" id="3_f20f7"]
 [ext_resource type="Texture2D" uid="uid://wxb03enlwox3" path="res://assets/superlight.png" id="3_mhryx"]
 [ext_resource type="Texture2D" uid="uid://c5scl0vlwi2vn" path="res://assets/superdrop.png" id="3_r5rcd"]
+[ext_resource type="Texture2D" uid="uid://cehaoy3koo7qy" path="res://assets/finalgoal.png" id="4_bkrfe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qglg"]
 atlas = ExtResource("3_r5rcd")
@@ -198,6 +199,22 @@ region = Rect2(1536, 0, 128, 128)
 atlas = ExtResource("3_r5rcd")
 region = Rect2(1664, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw8pu"]
+atlas = ExtResource("4_bkrfe")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0a2a"]
+atlas = ExtResource("4_bkrfe")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_017ld"]
+atlas = ExtResource("4_bkrfe")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpcxy"]
+atlas = ExtResource("4_bkrfe")
+region = Rect2(384, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_c2wrn"]
 resource_local_to_scene = true
 animations = [{
@@ -364,6 +381,29 @@ animations = [{
 "loop": true,
 "name": &"goal_2",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw8pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0a2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_017ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpcxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_017ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0a2a")
+}],
+"loop": true,
+"name": &"goal_3",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbia8"]
@@ -456,7 +496,7 @@ polygon = PackedVector2Array(-1, -4, -2, -2, -6, -2, -3, 0, -3, 4, 0, 1, 4, 4, 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c2wrn")
-animation = &"goal_0"
+animation = &"goal_3"
 autoplay = "default"
 
 [node name="Effects" type="AnimatedSprite2D" parent="."]

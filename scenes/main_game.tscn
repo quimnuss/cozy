@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=41 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -195,6 +195,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Environment" id="Environment_tiu7w"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_q85br")
@@ -653,15 +655,15 @@ selection_enabled = true
 [node name="SproutLabel" type="RichTextLabel" parent="Info"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 0
-offset_left = 2282.0
-offset_top = 1598.0
-offset_right = 2582.0
-offset_bottom = 1710.0
+offset_left = 2228.0
+offset_top = 1600.0
+offset_right = 2630.0
+offset_bottom = 1767.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "[center]Press ASDW or use [font=res://assets/fonts/promptfont][/font] to
+text = "[center]Press ASDW or use [font=res://assets/fonts/promptfont.otf]⟵[/font] to
 [rainbow]Sprout[/rainbow][/center]"
 fit_content = true
 
@@ -835,6 +837,9 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 text = "Go outside >"
 flat = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tiu7w")
 
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
