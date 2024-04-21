@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=42 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -33,12 +33,16 @@ polygon = PackedVector2Array(2493, 1576, 2536, 1681, 2543, 1724, 2653, 1676, 256
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s636m"]
 polygon = PackedVector2Array(2451, 1580, 2355, 1659, 2520, 1708, 2652, 1647, 2562, 1571)
 
-[sub_resource type="Gradient" id="Gradient_el8ii"]
-offsets = PackedFloat32Array(0, 0.160494)
+[sub_resource type="Gradient" id="Gradient_sh4f2"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xfjxt"]
+gradient = SubResource("Gradient_sh4f2")
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vg3c2"]
-gradient = SubResource("Gradient_el8ii")
+gradient = SubResource("Gradient_sh4f2")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27s2j"]
 atlas = ExtResource("11_rlwqj")
@@ -221,14 +225,26 @@ occluder = SubResource("OccluderPolygon2D_s636m")
 [node name="MainLights" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="MainLights"]
-position = Vector2(3551, 1571)
-rotation = 5.59902
-scale = Vector2(46.3312, 32.2186)
+position = Vector2(4401.81, -709.402)
+rotation = 2.45742
+scale = Vector2(61.2218, 21.5057)
 color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.55
+energy = 0.3
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_xfjxt")
+offset = Vector2(32.36, 0)
+
+[node name="PointLight2D8" type="PointLight2D" parent="MainLights"]
+position = Vector2(507.314, 196.084)
+rotation = -2.87979
+scale = Vector2(42.4927, 15.9219)
+color = Color(0.94902, 0.886275, 0.0196078, 1)
+energy = 0.3
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
+offset = Vector2(-32.07, 0)
 
 [node name="PointLight2D2" type="PointLight2D" parent="MainLights"]
 visible = false
@@ -253,6 +269,7 @@ shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
 
 [node name="PointLight2D5" type="PointLight2D" parent="MainLights"]
+visible = false
 position = Vector2(1662, 2116)
 rotation = -0.523598
 scale = Vector2(47.1437, 22.4531)
@@ -263,24 +280,15 @@ shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
 
 [node name="PointLight2D7" type="PointLight2D" parent="MainLights"]
-position = Vector2(2085, -406)
-rotation = 0.523598
-scale = Vector2(47.1437, 22.4531)
+position = Vector2(1729, -1663)
+rotation = 3.66519
+scale = Vector2(71.4651, 22.4531)
 color = Color(0.94902, 0.886275, 0.0196078, 1)
 energy = 0.55
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
-
-[node name="PointLight2D8" type="PointLight2D" parent="MainLights"]
-position = Vector2(1050, 1111)
-rotation = 0.261799
-scale = Vector2(47.1437, 15.9219)
-color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.55
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_vg3c2")
+offset = Vector2(-32, 0)
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
