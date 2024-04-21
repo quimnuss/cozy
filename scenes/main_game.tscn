@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=46 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -215,8 +215,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="Environment" id="Environment_tiu7w"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_q85br")
@@ -573,7 +571,6 @@ texture = SubResource("GradientTexture2D_gwiwj")
 visible = false
 material = SubResource("CanvasItemMaterial_8yryy")
 position = Vector2(-1.42432, 1.70921)
-scale = Vector2(1, 1)
 color = Color(1, 1, 0.164706, 1)
 polygon = PackedVector2Array(-65.0445, -40.7359, -63.1454, 46.6231, 68.4629, 57.3531, 68.7478, -41.2107)
 
@@ -847,9 +844,6 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 text = "Go outside >"
 flat = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tiu7w")
 
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
