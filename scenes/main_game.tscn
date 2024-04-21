@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=47 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -54,13 +54,19 @@ atlas = ExtResource("14_7028b")
 region = Rect2(0, 0, 62, 62)
 
 [sub_resource type="Gradient" id="Gradient_21bxe"]
-offsets = PackedFloat32Array(0, 0.790123)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.625514)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gwiwj"]
 gradient = SubResource("Gradient_21bxe")
 fill = 1
 fill_from = Vector2(0.525641, 0.495726)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8yryy"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ykhbs"]
+light_mode = 2
 
 [sub_resource type="Animation" id="Animation_41nk5"]
 tracks/0/type = "value"
@@ -235,9 +241,9 @@ occluder = SubResource("OccluderPolygon2D_s636m")
 [node name="MainLights" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="MainLights"]
-position = Vector2(4401.81, -709.402)
+position = Vector2(3764.47, -189.597)
 rotation = 2.45742
-scale = Vector2(61.2218, 21.5057)
+scale = Vector2(48.4431, 21.5057)
 color = Color(0.94902, 0.886275, 0.0196078, 1)
 energy = 0.3
 shadow_enabled = true
@@ -255,50 +261,6 @@ shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_vg3c2")
 offset = Vector2(-32.07, 0)
-
-[node name="PointLight2D2" type="PointLight2D" parent="MainLights"]
-visible = false
-position = Vector2(4265.98, 2234.97)
-rotation = -2.35619
-scale = Vector2(91.2001, 28.4475)
-color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.55
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_vg3c2")
-
-[node name="PointLight2D6" type="PointLight2D" parent="MainLights"]
-visible = false
-position = Vector2(2186, 1150)
-rotation = 0.523598
-scale = Vector2(47.1437, 15.9219)
-color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.55
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_vg3c2")
-
-[node name="PointLight2D5" type="PointLight2D" parent="MainLights"]
-visible = false
-position = Vector2(1662, 2116)
-rotation = -0.523598
-scale = Vector2(47.1437, 22.4531)
-color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.55
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_vg3c2")
-
-[node name="PointLight2D7" type="PointLight2D" parent="MainLights"]
-position = Vector2(1729, -1663)
-rotation = 3.66519
-scale = Vector2(71.4651, 22.4531)
-color = Color(0.94902, 0.886275, 0.0196078, 1)
-energy = 0.55
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_vg3c2")
-offset = Vector2(-32, 0)
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -602,8 +564,31 @@ position = Vector2(3706, -1446)
 goal_num = 3
 
 [node name="PointLight2D" type="PointLight2D" parent="Goal3"]
+show_behind_parent = true
 scale = Vector2(5.26562, 5.26562)
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_gwiwj")
+
+[node name="Polygon2D" type="Polygon2D" parent="Goal3/PointLight2D"]
+visible = false
+material = SubResource("CanvasItemMaterial_8yryy")
+position = Vector2(-1.42432, 1.70921)
+scale = Vector2(1, 1)
+color = Color(1, 1, 0.164706, 1)
+polygon = PackedVector2Array(-65.0445, -40.7359, -63.1454, 46.6231, 68.4629, 57.3531, 68.7478, -41.2107)
+
+[node name="ColorRect" type="ColorRect" parent="Goal3/PointLight2D"]
+material = SubResource("CanvasItemMaterial_ykhbs")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -61.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WinScene" type="CanvasLayer" parent="."]
 script = ExtResource("15_n7mu1")
