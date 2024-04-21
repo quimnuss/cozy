@@ -646,7 +646,6 @@ autoplay = true
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("22_nl4aj")
-volume_db = -10.0
 
 [node name="CreditsMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("24_i2vxf")

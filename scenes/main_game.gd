@@ -134,7 +134,7 @@ func _on_goal_3_goal_reached(_goal_num):
     win()
 
 
-func _on_generic_goal_reached(goal_num):
+func _on_generic_goal_reached(_goal_num):
     goal_reached_audio.play()
 
 
