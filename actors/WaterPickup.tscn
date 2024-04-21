@@ -205,7 +205,8 @@ polygon = PackedVector2Array(-1, -8, -2, -4, -4, -1, -5, 4, -2, 5, 4, 5, 5, 2, 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_konie")
-animation = &"undissolve"
+frame = 3
+frame_progress = 0.681706
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
