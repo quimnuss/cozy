@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3 uid="uid://cej2h7op7s86b"]
+
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_iwi1c"]
+[ext_resource type="Script" path="res://scripts/volume_slider.gd" id="2_fv1gu"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="CenterContainer"]
+layout_mode = 2
+tab_alignment = 1
+
+[node name="Settings" type="MarginContainer" parent="CenterContainer/TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/TabContainer/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 20
+script = ExtResource("1_iwi1c")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/TabContainer/Settings/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="MasterVolume" type="Label" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Spacer" type="Control" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_fv1gu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/TabContainer/Settings/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Spacer" type="Control" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_fv1gu")
+bus_name = "Music"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/TabContainer/Settings/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Sfx" type="Label" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sfx Volume"
+
+[node name="Spacer" type="Control" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_fv1gu")
+bus_name = "Sfx"
+
+[node name="InputDevice" type="Label" parent="CenterContainer/TabContainer/Settings/VBoxContainer"]
+layout_mode = 2
+text = "Input Device"
+
+[connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer" method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider" method="_on_value_changed"]

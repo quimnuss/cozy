@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dytbi11d84kv0"]
+[gd_scene load_steps=12 format=3 uid="uid://dytbi11d84kv0"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_cf8hv"]
 [ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="2_cpghh"]
@@ -6,6 +6,9 @@
 [ext_resource type="Curve" uid="uid://qdoxje4xv8l3" path="res://resources/sine_curve.tres" id="4_2bsas"]
 [ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="5_n1qah"]
 [ext_resource type="Script" path="res://actors/goal_label.gd" id="6_gisdr"]
+[ext_resource type="FontFile" uid="uid://c2v4p4erjrwqw" path="res://assets/fonts/promptfont.otf" id="7_kvssb"]
+[ext_resource type="PackedScene" uid="uid://cej2h7op7s86b" path="res://scenes/menu.tscn" id="8_8dgh2"]
+[ext_resource type="Script" path="res://scripts/mute.gd" id="8_eh63v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27s2j"]
 atlas = ExtResource("2_cpghh")
@@ -159,15 +162,62 @@ theme_override_font_sizes/font_size = 15
 text = "×"
 flat = true
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Settings"]
-visible = false
+[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/Settings"]
 layout_mode = 2
-text = "♫"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kvssb")
+theme_override_font_sizes/font_size = 15
+text = "⏒"
 flat = true
+
+[node name="MuteButton" type="Button" parent="MarginContainer/HBoxContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.592157)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.52549)
+theme_override_fonts/font = ExtResource("7_kvssb")
+toggle_mode = true
+button_pressed = true
+text = "🎶"
+flat = true
+script = ExtResource("8_eh63v")
 
 [node name="RestartButton" type="Button" parent="MarginContainer/HBoxContainer/Settings"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kvssb")
 theme_override_font_sizes/font_size = 15
-text = "<"
+text = "⏎"
 flat = true
+
+[node name="Menu" parent="." instance=ExtResource("8_8dgh2")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="x" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = -168.0
+offset_right = 179.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "x"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Settings/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/Settings/MuteButton" to="MarginContainer/HBoxContainer/Settings/MuteButton" method="_on_toggled"]
+[connection signal="pressed" from="Menu/x" to="." method="_on_close_settings_pressed"]

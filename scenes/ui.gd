@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var water_level = %WaterProgressBar
 @onready var light_level = %LightProgressBar
 
+@onready var menu = $Menu
 
 
 func update_meters():
@@ -17,3 +18,10 @@ func set_light_level(light_level_value):
 
 func _on_player_build_changed():
     update_meters()
+
+func _on_settings_button_pressed():
+    menu.visible = not menu.visible
+
+
+func _on_close_settings_pressed():
+    menu.visible = false

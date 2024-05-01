@@ -488,19 +488,24 @@ script = ExtResource("19_uapuf")
 
 [node name="GoalReachedAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("19_pv63y")
+bus = &"Sfx"
 
 [node name="GameWonAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("23_ogi7g")
+bus = &"Sfx"
 
 [node name="WelcomeBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("21_fhrjl")
 autoplay = true
+bus = &"Music"
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("22_nl4aj")
+bus = &"Music"
 
 [node name="CreditsMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("24_i2vxf")
+bus = &"Music"
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -658,6 +663,8 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 text = "Go outside >"
 flat = true
+
+[node name="Settings" type="CanvasLayer" parent="."]
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
