@@ -1,5 +1,7 @@
 extends Node2D
 @onready var player = $Player
+@onready var player_camera : CozyCamera = $Player/Camera2D
+
 @onready var water_level : ProgressBar = %WaterProgressBar
 @onready var light_level : ProgressBar = %LightProgressBar
 @onready var start_position = $StartPosition
@@ -63,6 +65,8 @@ func start_game():
     audio_sfx.fade_out(welcome_background_music, 3)
     audio_sfx.fade_in(game_background_music, 3)
 
+var input_knock_knock : int = 3
+
 func _input(event):
     if is_welcome:
         var is_keyboard = (event.is_action_pressed("move_left") \
@@ -73,9 +77,12 @@ func _input(event):
         var is_mouse = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT
 
         if is_keyboard or is_joy or is_mouse:
-            Global.mouse_movement = is_mouse
-            is_welcome = false
-            start_game()
+            if input_knock_knock <= 0:
+                Global.mouse_movement = is_mouse
+                is_welcome = false
+                start_game()
+            #else:
+                #player_camera.add_trauma(0.2)
 
 func _process(_delta):
     if Input.is_action_just_pressed("respawn"):

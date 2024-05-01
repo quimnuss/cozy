@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=48 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
@@ -45,6 +45,8 @@ gradient = SubResource("Gradient_sh4f2")
 gradient = SubResource("Gradient_sh4f2")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p3sq4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27s2j"]
 atlas = ExtResource("11_rlwqj")
@@ -288,6 +290,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("1_wwqgf")
 player = NodePath("..")
+noise = SubResource("FastNoiseLite_p3sq4")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -10
