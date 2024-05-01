@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=42 format=3 uid="uid://nnrhfywswupo"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="2_obrol"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="3_jslog"]
+[ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_tdcfe"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="4_kh8it"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="4_s7rqi"]
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="6_m1yvx"]
@@ -267,7 +268,10 @@ offset = Vector2(-32.07, 0)
 unique_name_in_owner = true
 position = Vector2(2432, 1773)
 
+[node name="PlantSeed" parent="StartPosition" instance=ExtResource("3_tdcfe")]
+
 [node name="Player" parent="." instance=ExtResource("2_obrol")]
+visible = false
 position = Vector2(2432, 1773)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
@@ -325,7 +329,8 @@ motion_mirroring = Vector2(4096, 4096)
 texture = ExtResource("3_jslog")
 centered = false
 
-[node name="TrailMan" parent="." instance=ExtResource("8_c512n")]
+[node name="TrailMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_c512n")]
+target = NodePath("../Player")
 
 [node name="WaterPickups" type="Node2D" parent="."]
 z_index = -2

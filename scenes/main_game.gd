@@ -2,8 +2,6 @@ extends Node2D
 @onready var player = $Player
 @onready var player_camera : CozyCamera = $Player/Camera2D
 
-@onready var water_level : ProgressBar = %WaterProgressBar
-@onready var light_level : ProgressBar = %LightProgressBar
 @onready var start_position = $StartPosition
 @onready var trail_man = $TrailMan
 @onready var win_scene = $WinScene
@@ -59,6 +57,7 @@ func fade_out(node : Node):
 
 func start_game():
     fade_out(info)
+    player.visible = true
     player.set_process(true)
     trail_man.set_process(true)
     player.can_move = true
@@ -101,9 +100,8 @@ func _process(_delta):
     if Input.is_action_just_pressed("quit"):
         _on_quit_button_pressed()
 
-
-    water_level.set_value_no_signal(player.water_level*100/player.max_water_level)
-    light_level.set_value_no_signal(player.light_level*100/player.max_light_level)
+    ui.set_water_level(player.water_level*100/player.max_water_level)
+    ui.set_light_level(player.light_level*100/player.max_light_level)
 
 func respawn():
     trail_man.to_freezer()
