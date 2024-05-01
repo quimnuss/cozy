@@ -67,6 +67,10 @@ func start_game():
 
 var input_knock_knock : int = 3
 
+func knockknock():
+    player_camera.add_trauma(0.4)
+    input_knock_knock -= 1
+
 func _input(event):
     if is_welcome:
         var is_keyboard = (event.is_action_pressed("move_left") \
@@ -81,8 +85,8 @@ func _input(event):
                 Global.mouse_movement = is_mouse
                 is_welcome = false
                 start_game()
-            #else:
-                #player_camera.add_trauma(0.2)
+            else:
+                knockknock()
 
 func _process(_delta):
     if Input.is_action_just_pressed("respawn"):

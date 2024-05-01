@@ -28,13 +28,8 @@ func add_trauma(amount : float):
     trauma = min(trauma + amount, 1.0)
     prints('trauma',trauma)
 
-func _input(event):
-    if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-        add_trauma(0.4)
-
 func _process(delta):
     if trauma:
-        print(trauma)
         trauma = max(trauma - decay * delta, 0)
         shake()
     elif trauma_offset.length() > 0 or rotation != 0:
