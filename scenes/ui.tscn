@@ -1,0 +1,173 @@
+[gd_scene load_steps=9 format=3 uid="uid://dytbi11d84kv0"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_cf8hv"]
+[ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="2_cpghh"]
+[ext_resource type="Script" path="res://scripts/status_bar.gd" id="3_675mn"]
+[ext_resource type="Curve" uid="uid://qdoxje4xv8l3" path="res://resources/sine_curve.tres" id="4_2bsas"]
+[ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="5_n1qah"]
+[ext_resource type="Script" path="res://actors/goal_label.gd" id="6_gisdr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27s2j"]
+atlas = ExtResource("2_cpghh")
+region = Rect2(0, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k82k"]
+atlas = ExtResource("5_n1qah")
+region = Rect2(0, 0, 62, 62)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_cf8hv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="WaterIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_27s2j")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="WaterProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0, 0.517647, 0.517647, 1)
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+value = 100.0
+rounded = true
+show_percentage = false
+script = ExtResource("3_675mn")
+blink_curve = ExtResource("4_2bsas")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="LightIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/GridContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_7k82k")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="LightProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/GridContainer/HBoxContainer2"]
+unique_name_in_owner = true
+modulate = Color(1, 0.905882, 0, 1)
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+value = 100.0
+rounded = true
+show_percentage = false
+script = ExtResource("3_675mn")
+blink_curve = ExtResource("4_2bsas")
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584314, 0.85098, 0.0156863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 20
+text = "Points of Interest"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Goal0" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.368627, 0.807843, 0.972549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_gisdr")
+
+[node name="Goal1" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94902, 0.752941, 0.580392, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_gisdr")
+
+[node name="Goal2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0823529, 0.615686, 0.811765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_gisdr")
+
+[node name="Goal3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94902, 0.886275, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "30 cm"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_gisdr")
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "×"
+flat = true
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Settings"]
+visible = false
+layout_mode = 2
+text = "♫"
+flat = true
+
+[node name="RestartButton" type="Button" parent="MarginContainer/HBoxContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "<"
+flat = true
