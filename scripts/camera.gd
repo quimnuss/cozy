@@ -26,7 +26,6 @@ func _ready():
 
 func add_trauma(amount : float):
     trauma = min(trauma + amount, 1.0)
-    prints('trauma',trauma)
 
 func _process(delta):
     if trauma:
