@@ -103,5 +103,8 @@ text = "Input Device"
 
 [connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer" method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" method="_on_value_changed"]
+[connection signal="visibility_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer3/HSlider" method="_on_visibility_changed"]
 [connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="visibility_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer/HSlider" method="_on_visibility_changed"]
 [connection signal="value_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider" method="_on_value_changed"]
+[connection signal="visibility_changed" from="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider" to="CenterContainer/TabContainer/Settings/VBoxContainer/HBoxContainer2/HSlider" method="_on_visibility_changed"]

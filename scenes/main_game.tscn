@@ -400,6 +400,7 @@ position = Vector2(3706, -1446)
 goal_num = 3
 
 [node name="WinScene" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("15_n7mu1")
 
 [node name="CenterContainer" type="CenterContainer" parent="WinScene"]
