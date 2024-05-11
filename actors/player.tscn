@@ -133,11 +133,14 @@ script = ExtResource("5_ongow")
 [node name="LitAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("5_rlxog")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="BurnAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("5_5xf75")
 volume_db = 24.0
+bus = &"Sfx"
 
 [node name="WaterAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("7_4tje1")
 volume_db = 20.0
+bus = &"Sfx"

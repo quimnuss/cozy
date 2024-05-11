@@ -24,6 +24,9 @@ var water_delta : float = 25
 var light_delta : float = 50
 const BURN_DELTA : float = 30
 
+@export var light_immune : bool = false
+@export var water_immune : bool = false
+
 var water_degrowth_rate : float = 3
 var base_light_degrowth_rate : float = 10
 var lit : float = 0
@@ -66,6 +69,8 @@ func upgrade(goal_num : int):
     build_changed.emit()
 
 func water():
+    if water_immune:
+        return
     current_water_delta = water_delta
     water_level = clamp(water_level+water_delta,0,max_water_level)
     is_watered.emit()
@@ -74,6 +79,8 @@ func water():
     water_audio.play()
 
 func light(ratio = 1):
+    if light_immune:
+        return
     lit = light_delta*ratio
     if ratio > 0:
         sparkles.visible = true
@@ -90,6 +97,8 @@ func light(ratio = 1):
     #light_changed.emit(light_level/max_light_level)
 
 func set_burn(new_is_burning : bool):
+    if light_immune or water_immune:
+        return
     is_burning = new_is_burning
     if is_burning:
         fire_particles.emitting = true
@@ -108,13 +117,14 @@ func respawn():
 
 func _process(delta):
 
-    var actual_burn_impact = BURN_DELTA if is_burning else 0.0
-    var velocity_water_degrowth_rate : float = water_degrowth_rate + (velocity.length()/SPEED)*velocity_degrowth_impact + actual_burn_impact
+    if not light_immune:
+        current_light_growth_rate = -base_light_degrowth_rate + lit
+        light_level = clamp(light_level + current_light_growth_rate*delta, 0, max_light_level)
 
-    current_light_growth_rate = -base_light_degrowth_rate + lit
-
-    water_level = clamp(water_level - velocity_water_degrowth_rate*delta, 0, max_water_level)
-    light_level = clamp(light_level + current_light_growth_rate*delta, 0, max_light_level)
+    if not water_immune:
+        var actual_burn_impact = BURN_DELTA if is_burning else 0.0
+        var velocity_water_degrowth_rate : float = water_degrowth_rate + (velocity.length()/SPEED)*velocity_degrowth_impact + actual_burn_impact
+        water_level = clamp(water_level - velocity_water_degrowth_rate*delta, 0, max_water_level)
 
     var worse_stat = min(water_level, light_level)
     var danger_color = Color(1,1,1)

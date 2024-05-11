@@ -1,30 +1,27 @@
-[gd_scene load_steps=48 format=3 uid="uid://cikjge4xlqxn1"]
+[gd_scene load_steps=43 format=3 uid="uid://b8ob38dbn6e5j"]
 
-[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_k7tv8"]
-[ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_ewf6j"]
-[ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="3_dh8x0"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="4_m57oj"]
-[ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="5_e3pfv"]
-[ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="6_sqe5q"]
-[ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="7_sgw7v"]
-[ext_resource type="Script" path="res://scripts/trail_man.gd" id="8_bdjhc"]
-[ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="9_qdrjb"]
-[ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="10_q7ev0"]
-[ext_resource type="Script" path="res://scenes/ui.gd" id="11_1ij8d"]
-[ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="12_n153f"]
-[ext_resource type="Script" path="res://scripts/status_bar.gd" id="13_xjs2i"]
-[ext_resource type="Curve" uid="uid://qdoxje4xv8l3" path="res://resources/sine_curve.tres" id="14_8i4tb"]
-[ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="15_qax6e"]
-[ext_resource type="Script" path="res://actors/goal_label.gd" id="16_d37au"]
-[ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="17_vetr7"]
-[ext_resource type="Script" path="res://scenes/win_scene.gd" id="18_2npmx"]
-[ext_resource type="Script" path="res://actors/audiosfx.gd" id="19_lmk36"]
-[ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="20_uwmq3"]
-[ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="21_2xanf"]
-[ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="22_t527h"]
-[ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="23_nvl3t"]
-[ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="24_inurn"]
-[ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="25_08qsn"]
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_f80v8"]
+[ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_sbr56"]
+[ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_curxq"]
+[ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_o0vqa"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_n7tdw"]
+[ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_kgfxp"]
+[ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_27s28"]
+[ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_jrduc"]
+[ext_resource type="PackedScene" uid="uid://b7hr6u3tlnrdy" path="res://actors/trail_man.tscn" id="9_n76f4"]
+[ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="10_oj7h6"]
+[ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="11_la87j"]
+[ext_resource type="PackedScene" uid="uid://dytbi11d84kv0" path="res://scenes/ui.tscn" id="12_f58sf"]
+[ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="13_ojll7"]
+[ext_resource type="Script" path="res://scenes/win_scene.gd" id="14_cax1h"]
+[ext_resource type="Script" path="res://actors/audiosfx.gd" id="15_ud0bg"]
+[ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="16_kqsno"]
+[ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="17_uiuh6"]
+[ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="18_uolwd"]
+[ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="19_o55dw"]
+[ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="20_puuma"]
+[ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="21_5ire6"]
+[ext_resource type="Script" path="res://scripts/input_detector.gd" id="22_t2s0y"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -47,14 +44,6 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_p3sq4"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_27s2j"]
-atlas = ExtResource("12_n153f")
-region = Rect2(0, 0, 62, 62)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7k82k"]
-atlas = ExtResource("15_qax6e")
-region = Rect2(0, 0, 62, 62)
 
 [sub_resource type="Animation" id="Animation_41nk5"]
 tracks/0/type = "value"
@@ -169,35 +158,35 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqdbi"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(0, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_woyg6"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(62, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52ahl"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(124, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7gyrx"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(186, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivv6l"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(248, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5ynw"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(310, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rftas"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(372, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ft7kb"]
-atlas = ExtResource("25_08qsn")
+atlas = ExtResource("21_5ire6")
 region = Rect2(434, 0, 62, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y6tys"]
@@ -232,12 +221,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MainGame" type="Node2D"]
-script = ExtResource("1_k7tv8")
+[node name="Level" type="Node2D"]
+script = ExtResource("1_f80v8")
 
 [node name="Ground" type="Sprite2D" parent="."]
 z_index = -5
-texture = ExtResource("2_ewf6j")
+texture = ExtResource("2_sbr56")
 centered = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ground"]
@@ -280,7 +269,10 @@ offset = Vector2(-32.07, 0)
 unique_name_in_owner = true
 position = Vector2(2432, 1773)
 
-[node name="Player" parent="." instance=ExtResource("3_dh8x0")]
+[node name="PlantSeed" parent="StartPosition" instance=ExtResource("3_curxq")]
+
+[node name="Player" parent="." instance=ExtResource("4_o0vqa")]
+visible = false
 position = Vector2(2432, 1773)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
@@ -288,7 +280,7 @@ position = Vector2(-1, -1)
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
-script = ExtResource("4_m57oj")
+script = ExtResource("5_n7tdw")
 player = NodePath("..")
 noise = SubResource("FastNoiseLite_p3sq4")
 
@@ -302,7 +294,7 @@ motion_mirroring = Vector2(3000, 1591)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
 modulate = Color(1, 1, 0.992157, 1)
-texture = ExtResource("5_e3pfv")
+texture = ExtResource("6_kgfxp")
 centered = false
 
 [node name="DustBack" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -312,7 +304,7 @@ motion_mirroring = Vector2(4096, 4096)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DustBack"]
 texture_repeat = 3
-texture = ExtResource("6_sqe5q")
+texture = ExtResource("7_27s28")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -320,7 +312,7 @@ visible = false
 
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 z_index = -5
-texture = ExtResource("2_ewf6j")
+texture = ExtResource("2_sbr56")
 centered = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="ParallaxBackground/ParallaxLayer/Ground"]
@@ -335,251 +327,82 @@ motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(4096, 4096)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DustFront"]
-texture = ExtResource("7_sgw7v")
+texture = ExtResource("8_jrduc")
 centered = false
 
-[node name="TrailMan" type="Node2D" parent="." node_paths=PackedStringArray("target")]
-position = Vector2(0, -4)
-script = ExtResource("8_bdjhc")
+[node name="TrailMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_n76f4")]
 target = NodePath("../Player")
-HEALTHY_COLOR = Color(0.243137, 0.462745, 0.0117647, 1)
-
-[node name="Trail" type="Line2D" parent="TrailMan"]
-z_index = -1
-width = 8.0
-default_color = Color(0.117647, 0.568627, 0.266667, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-antialiased = true
-
-[node name="TrailFridge" type="Node2D" parent="TrailMan"]
-z_index = -3
 
 [node name="WaterPickups" type="Node2D" parent="."]
 z_index = -2
 
-[node name="Pickup" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(2177, 978)
 
-[node name="Pickup7" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup7" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(2172, 1218)
 
-[node name="Pickup9" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup9" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(2104, 1153)
 
-[node name="Pickup8" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup8" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(2048, 1236)
 
-[node name="Pickup10" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup10" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(3349, -256)
 
-[node name="Pickup2" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup2" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(3437, 958)
 
-[node name="Pickup3" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup3" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(1936, 769)
 
-[node name="Pickup4" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup4" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(2280, 744)
 
-[node name="Pickup5" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup5" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(2936, 854)
 
-[node name="Pickup6" parent="WaterPickups" instance=ExtResource("9_qdrjb")]
+[node name="Pickup6" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
 position = Vector2(2497, 472)
 
 [node name="LightPickups" type="Node2D" parent="."]
 z_index = -2
 
-[node name="LightPickup" parent="LightPickups" instance=ExtResource("10_q7ev0")]
+[node name="LightPickup" parent="LightPickups" instance=ExtResource("11_la87j")]
 position = Vector2(3395, 649)
 
-[node name="LightPickup2" parent="LightPickups" instance=ExtResource("10_q7ev0")]
+[node name="LightPickup2" parent="LightPickups" instance=ExtResource("11_la87j")]
 position = Vector2(2026, 439)
 
-[node name="LightPickup3" parent="LightPickups" instance=ExtResource("10_q7ev0")]
+[node name="LightPickup3" parent="LightPickups" instance=ExtResource("11_la87j")]
 position = Vector2(2588, 830)
 
-[node name="LightPickup4" parent="LightPickups" instance=ExtResource("10_q7ev0")]
+[node name="LightPickup4" parent="LightPickups" instance=ExtResource("11_la87j")]
 position = Vector2(2895, 363)
 
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("11_1ij8d")
+[node name="UI" parent="." instance=ExtResource("12_f58sf")]
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
-custom_minimum_size = Vector2(0, 100)
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 100.0
-grow_horizontal = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="GridContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = -15
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="WaterIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-texture = SubResource("AtlasTexture_27s2j")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="WaterProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer"]
-unique_name_in_owner = true
-modulate = Color(0, 0.517647, 0.517647, 1)
-custom_minimum_size = Vector2(200, 25)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-value = 100.0
-rounded = true
-show_percentage = false
-script = ExtResource("13_xjs2i")
-blink_curve = ExtResource("14_8i4tb")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="LightIcon" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-texture = SubResource("AtlasTexture_7k82k")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="LightProgressBar" type="ProgressBar" parent="UI/MarginContainer/HBoxContainer/GridContainer/HBoxContainer2"]
-unique_name_in_owner = true
-modulate = Color(1, 0.905882, 0, 1)
-custom_minimum_size = Vector2(200, 25)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-value = 100.0
-rounded = true
-show_percentage = false
-script = ExtResource("13_xjs2i")
-blink_curve = ExtResource("14_8i4tb")
-
-[node name="Control" type="Control" parent="UI/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.584314, 0.85098, 0.0156863, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 20
-text = "Points of Interest"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Goal0" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.368627, 0.807843, 0.972549, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 40
-text = "30 cm"
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("16_d37au")
-
-[node name="Goal1" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.94902, 0.752941, 0.580392, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 40
-text = "30 cm"
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("16_d37au")
-
-[node name="Goal2" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0823529, 0.615686, 0.811765, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 40
-text = "30 cm"
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("16_d37au")
-
-[node name="Goal3" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.94902, 0.886275, 0.0196078, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 40
-text = "30 cm"
-horizontal_alignment = 2
-vertical_alignment = 1
-script = ExtResource("16_d37au")
-
-[node name="Settings" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="QuitButton" type="Button" parent="UI/MarginContainer/HBoxContainer/Settings"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
-text = "×"
-flat = true
-
-[node name="Button" type="Button" parent="UI/MarginContainer/HBoxContainer/Settings"]
-visible = false
-layout_mode = 2
-text = "♫"
-flat = true
-
-[node name="RestartButton" type="Button" parent="UI/MarginContainer/HBoxContainer/Settings"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
-text = "<"
-flat = true
-
-[node name="Goal0" parent="." instance=ExtResource("17_vetr7")]
+[node name="Goal0" parent="." instance=ExtResource("13_ojll7")]
 position = Vector2(2142, 1312)
 
-[node name="Goal1" parent="." instance=ExtResource("17_vetr7")]
+[node name="Goal1" parent="." instance=ExtResource("13_ojll7")]
 position = Vector2(3577, 157)
 goal_num = 1
 
-[node name="Goal2" parent="." instance=ExtResource("17_vetr7")]
+[node name="Goal2" parent="." instance=ExtResource("13_ojll7")]
 modulate = Color(0.94902, 0.752941, 0.580392, 1)
 position = Vector2(1437, -90)
 goal_num = 2
 
-[node name="Goal3" parent="." instance=ExtResource("17_vetr7")]
+[node name="Goal3" parent="." instance=ExtResource("13_ojll7")]
 modulate = Color(0.94902, 0.886275, 0.0196078, 1)
 position = Vector2(3706, -1446)
 goal_num = 3
 
 [node name="WinScene" type="CanvasLayer" parent="."]
-script = ExtResource("18_2npmx")
+visible = false
+script = ExtResource("14_cax1h")
 
 [node name="CenterContainer" type="CenterContainer" parent="WinScene"]
 anchors_preset = 8
@@ -663,23 +486,28 @@ text = "[center]Press ASDW or use [font=res://assets/fonts/promptfont.otf]⟵[/f
 fit_content = true
 
 [node name="AudioSfx" type="Node" parent="."]
-script = ExtResource("19_lmk36")
+script = ExtResource("15_ud0bg")
 
 [node name="GoalReachedAudio" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("20_uwmq3")
+stream = ExtResource("16_kqsno")
+bus = &"Sfx"
 
 [node name="GameWonAudio" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("21_2xanf")
+stream = ExtResource("17_uiuh6")
+bus = &"Sfx"
 
 [node name="WelcomeBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("22_t527h")
+stream = ExtResource("18_uolwd")
 autoplay = true
+bus = &"Music"
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("23_nvl3t")
+stream = ExtResource("19_o55dw")
+bus = &"Music"
 
 [node name="CreditsMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("24_inurn")
+stream = ExtResource("20_puuma")
+bus = &"Music"
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -838,22 +666,18 @@ theme_override_font_sizes/font_size = 60
 text = "Go outside >"
 flat = true
 
-[connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
+[node name="Settings" type="CanvasLayer" parent="."]
+
+[node name="InputDetector" type="Node" parent="."]
+script = ExtResource("22_t2s0y")
+
 [connection signal="death" from="Player" to="." method="_on_player_death"]
-[connection signal="is_watered" from="Player" to="TrailMan" method="_on_player_is_watered"]
-[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Settings/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Settings/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="distance_changed" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_distance_changed"]
+[connection signal="distance_changed" from="Goal0" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
-[connection signal="goal_reached" from="Goal0" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal0" method="_on_goal_reached"]
-[connection signal="distance_changed" from="Goal1" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal1" method="_on_goal_distance_changed"]
+[connection signal="distance_changed" from="Goal1" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal1" to="." method="_on_generic_goal_reached"]
-[connection signal="goal_reached" from="Goal1" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal1" method="_on_goal_reached"]
-[connection signal="distance_changed" from="Goal2" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal2" method="_on_goal_distance_changed"]
+[connection signal="distance_changed" from="Goal2" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal2" to="." method="_on_generic_goal_reached"]
-[connection signal="goal_reached" from="Goal2" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal2" method="_on_goal_reached"]
-[connection signal="distance_changed" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_distance_changed"]
+[connection signal="distance_changed" from="Goal3" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]
-[connection signal="goal_reached" from="Goal3" to="TrailMan" method="_on_goal_3_goal_reached"]
-[connection signal="goal_reached" from="Goal3" to="UI/MarginContainer/HBoxContainer/VBoxContainer/Goal3" method="_on_goal_reached"]
 [connection signal="pressed" from="Credits/Button" to="." method="_on_quit_button_pressed"]
