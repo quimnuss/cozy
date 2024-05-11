@@ -671,6 +671,7 @@ flat = true
 [node name="InputDetector" type="Node" parent="."]
 script = ExtResource("22_updc1")
 
+[connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="distance_changed" from="Goal0" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]

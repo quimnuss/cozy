@@ -381,6 +381,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
+process_mode = 3
 stream = ExtResource("19_cwq02")
 bus = &"Music"
 
@@ -457,6 +458,7 @@ fit_content = true
 [node name="Accept" parent="Tutorial/Area2D/VBoxContainer" instance=ExtResource("22_yu2di")]
 layout_mode = 2
 
+[connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="distance_changed" from="Goal0" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
