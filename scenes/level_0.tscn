@@ -464,8 +464,8 @@ layout_mode = 2
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
 [connection signal="distance_changed" from="Goal3" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]
-[connection signal="input_type_changed" from="InputDetector" to="Tutorial/Area2D/VBoxContainer/Accept" method="update_input_type"]
 [connection signal="input_type_changed" from="InputDetector" to="Tutorial/Area2D2/VBoxContainer/Accept" method="update_input_type"]
+[connection signal="input_type_changed" from="InputDetector" to="Tutorial/Area2D/VBoxContainer/Accept" method="update_input_type"]
 [connection signal="body_entered" from="Tutorial/Area2D2" to="Tutorial/Area2D2" method="_on_body_entered"]
 [connection signal="body_entered" from="Tutorial/Area2D" to="Tutorial/Area2D" method="_on_body_entered"]
 
