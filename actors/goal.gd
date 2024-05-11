@@ -6,7 +6,7 @@ class_name Goal
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var effects = $Effects
 
-signal distance_changed(distance : float)
+signal distance_changed(goal_num: int, distance : float)
 
 signal goal_reached(goal_num : int)
 
@@ -28,7 +28,7 @@ func pick_up():
 
 func _process(_delta):
     var distance : float = self.global_position.distance_to(Global.player.global_position)
-    distance_changed.emit(distance)
+    distance_changed.emit(goal_num, distance)
 
 func _on_area_2d_body_entered(body):
     if body is Player:

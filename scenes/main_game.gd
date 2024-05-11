@@ -76,12 +76,11 @@ func _input(event):
                         or event.is_action_pressed("move_right") \
                         or event.is_action_pressed("move_up") \
                         or event.is_action_pressed("move_down"))
-        var is_joy = event is InputEventJoypadButton
-        var is_mouse = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT
+        var is_joy = event.is_action_pressed("main_action") and event is InputEventJoypadButton
+        var is_mouse =  event.is_action_pressed("main_action") and event is InputEventMouseButton
 
         if is_keyboard or is_joy or is_mouse:
             if input_knock_knock <= 0:
-                Global.mouse_movement = is_mouse
                 is_welcome = false
                 start_game()
             else:
@@ -155,3 +154,6 @@ func _on_quit_button_pressed():
 
 func _on_restart_button_pressed():
     get_tree().reload_current_scene()
+
+
+

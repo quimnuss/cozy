@@ -13,7 +13,7 @@ func _ready():
     original_position = get_parent().position
 
 func _input(event):
-    if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+    if event.is_action_pressed("initial_sprout"):
         if tween and tween.is_running():
             stop_shaking()
         else:
