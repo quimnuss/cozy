@@ -9,7 +9,6 @@ extends Node2D
 @onready var camera_2d = $WinScene/Camera2D
 @onready var outro_animation_player = $WinScene/SceneModulate/AnimationPlayer
 @onready var final_phrase_label = $WinScene/CenterContainer/FinalPhraseLabel
-@onready var credits = $Credits
 @onready var info = $Info
 
 @onready var sprout_label = $Info/SproutLabel
@@ -18,7 +17,6 @@ extends Node2D
 @onready var game_background_music = $AudioSfx/GameBackgroundMusic
 @onready var audio_sfx = $AudioSfx
 @onready var game_won_audio = $AudioSfx/GameWonAudio
-@onready var credits_music = $AudioSfx/CreditsMusic
 
 var is_welcome : bool = true
 
@@ -113,7 +111,6 @@ func _on_player_death():
 func win():
     game_won_audio.play()
     audio_sfx.fade_out(game_background_music, 3)
-    audio_sfx.fade_in(credits_music, 2)
     win_scene.play_win()
     var spore : Spore = load("res://actors/spore.tscn").instantiate()
     spore.animation_finished.connect(play_outro)
@@ -134,11 +131,7 @@ func play_outro():
     camera_2d.position_smoothing_speed = 1.0
     camera_2d.global_position = start_position.global_position
     await get_tree().create_timer(1).timeout
-    audio_sfx.fade_out(credits_music, 4)
     audio_sfx.fade_in(game_background_music, 4)
-    credits.visible = true
-    final_phrase_label.reparent(credits)
-    outro_animation_player.play('credits')
 
 func _on_goal_3_goal_reached(_goal_num):
     win()

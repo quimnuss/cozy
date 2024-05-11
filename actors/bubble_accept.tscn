@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://co72v01qsy5wt"]
+
+[ext_resource type="Theme" uid="uid://b2omskbqfbyl2" path="res://resources/bubbletheme.tres" id="1_kcbyq"]
+[ext_resource type="Script" path="res://scripts/input_type_action_text.gd" id="2_uf58k"]
+
+[node name="Accept" type="RichTextLabel"]
+theme = ExtResource("1_kcbyq")
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+bbcode_enabled = true
+text = "[center][font=res://assets/fonts/promptfont.otf]{main_action}[/font] continue[/center]"
+fit_content = true
+script = ExtResource("2_uf58k")
