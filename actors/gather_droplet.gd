@@ -9,6 +9,8 @@ var target_position : Vector2
 const DURATION = 0.7
 var elapsed = 0.0
 
+var is_target_in_screen_coords : bool = true
+
 static var gather_droplet_scene = preload('res://actors/gather_droplet.tscn')
 
 static func New(_initial_position, _target_position) -> GatherDroplet:
@@ -37,7 +39,11 @@ func _physics_process(delta):
         queue_free()
         return
     elapsed += delta
-    self.global_position = _quad_beizer(initial_position, third_quarters_point, target_position, elapsed/DURATION)
+    var target_global_position : Vector2 = target_position
+    if is_target_in_screen_coords:
+        var screen_tranformer : Transform2D = (get_viewport().get_screen_transform() * get_viewport().get_canvas_transform()).affine_inverse()
+        target_global_position = screen_tranformer*target_position
+    self.global_position = _quad_beizer(initial_position, third_quarters_point, target_global_position, elapsed/DURATION)
 
 func _quad_beizer(start_vector:Vector2, height_vector:Vector2, end_vector:Vector2, t:float):
     var q0 = start_vector.lerp(height_vector, t)

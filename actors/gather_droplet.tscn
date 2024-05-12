@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmm5dwde6ag7l"]
 
-[ext_resource type="Texture2D" uid="uid://cyp8v7hp2lepa" path="res://assets/circle.png" id="1_24beo"]
 [ext_resource type="Script" path="res://actors/gather_droplet.gd" id="1_d8lmm"]
+[ext_resource type="Texture2D" uid="uid://cyp8v7hp2lepa" path="res://assets/circle.png" id="1_ekcuq"]
 
 [node name="GatherDroplet" type="Sprite2D"]
-modulate = Color(0.368627, 0.807843, 0.972549, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_24beo")
+texture = ExtResource("1_ekcuq")
 script = ExtResource("1_d8lmm")

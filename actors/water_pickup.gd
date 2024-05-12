@@ -3,18 +3,26 @@ extends Node2D
 
 var is_pickable : bool = true
 
-var gather_ui_position : Vector2 = Vector2(0,0)
+var gather_ui_position : Vector2 = Vector2(200, 50)
 
 func _ready():
     animated_sprite_2d.play('default')
+
 
 func picked_up(player):
     player.water()
     animated_sprite_2d.play('dissolve')
     is_pickable = false
-    var target_position : Vector2 = gather_ui_position * (get_viewport().get_screen_transform() * get_viewport().get_canvas_transform()).affine_inverse()
+    var screen_tranformer : Transform2D = (get_viewport().get_screen_transform() * get_viewport().get_canvas_transform()).affine_inverse()
+    var target_position : Vector2 = screen_tranformer*gather_ui_position
+
+    #var sprite = Sprite2D.new()
+    #sprite.global_position = target_position
+    #sprite.texture = load("res://assets/fire.png")
+    #get_tree().root.get_child(0).add_child(sprite)
+
     for i in range(4):
-        var droplet : GatherDroplet = GatherDroplet.Instantiate(self.global_position, target_position)
+        var droplet : GatherDroplet = GatherDroplet.Instantiate(self.global_position, gather_ui_position)
         droplet.modulate = Color(0.369, 0.808, 0.973)
         self.add_child(droplet)
 
