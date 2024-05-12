@@ -17,8 +17,12 @@ extends Node2D
 @onready var game_background_music = $AudioSfx/GameBackgroundMusic
 @onready var audio_sfx = $AudioSfx
 @onready var game_won_audio = $AudioSfx/GameWonAudio
+@onready var tutorial_message_dying = $Tutorial/TutorialMessageDying
 
-var is_welcome : bool = true
+enum GameStates {WELCOME, RUNNING, PAUSED, SPAWN}
+var game_state = GameStates.WELCOME
+
+var death_count : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,12 +57,20 @@ func fade_out(node : Node):
     tween.play()
     tween.finished.connect(node.queue_free)
 
-func start_game():
-    fade_out(info)
-    player.visible = true
+func start_run():
     player.set_process(true)
     trail_man.set_process(true)
     player.can_move = true
+
+func stop_run():
+    player.set_process(false)
+    trail_man.set_process(false)
+    player.can_move = false
+
+func start_game():
+    fade_out(info)
+    player.visible = true
+    start_run()
     audio_sfx.fade_out(welcome_background_music, 3)
     audio_sfx.fade_in(game_background_music, 3)
 
@@ -69,7 +81,7 @@ func knockknock():
     input_knock_knock -= 1
 
 func _input(event):
-    if is_welcome:
+    if game_state == GameStates.WELCOME:
         var is_keyboard = (event.is_action_pressed("move_left") \
                         or event.is_action_pressed("move_right") \
                         or event.is_action_pressed("move_up") \
@@ -79,10 +91,15 @@ func _input(event):
 
         if is_keyboard or is_joy or is_mouse:
             if input_knock_knock <= 0:
-                is_welcome = false
+                game_state = GameStates.RUNNING
                 start_game()
             else:
                 knockknock()
+    elif game_state == GameStates.SPAWN:
+        if event.is_action_pressed("main_action") or event.is_action_pressed("move_up"):
+            start_run()
+            if is_instance_valid(tutorial_message_dying):
+                tutorial_message_dying.queue_free()
 
 func _process(_delta):
     if Input.is_action_just_pressed("respawn"):
@@ -104,6 +121,11 @@ func respawn():
     trail_man.to_freezer()
     player.global_position = start_position.global_position
     player.respawn()
+    game_state = GameStates.SPAWN
+    stop_run()
+    if death_count == 0:
+        tutorial_message_dying.visible = true
+    death_count += 1
 
 func _on_player_death():
     respawn()

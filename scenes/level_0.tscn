@@ -134,7 +134,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wyyh"]
-size = Vector2(694, 255)
+size = Vector2(591, 255)
 
 [node name="Level_0" type="Node2D"]
 process_mode = 1
@@ -260,10 +260,10 @@ position = Vector2(2584, 414)
 position = Vector2(3349, -256)
 
 [node name="Pickup2" parent="WaterPickups" instance=ExtResource("10_b6cpj")]
-position = Vector2(2511, 483)
+position = Vector2(2605, 519)
 
 [node name="Pickup6" parent="WaterPickups" instance=ExtResource("10_b6cpj")]
-position = Vector2(2477, 590)
+position = Vector2(2515, 626)
 
 [node name="UI" parent="." instance=ExtResource("12_xtqvr")]
 
@@ -396,6 +396,38 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Area2D3" type="Area2D" parent="Tutorial"]
+process_mode = 3
+position = Vector2(2291, -565)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("22_0m2o4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial/Area2D3"]
+position = Vector2(294.5, 53.5)
+shape = SubResource("RectangleShape2D_7wyyh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/Area2D3"]
+offset_top = -67.0
+offset_right = 500.0
+offset_bottom = 179.0
+theme_override_constants/separation = 30
+
+[node name="Accept" parent="Tutorial/Area2D3/VBoxContainer" instance=ExtResource("22_yu2di")]
+layout_mode = 2
+
+[node name="Powerups" type="RichTextLabel" parent="Tutorial/Area2D3/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme = ExtResource("21_b7ih6")
+bbcode_enabled = true
+text = "[center]Big drops of [color=dodgerblue]water[/color],
+will give you a [color=seagreen][wave]permanent[/wave][/color] upgrade!
+Try to grab some   →
+And see the water reservoir increase
+[/center]"
+fit_content = true
+
 [node name="Area2D2" type="Area2D" parent="Tutorial"]
 process_mode = 3
 position = Vector2(2018, 533)
@@ -408,10 +440,13 @@ position = Vector2(248, 53.5)
 shape = SubResource("RectangleShape2D_7wyyh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/Area2D2"]
-offset_top = -32.0
+offset_top = -54.0
 offset_right = 500.0
-offset_bottom = 214.0
+offset_bottom = 192.0
 theme_override_constants/separation = 30
+
+[node name="Accept" parent="Tutorial/Area2D2/VBoxContainer" instance=ExtResource("22_yu2di")]
+layout_mode = 2
 
 [node name="WithoutWater" type="RichTextLabel" parent="Tutorial/Area2D2/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
@@ -425,9 +460,6 @@ And see the water meter go up
 [/center]"
 fit_content = true
 
-[node name="Accept" parent="Tutorial/Area2D2/VBoxContainer" instance=ExtResource("22_yu2di")]
-layout_mode = 2
-
 [node name="Area2D" type="Area2D" parent="Tutorial"]
 process_mode = 3
 position = Vector2(1861, 949)
@@ -436,7 +468,7 @@ collision_mask = 2
 script = ExtResource("22_0m2o4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial/Area2D"]
-position = Vector2(248, 88)
+position = Vector2(252.5, 88)
 shape = SubResource("RectangleShape2D_7wyyh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/Area2D"]
@@ -444,6 +476,9 @@ offset_top = -32.0
 offset_right = 500.0
 offset_bottom = 214.0
 theme_override_constants/separation = 30
+
+[node name="Accept" parent="Tutorial/Area2D/VBoxContainer" instance=ExtResource("22_yu2di")]
+layout_mode = 2
 
 [node name="PlantsNeedWater" type="RichTextLabel" parent="Tutorial/Area2D/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
@@ -455,8 +490,36 @@ Plants are mostly made of [color=dodgerblue]water[/color] and need [color=dodger
 [/center]"
 fit_content = true
 
-[node name="Accept" parent="Tutorial/Area2D/VBoxContainer" instance=ExtResource("22_yu2di")]
+[node name="TutorialMessageDying" type="Control" parent="Tutorial"]
+process_mode = 3
+visible = false
+anchors_preset = 0
+offset_left = 2185.0
+offset_top = 1461.0
+offset_right = 2185.0
+offset_bottom = 1461.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/TutorialMessageDying"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 500.0
+offset_bottom = 214.0
+theme_override_constants/separation = 30
+
+[node name="Accept" parent="Tutorial/TutorialMessageDying/VBoxContainer" instance=ExtResource("22_yu2di")]
 layout_mode = 2
+text = " [center]Press [font=res://assets/fonts/promptfont.otf]{main_action}[/font]
+to [rainbow]Sprout[/rainbow] again[/center]"
+
+[node name="Dying" type="RichTextLabel" parent="Tutorial/TutorialMessageDying/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme = ExtResource("21_b7ih6")
+bbcode_enabled = true
+text = "[center]Dying is OK.
+Plants grow several sprouts to explore the world
+[/center]"
+fit_content = true
 
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
@@ -466,6 +529,7 @@ layout_mode = 2
 [connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]
 [connection signal="input_type_changed" from="InputDetector" to="Tutorial/Area2D2/VBoxContainer/Accept" method="update_input_type"]
 [connection signal="input_type_changed" from="InputDetector" to="Tutorial/Area2D/VBoxContainer/Accept" method="update_input_type"]
+[connection signal="body_entered" from="Tutorial/Area2D3" to="Tutorial/Area2D3" method="_on_body_entered"]
 [connection signal="body_entered" from="Tutorial/Area2D2" to="Tutorial/Area2D2" method="_on_body_entered"]
 [connection signal="body_entered" from="Tutorial/Area2D" to="Tutorial/Area2D" method="_on_body_entered"]
 

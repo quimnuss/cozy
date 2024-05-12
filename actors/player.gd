@@ -22,7 +22,7 @@ const STAT_DANGER : float = 40
 
 var water_delta : float = 25
 var light_delta : float = 50
-const BURN_DELTA : float = 30
+const BURN_DELTA : float = 60
 
 @export var light_immune : bool = false
 @export var water_immune : bool = false
@@ -114,6 +114,8 @@ func respawn():
     light_level = max_light_level
     water_level = max_water_level
     set_burn(false)
+    animated_sprite_2d.modulate = Color(1,1,1,1)
+    self.rotation = 0
 
 func _process(delta):
 

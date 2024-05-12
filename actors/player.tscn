@@ -132,7 +132,7 @@ script = ExtResource("5_ongow")
 
 [node name="LitAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("5_rlxog")
-volume_db = -10.0
+volume_db = -15.0
 bus = &"Sfx"
 
 [node name="BurnAudio" type="AudioStreamPlayer" parent="AudioSfx"]

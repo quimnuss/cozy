@@ -8,7 +8,7 @@ var third_quarters_point : Vector2
 
 var elapsed = 0.0
 
-const DURATION = 2.0
+const DURATION = 0.7
 
 func _ready():
     trajectory_curve.add_point(get_parent().global_position)

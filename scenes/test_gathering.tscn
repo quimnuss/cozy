@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://actors/gather_droplet.gd" id="2_rpsjn"]
 
 [sub_resource type="Curve" id="Curve_7thcp"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.230469, 0.722504), 1.45754, 1.45754, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_5syc6"]
 
@@ -33,7 +33,7 @@ color = Color(0, 0.521569, 0.521569, 1)
 polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
 
 [node name="Target" type="Marker2D" parent="."]
-position = Vector2(827, 177)
+position = Vector2(101, 36)
 
 [node name="Cross" type="Polygon2D" parent="Target"]
 polygon = PackedVector2Array(-7, -9, 3, -3, 12, -6, 5, 1, 8, 13, -1, 4, -10, 10, -5, 0)
