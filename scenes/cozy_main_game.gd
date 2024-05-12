@@ -1,6 +1,6 @@
 extends Node2D
 @onready var player = $Player
-@onready var player_camera : CozyCamera = $Player/Camera2D
+@onready var player_camera : GrowthCamera = $Player/Camera2D
 
 @onready var start_position = $StartPosition
 @onready var trail_man = $TrailMan

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_v2i0r"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_vcyb1"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_cnytd"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_agmar"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_ciuww"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_ghry8"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_jtvxh"]
@@ -42,56 +43,7 @@ gradient = SubResource("Gradient_sh4f2")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="GDScript" id="GDScript_ey3n4"]
-script/source = "extends Camera2D
-
-class_name CozyCamera
-
-@export var player : Player
-
-@export var decay := 0.8 #How quickly shaking will stop [0,1].
-@export var max_offset := Vector2(100,75) #Maximum displacement in pixels.
-@export var max_roll := 0.1 #Maximum rotation in radians (use sparingly).
-@export var noise : FastNoiseLite #The source of random values.
-
-var noise_y = 0 #Value used to move through the noise
-
-var trauma := 0.0 #Current shake strength
-var trauma_pwr := 3 #Trauma exponent. Use [2,3]
-
-var trauma_offset : Vector2 = Vector2(0,0)
-
-var base_offset : Vector2
-
-func _ready():
-    randomize()
-    noise.seed = randi()
-    make_current()
-    base_offset = offset
-
-func add_trauma(amount : float):
-    trauma = min(trauma + amount, 1.0)
-
-func _process(delta):
-    if trauma:
-        trauma = max(trauma - decay * delta, 0)
-        shake()
-    elif trauma_offset.length() > 0 or rotation != 0:
-        lerp(offset.x,0.0,1)
-        lerp(offset.y,0.0,1)
-        lerp(rotation,0.0,1)
-
-    offset = base_offset + trauma_offset
-
-func shake():
-    var amt = pow(trauma, trauma_pwr)
-    noise_y += 1
-    rotation = max_roll * amt * noise.get_noise_2d(0, noise_y)
-    trauma_offset.x = max_offset.x * amt * noise.get_noise_2d(1000, noise_y)
-    trauma_offset.y = max_offset.y * amt * noise.get_noise_2d(2000, noise_y)
-"
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_p3sq4"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qh833"]
 
 [sub_resource type="Animation" id="Animation_41nk5"]
 tracks/0/type = "value"
@@ -328,9 +280,9 @@ position = Vector2(-1, -1)
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
-script = SubResource("GDScript_ey3n4")
+script = ExtResource("5_agmar")
 player = NodePath("..")
-noise = SubResource("FastNoiseLite_p3sq4")
+noise = SubResource("FastNoiseLite_qh833")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -10
@@ -723,10 +675,14 @@ script = ExtResource("22_esm4i")
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="distance_changed" from="Goal0" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
+[connection signal="goal_reached" from="Goal0" to="UI" method="_on_goal_reached"]
 [connection signal="distance_changed" from="Goal1" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal1" to="." method="_on_generic_goal_reached"]
+[connection signal="goal_reached" from="Goal1" to="UI" method="_on_goal_reached"]
 [connection signal="distance_changed" from="Goal2" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal2" to="." method="_on_generic_goal_reached"]
+[connection signal="goal_reached" from="Goal2" to="UI" method="_on_goal_reached"]
 [connection signal="distance_changed" from="Goal3" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal3" to="." method="_on_goal_3_goal_reached"]
+[connection signal="goal_reached" from="Goal3" to="UI" method="_on_goal_reached"]
 [connection signal="pressed" from="Credits/Button" to="." method="_on_quit_button_pressed"]

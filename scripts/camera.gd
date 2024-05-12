@@ -1,6 +1,6 @@
 extends Camera2D
 
-class_name CozyCamera
+class_name GrowthCamera
 
 @export var player : Player
 
