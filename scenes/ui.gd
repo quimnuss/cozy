@@ -36,3 +36,15 @@ func _on_distance_changed(goal_num : int, new_distance : float):
         3:
             $MarginContainer/HBoxContainer/VBoxContainer/Goal3._on_goal_distance_changed(new_distance)
 
+
+
+func _on_goal_reached(goal_num):
+    match goal_num:
+        0:
+            $MarginContainer/HBoxContainer/VBoxContainer/Goal0._on_goal_reached(goal_num)
+        1:
+            $MarginContainer/HBoxContainer/VBoxContainer/Goal1._on_goal_reached(goal_num)
+        2:
+            $MarginContainer/HBoxContainer/VBoxContainer/Goal2._on_goal_reached(goal_num)
+        3:
+            $MarginContainer/HBoxContainer/VBoxContainer/Goal3._on_goal_reached(goal_num)
