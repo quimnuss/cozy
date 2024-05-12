@@ -9,6 +9,7 @@ extends Node2D
 @onready var camera_2d = $WinScene/Camera2D
 @onready var outro_animation_player = $WinScene/SceneModulate/AnimationPlayer
 @onready var final_phrase_label = $WinScene/CenterContainer/FinalPhraseLabel
+@onready var credits = $Credits
 @onready var info = $Info
 
 @onready var sprout_label = $Info/SproutLabel
@@ -19,11 +20,7 @@ extends Node2D
 @onready var game_won_audio = $AudioSfx/GameWonAudio
 @onready var credits_music = $AudioSfx/CreditsMusic
 
-@export var next_level = 'res://scenes/level_1.tscn'
-
-enum GameStates {WELCOME, RUNNING, PAUSED, SPAWN}
-var game_state = GameStates.WELCOME
-
+var is_welcome : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,20 +55,12 @@ func fade_out(node : Node):
     tween.play()
     tween.finished.connect(node.queue_free)
 
-func start_run():
-    player.set_process(true)
-    trail_man.set_process(true)
-    player.can_move = true
-
-func stop_run():
-    player.set_process(false)
-    trail_man.set_process(false)
-    player.can_move = false
-
 func start_game():
     fade_out(info)
     player.visible = true
-    start_run()
+    player.set_process(true)
+    trail_man.set_process(true)
+    player.can_move = true
     audio_sfx.fade_out(welcome_background_music, 3)
     audio_sfx.fade_in(game_background_music, 3)
 
@@ -82,23 +71,21 @@ func knockknock():
     input_knock_knock -= 1
 
 func _input(event):
-    if game_state == GameStates.WELCOME:
+    if is_welcome:
         var is_keyboard = (event.is_action_pressed("move_left") \
                         or event.is_action_pressed("move_right") \
                         or event.is_action_pressed("move_up") \
                         or event.is_action_pressed("move_down"))
-        var is_joy = event.is_action_pressed("main_action") and event is InputEventJoypadButton
-        var is_mouse =  event.is_action_pressed("main_action") and event is InputEventMouseButton
+        var is_joy = event is InputEventJoypadButton
+        var is_mouse = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT
 
         if is_keyboard or is_joy or is_mouse:
             if input_knock_knock <= 0:
-                game_state = GameStates.RUNNING
+                Global.mouse_movement = is_mouse
+                is_welcome = false
                 start_game()
             else:
                 knockknock()
-    elif game_state == GameStates.SPAWN:
-        if event.is_action_pressed("main_action") or event.is_action_pressed("move_up"):
-            start_run()
 
 func _process(_delta):
     if Input.is_action_just_pressed("respawn"):
@@ -120,8 +107,6 @@ func respawn():
     trail_man.to_freezer()
     player.global_position = start_position.global_position
     player.respawn()
-    game_state = GameStates.SPAWN
-    stop_run()
 
 func _on_player_death():
     respawn()
@@ -142,18 +127,19 @@ func win():
     add_child(spore)
 
 func play_outro():
+    var previous_camera : Camera2D = get_viewport().get_camera_2d()
+    camera_2d.global_position = previous_camera.global_position
+    camera_2d.offset = previous_camera.offset
+
+    camera_2d.make_current()
+    camera_2d.position_smoothing_speed = 1.0
+    camera_2d.global_position = start_position.global_position
+    await get_tree().create_timer(1).timeout
     audio_sfx.fade_out(credits_music, 4)
     audio_sfx.fade_in(game_background_music, 4)
-    get_tree().change_scene_to_file(next_level)
-#
-    #var previous_camera : Camera2D = get_viewport().get_camera_2d()
-    #camera_2d.global_position = previous_camera.global_position
-    #camera_2d.offset = previous_camera.offset
-#
-    #camera_2d.make_current()
-    #camera_2d.position_smoothing_speed = 1.0
-    #camera_2d.global_position = start_position.global_position
-    #await get_tree().create_timer(1).timeout
+    credits.visible = true
+    final_phrase_label.reparent(credits)
+    outro_animation_player.play('credits')
 
 func _on_goal_3_goal_reached(_goal_num):
     win()
@@ -169,6 +155,3 @@ func _on_quit_button_pressed():
 
 func _on_restart_button_pressed():
     get_tree().reload_current_scene()
-
-
-

@@ -28,4 +28,4 @@ position = Vector2(101, 36)
 polygon = PackedVector2Array(-7, -9, 3, -3, 12, -6, 5, 1, 8, 13, -1, 4, -10, 10, -5, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(841, 337)
+position = Vector2(966, 380)

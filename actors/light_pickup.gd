@@ -9,6 +9,7 @@ var invader : Player
 @onready var light_collision_shape_2d : CollisionShape2D = $LightArea2D/CollisionShape2D
 @onready var burn_collision_shape_2d = $BurnArea2D/CollisionShape2D
 
+var gather_ui_position : Vector2 = Vector2(200, 50)
 
 var light_range_max : float
 var light_range_min : float
@@ -22,6 +23,11 @@ func picked_up(player : Player):
     animated_sprite_2d.play('dissolve')
     point_light_2d.visible = false
     is_pickable = false
+
+    for i in range(4):
+        var droplet : GatherDroplet = GatherDroplet.Instantiate(self.global_position, gather_ui_position)
+        droplet.modulate = Color(0.949, 0.886, 0.02)
+        self.add_child(droplet)
 
 func _physics_process(_delta):
     if invader:
