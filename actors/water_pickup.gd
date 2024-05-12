@@ -3,7 +3,7 @@ extends Node2D
 
 var is_pickable : bool = true
 
-var gather_ui_position : Vector2 = Vector2(70,-20)
+var gather_ui_position : Vector2 = Vector2(0,0)
 
 func _ready():
     animated_sprite_2d.play('default')
@@ -12,9 +12,11 @@ func picked_up(player):
     player.water()
     animated_sprite_2d.play('dissolve')
     is_pickable = false
-    var target_position : Vector2 = (get_viewport().get_screen_transform() * get_viewport().get_canvas_transform()).affine_inverse() * gather_ui_position
-    var droplet : GatherDroplet = GatherDroplet.Instantiate(self.global_position, target_position)
-    self.add_child(droplet)
+    var target_position : Vector2 = gather_ui_position * (get_viewport().get_screen_transform() * get_viewport().get_canvas_transform()).affine_inverse()
+    for i in range(4):
+        var droplet : GatherDroplet = GatherDroplet.Instantiate(self.global_position, target_position)
+        droplet.modulate = Color(0.369, 0.808, 0.973)
+        self.add_child(droplet)
 
 
 func _on_area_2d_body_entered(body):

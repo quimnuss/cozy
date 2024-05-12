@@ -11,21 +11,24 @@ var elapsed = 0.0
 
 static var gather_droplet_scene = preload('res://actors/gather_droplet.tscn')
 
-static func New(_initial_position, _target_position):
+static func New(_initial_position, _target_position) -> GatherDroplet:
     var droplet : GatherDroplet = GatherDroplet.new()
     droplet.initial_position = _initial_position
     droplet.global_position = _initial_position
     droplet.target_position = _target_position
-    droplet.third_quarters_point = _initial_position + 0.10*(_target_position - _initial_position) + Vector2(0,-100)
+    var ortogonal_offset : Vector2 = -_initial_position.direction_to(_target_position).orthogonal()*150
+    droplet.third_quarters_point = _initial_position + ortogonal_offset + Vector2(randi_range(-75,75),randi_range(-75, 75))
+    droplet.modulate = Color(0.369, 0.808, 0.973)
     return droplet
 
-static func Instantiate(_initial_position : Vector2, _target_position : Vector2):
+static func Instantiate(_initial_position : Vector2, _target_position : Vector2) -> GatherDroplet:
     var droplet : GatherDroplet = gather_droplet_scene.instantiate()
     droplet.initial_position = _initial_position
     droplet.global_position = _initial_position
     droplet.target_position = _target_position
     var ortogonal_offset : Vector2 = -_initial_position.direction_to(_target_position).orthogonal()*150
-    droplet.third_quarters_point = _initial_position + ortogonal_offset
+    droplet.third_quarters_point = _initial_position + ortogonal_offset + Vector2(randi_range(-75,75),randi_range(-75, 75))
+    droplet.modulate = Color(0.369, 0.808, 0.973)
     return droplet
 
 func _physics_process(delta):

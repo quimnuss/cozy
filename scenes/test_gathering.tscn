@@ -21,6 +21,7 @@ polygon = PackedVector2Array(-7, -9, 3, -3, 12, -6, 5, 1, 8, 13, -1, 4, -10, 10,
 autostart = true
 
 [node name="Target" type="Marker2D" parent="."]
+modulate = Color(0.027451, 0.482353, 0.454902, 1)
 position = Vector2(101, 36)
 
 [node name="Cross" type="Polygon2D" parent="Target"]
