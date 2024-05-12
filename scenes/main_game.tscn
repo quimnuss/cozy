@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://nnrhfywswupo"]
+[gd_scene load_steps=42 format=3 uid="uid://3k82qqi68q8v"]
 
-[ext_resource type="Script" path="res://scenes/cozy_main_game.gd" id="1_q85br"]
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_q85br"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_wwqgf"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="2_obrol"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="3_jslog"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_tdcfe"]
@@ -17,7 +18,6 @@
 [ext_resource type="Script" path="res://actors/audiosfx.gd" id="19_uapuf"]
 [ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="21_fhrjl"]
 [ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="22_nl4aj"]
-[ext_resource type="Script" path="res://scripts/input_detector.gd" id="22_updc1"]
 [ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="23_1262i"]
 [ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="23_ogi7g"]
 [ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="24_i2vxf"]
@@ -41,55 +41,6 @@ gradient = SubResource("Gradient_sh4f2")
 gradient = SubResource("Gradient_sh4f2")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
-
-[sub_resource type="GDScript" id="GDScript_ey3n4"]
-script/source = "extends Camera2D
-
-class_name CozyCamera
-
-@export var player : Player
-
-@export var decay := 0.8 #How quickly shaking will stop [0,1].
-@export var max_offset := Vector2(100,75) #Maximum displacement in pixels.
-@export var max_roll := 0.1 #Maximum rotation in radians (use sparingly).
-@export var noise : FastNoiseLite #The source of random values.
-
-var noise_y = 0 #Value used to move through the noise
-
-var trauma := 0.0 #Current shake strength
-var trauma_pwr := 3 #Trauma exponent. Use [2,3]
-
-var trauma_offset : Vector2 = Vector2(0,0)
-
-var base_offset : Vector2
-
-func _ready():
-    randomize()
-    noise.seed = randi()
-    make_current()
-    base_offset = offset
-
-func add_trauma(amount : float):
-    trauma = min(trauma + amount, 1.0)
-
-func _process(delta):
-    if trauma:
-        trauma = max(trauma - decay * delta, 0)
-        shake()
-    elif trauma_offset.length() > 0 or rotation != 0:
-        lerp(offset.x,0.0,1)
-        lerp(offset.y,0.0,1)
-        lerp(rotation,0.0,1)
-
-    offset = base_offset + trauma_offset
-
-func shake():
-    var amt = pow(trauma, trauma_pwr)
-    noise_y += 1
-    rotation = max_roll * amt * noise.get_noise_2d(0, noise_y)
-    trauma_offset.x = max_offset.x * amt * noise.get_noise_2d(1000, noise_y)
-    trauma_offset.y = max_offset.y * amt * noise.get_noise_2d(2000, noise_y)
-"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_p3sq4"]
 
@@ -139,7 +90,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [false]
 }
 
@@ -179,7 +130,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true]
 }
 
@@ -269,7 +220,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Level" type="Node2D"]
+[node name="MainGame" type="Node2D"]
 script = ExtResource("1_q85br")
 
 [node name="Ground" type="Sprite2D" parent="."]
@@ -328,7 +279,7 @@ position = Vector2(-1, -1)
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
-script = SubResource("GDScript_ey3n4")
+script = ExtResource("1_wwqgf")
 player = NodePath("..")
 noise = SubResource("FastNoiseLite_p3sq4")
 
@@ -449,7 +400,6 @@ position = Vector2(3706, -1446)
 goal_num = 3
 
 [node name="WinScene" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("15_n7mu1")
 
 [node name="CenterContainer" type="CenterContainer" parent="WinScene"]
@@ -538,24 +488,19 @@ script = ExtResource("19_uapuf")
 
 [node name="GoalReachedAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("19_pv63y")
-bus = &"Sfx"
 
 [node name="GameWonAudio" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("23_ogi7g")
-bus = &"Sfx"
 
 [node name="WelcomeBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("21_fhrjl")
 autoplay = true
-bus = &"Music"
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("22_nl4aj")
-bus = &"Music"
 
 [node name="CreditsMusic" type="AudioStreamPlayer" parent="AudioSfx"]
 stream = ExtResource("24_i2vxf")
-bus = &"Music"
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -714,12 +659,6 @@ theme_override_font_sizes/font_size = 60
 text = "Go outside >"
 flat = true
 
-[node name="Settings" type="CanvasLayer" parent="."]
-
-[node name="InputDetector" type="Node" parent="."]
-script = ExtResource("22_updc1")
-
-[connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="distance_changed" from="Goal0" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
