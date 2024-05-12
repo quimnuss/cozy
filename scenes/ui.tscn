@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dytbi11d84kv0"]
+[gd_scene load_steps=13 format=3 uid="uid://dytbi11d84kv0"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_cf8hv"]
+[ext_resource type="Script" path="res://scripts/focus_grabber.gd" id="2_amyht"]
 [ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="2_cpghh"]
 [ext_resource type="Script" path="res://scripts/status_bar.gd" id="3_675mn"]
 [ext_resource type="Curve" uid="uid://qdoxje4xv8l3" path="res://resources/sine_curve.tres" id="4_2bsas"]
@@ -20,6 +21,18 @@ region = Rect2(0, 0, 62, 62)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_cf8hv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_right = NodePath("../MarginContainer/HBoxContainer/Settings/QuitButton")
+focus_mode = 2
+mouse_default_cursor_shape = 3
+script = ExtResource("2_amyht")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 100)
@@ -219,6 +232,7 @@ size_flags_vertical = 4
 text = "x"
 flat = true
 
+[connection signal="gui_input" from="MarginContainer" to="Control" method="_on_margin_container_gui_input"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Settings/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/Settings/MuteButton" to="MarginContainer/HBoxContainer/Settings/MuteButton" method="_on_toggled"]
 [connection signal="pressed" from="Menu/x" to="." method="_on_close_settings_pressed"]
