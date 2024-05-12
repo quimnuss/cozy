@@ -1,39 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7d55wvw4aetv"]
+[gd_scene load_steps=3 format=3 uid="uid://b7d55wvw4aetv"]
 
-[ext_resource type="Script" path="res://scripts/gather_emitter.gd" id="1_mxpkm"]
-[ext_resource type="Script" path="res://actors/gather_droplet.gd" id="2_rpsjn"]
-
-[sub_resource type="Curve" id="Curve_7thcp"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.230469, 0.722504), 1.45754, 1.45754, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_5syc6"]
+[ext_resource type="Script" path="res://scripts/droplet_emitter.gd" id="1_g0vwc"]
+[ext_resource type="PackedScene" uid="uid://dmm5dwde6ag7l" path="res://actors/gather_droplet.tscn" id="2_pe3ie"]
 
 [node name="TestGathering" type="Node2D"]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(415, 261)
-script = ExtResource("1_mxpkm")
+script = ExtResource("1_g0vwc")
 
 [node name="Cross" type="Polygon2D" parent="Marker2D"]
 polygon = PackedVector2Array(-7, -9, 3, -3, 12, -6, 5, 1, 8, 13, -1, 4, -10, 10, -5, 0)
 
-[node name="Cross2" type="Polygon2D" parent="Marker2D"]
+[node name="Midpoint" type="Polygon2D" parent="Marker2D"]
 polygon = PackedVector2Array(-7, -9, 3, -3, 12, -6, 5, 1, 8, 13, -1, 4, -10, 10, -5, 0)
 
-[node name="Node2D" type="Node2D" parent="Marker2D"]
-position = Vector2(-211, -267)
-script = ExtResource("2_rpsjn")
-speed_curve = SubResource("Curve_7thcp")
-trajectory_curve = SubResource("Curve2D_5syc6")
+[node name="GatherDroplet" parent="Marker2D" instance=ExtResource("2_pe3ie")]
 
-[node name="Polygon2D" type="Polygon2D" parent="Marker2D/Node2D"]
-scale = Vector2(3, 3)
-color = Color(0, 0.521569, 0.521569, 1)
-polygon = PackedVector2Array(0, -2, -2, 0, 0, 2, 2, 0)
+[node name="EmitDroplet" type="Timer" parent="Marker2D"]
+autostart = true
 
 [node name="Target" type="Marker2D" parent="."]
 position = Vector2(101, 36)
 
 [node name="Cross" type="Polygon2D" parent="Target"]
 polygon = PackedVector2Array(-7, -9, 3, -3, 12, -6, 5, 1, 8, 13, -1, 4, -10, 10, -5, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(841, 337)

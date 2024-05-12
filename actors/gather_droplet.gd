@@ -1,41 +1,43 @@
 extends Node2D
 
-@export var speed_curve : Curve
-@export var trajectory_curve : Curve2D
-@onready var target = $"../../Target"
-var third_quarters_point : Vector2
-@onready var cross_2 = $"../Cross2"
+class_name GatherDroplet
 
-var elapsed = 0.0
+var third_quarters_point : Vector2
+var initial_position : Vector2
+var target_position : Vector2
 
 const DURATION = 0.7
+var elapsed = 0.0
 
-func _ready():
-    trajectory_curve.add_point(get_parent().global_position)
-    trajectory_curve.add_point(target.global_position)
-    self.global_position = get_parent().global_position
-    third_quarters_point = get_parent().global_position + 0.10*(target.global_position - get_parent().global_position) + Vector2(0,-100)
-    var m = Marker2D.new()
-    m.global_position = third_quarters_point
-    self.add_child(m)
-    cross_2.global_position = third_quarters_point
+static var gather_droplet_scene = preload('res://actors/gather_droplet.tscn')
 
-#func _process(delta):
-    #elapsed += delta
-    #self.global_position = trajectory_curve.sample(0,elapsed/DURATION)
+static func New(_initial_position, _target_position):
+    var droplet : GatherDroplet = GatherDroplet.new()
+    droplet.initial_position = _initial_position
+    droplet.global_position = _initial_position
+    droplet.target_position = _target_position
+    droplet.third_quarters_point = _initial_position + 0.10*(_target_position - _initial_position) + Vector2(0,-100)
+    return droplet
 
+static func Instantiate(_initial_position : Vector2, _target_position : Vector2):
+    var droplet : GatherDroplet = gather_droplet_scene.instantiate()
+    droplet.initial_position = _initial_position
+    droplet.global_position = _initial_position
+    droplet.target_position = _target_position
+    var ortogonal_offset : Vector2 = -_initial_position.direction_to(_target_position).orthogonal()*150
+    droplet.third_quarters_point = _initial_position + ortogonal_offset
+    return droplet
 
-var t = 0.0
-func _physics_process(delta)->void:
+func _physics_process(delta):
+    if elapsed/DURATION > 1:
+        #elapsed = 0
+        queue_free()
+        return
+    elapsed += delta
+    self.global_position = _quad_beizer(initial_position, third_quarters_point, target_position, elapsed/DURATION)
 
-    if t > 1:
-        t=0
-    t+=delta/DURATION
-    self.global_position = _quad_beizer(get_parent().global_position, third_quarters_point, target.global_position, t)
-
-
-func _quad_beizer(startVector:Vector2, heightVector:Vector2, endVector:Vector2, t:float):
-    var q0 = startVector.lerp(heightVector,t)
-    var q1 = heightVector.lerp(endVector,t)
-    var r = q0.lerp(q1,t)
+func _quad_beizer(start_vector:Vector2, height_vector:Vector2, end_vector:Vector2, t:float):
+    var q0 = start_vector.lerp(height_vector, t)
+    var q1 = height_vector.lerp(end_vector, t)
+    var r = q0.lerp(q1, t)
     return r
