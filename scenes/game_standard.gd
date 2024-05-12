@@ -17,12 +17,10 @@ extends Node2D
 @onready var game_background_music = $AudioSfx/GameBackgroundMusic
 @onready var audio_sfx = $AudioSfx
 @onready var game_won_audio = $AudioSfx/GameWonAudio
-@onready var tutorial_message_dying = $Tutorial/TutorialMessageDying
 
 enum GameStates {WELCOME, RUNNING, PAUSED, SPAWN}
 var game_state = GameStates.WELCOME
 
-var death_count : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -98,8 +96,6 @@ func _input(event):
     elif game_state == GameStates.SPAWN:
         if event.is_action_pressed("main_action") or event.is_action_pressed("move_up"):
             start_run()
-            if is_instance_valid(tutorial_message_dying):
-                tutorial_message_dying.queue_free()
 
 func _process(_delta):
     if Input.is_action_just_pressed("respawn"):
@@ -123,9 +119,6 @@ func respawn():
     player.respawn()
     game_state = GameStates.SPAWN
     stop_run()
-    if death_count == 0:
-        tutorial_message_dying.visible = true
-    death_count += 1
 
 func _on_player_death():
     respawn()

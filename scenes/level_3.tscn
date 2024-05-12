@@ -1,27 +1,27 @@
-[gd_scene load_steps=43 format=3 uid="uid://b8ob38dbn6e5j"]
+[gd_scene load_steps=43 format=3 uid="uid://bo2os0t77nr2t"]
 
-[ext_resource type="Script" path="res://scenes/cozy_main_game.gd" id="1_f80v8"]
-[ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_sbr56"]
-[ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_curxq"]
-[ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_o0vqa"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="5_n7tdw"]
-[ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_kgfxp"]
-[ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_27s28"]
-[ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_jrduc"]
-[ext_resource type="PackedScene" uid="uid://b7hr6u3tlnrdy" path="res://actors/trail_man.tscn" id="9_n76f4"]
-[ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="10_oj7h6"]
-[ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="11_la87j"]
-[ext_resource type="PackedScene" uid="uid://dytbi11d84kv0" path="res://scenes/ui.tscn" id="12_f58sf"]
-[ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="13_ojll7"]
-[ext_resource type="Script" path="res://scenes/win_scene.gd" id="14_cax1h"]
-[ext_resource type="Script" path="res://actors/audiosfx.gd" id="15_ud0bg"]
-[ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="16_kqsno"]
-[ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="17_uiuh6"]
-[ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="18_uolwd"]
-[ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="19_o55dw"]
-[ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="20_puuma"]
-[ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="21_5ire6"]
-[ext_resource type="Script" path="res://scripts/input_detector.gd" id="22_t2s0y"]
+[ext_resource type="Script" path="res://scenes/cozy_main_game.gd" id="1_kluus"]
+[ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_v2i0r"]
+[ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_vcyb1"]
+[ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_cnytd"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_4b53h"]
+[ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_ciuww"]
+[ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_ghry8"]
+[ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_jtvxh"]
+[ext_resource type="PackedScene" uid="uid://b7hr6u3tlnrdy" path="res://actors/trail_man.tscn" id="9_4ue5s"]
+[ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="10_kbj5u"]
+[ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="11_e8s0i"]
+[ext_resource type="PackedScene" uid="uid://dytbi11d84kv0" path="res://scenes/ui.tscn" id="12_qorh6"]
+[ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="13_e8uxv"]
+[ext_resource type="Script" path="res://scenes/win_scene.gd" id="14_juwuq"]
+[ext_resource type="Script" path="res://actors/audiosfx.gd" id="15_cj7gd"]
+[ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="16_cec4y"]
+[ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="17_asgv0"]
+[ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="18_ot054"]
+[ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="19_utc4c"]
+[ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="20_f65av"]
+[ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="21_2nwqw"]
+[ext_resource type="Script" path="res://scripts/input_detector.gd" id="22_esm4i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -91,7 +91,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [false]
 }
 
@@ -131,7 +131,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true]
 }
 
@@ -158,35 +158,35 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqdbi"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(0, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_woyg6"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(62, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52ahl"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(124, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7gyrx"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(186, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivv6l"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(248, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5ynw"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(310, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rftas"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(372, 0, 62, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ft7kb"]
-atlas = ExtResource("21_5ire6")
+atlas = ExtResource("21_2nwqw")
 region = Rect2(434, 0, 62, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y6tys"]
@@ -222,11 +222,11 @@ animations = [{
 }]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_f80v8")
+script = ExtResource("1_kluus")
 
 [node name="Ground" type="Sprite2D" parent="."]
 z_index = -5
-texture = ExtResource("2_sbr56")
+texture = ExtResource("2_v2i0r")
 centered = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Ground"]
@@ -269,9 +269,9 @@ offset = Vector2(-32.07, 0)
 unique_name_in_owner = true
 position = Vector2(2432, 1773)
 
-[node name="PlantSeed" parent="StartPosition" instance=ExtResource("3_curxq")]
+[node name="PlantSeed" parent="StartPosition" instance=ExtResource("3_vcyb1")]
 
-[node name="Player" parent="." instance=ExtResource("4_o0vqa")]
+[node name="Player" parent="." instance=ExtResource("4_cnytd")]
 visible = false
 position = Vector2(2432, 1773)
 
@@ -280,7 +280,7 @@ position = Vector2(-1, -1)
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
-script = ExtResource("5_n7tdw")
+script = ExtResource("5_4b53h")
 player = NodePath("..")
 noise = SubResource("FastNoiseLite_p3sq4")
 
@@ -294,7 +294,7 @@ motion_mirroring = Vector2(3000, 1591)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
 modulate = Color(1, 1, 0.992157, 1)
-texture = ExtResource("6_kgfxp")
+texture = ExtResource("6_ciuww")
 centered = false
 
 [node name="DustBack" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -304,7 +304,7 @@ motion_mirroring = Vector2(4096, 4096)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DustBack"]
 texture_repeat = 3
-texture = ExtResource("7_27s28")
+texture = ExtResource("7_ghry8")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -312,7 +312,7 @@ visible = false
 
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 z_index = -5
-texture = ExtResource("2_sbr56")
+texture = ExtResource("2_v2i0r")
 centered = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="ParallaxBackground/ParallaxLayer/Ground"]
@@ -327,82 +327,82 @@ motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(4096, 4096)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/DustFront"]
-texture = ExtResource("8_jrduc")
+texture = ExtResource("8_jtvxh")
 centered = false
 
-[node name="TrailMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_n76f4")]
+[node name="TrailMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_4ue5s")]
 target = NodePath("../Player")
 
 [node name="WaterPickups" type="Node2D" parent="."]
 z_index = -2
 
-[node name="Pickup" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(2177, 978)
 
-[node name="Pickup7" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup7" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(2172, 1218)
 
-[node name="Pickup9" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup9" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(2104, 1153)
 
-[node name="Pickup8" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup8" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(2048, 1236)
 
-[node name="Pickup10" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup10" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(3349, -256)
 
-[node name="Pickup2" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup2" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(3437, 958)
 
-[node name="Pickup3" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup3" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(1936, 769)
 
-[node name="Pickup4" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup4" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(2280, 744)
 
-[node name="Pickup5" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup5" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(2936, 854)
 
-[node name="Pickup6" parent="WaterPickups" instance=ExtResource("10_oj7h6")]
+[node name="Pickup6" parent="WaterPickups" instance=ExtResource("10_kbj5u")]
 position = Vector2(2497, 472)
 
 [node name="LightPickups" type="Node2D" parent="."]
 z_index = -2
 
-[node name="LightPickup" parent="LightPickups" instance=ExtResource("11_la87j")]
+[node name="LightPickup" parent="LightPickups" instance=ExtResource("11_e8s0i")]
 position = Vector2(3395, 649)
 
-[node name="LightPickup2" parent="LightPickups" instance=ExtResource("11_la87j")]
+[node name="LightPickup2" parent="LightPickups" instance=ExtResource("11_e8s0i")]
 position = Vector2(2026, 439)
 
-[node name="LightPickup3" parent="LightPickups" instance=ExtResource("11_la87j")]
+[node name="LightPickup3" parent="LightPickups" instance=ExtResource("11_e8s0i")]
 position = Vector2(2588, 830)
 
-[node name="LightPickup4" parent="LightPickups" instance=ExtResource("11_la87j")]
+[node name="LightPickup4" parent="LightPickups" instance=ExtResource("11_e8s0i")]
 position = Vector2(2895, 363)
 
-[node name="UI" parent="." instance=ExtResource("12_f58sf")]
+[node name="UI" parent="." instance=ExtResource("12_qorh6")]
 
-[node name="Goal0" parent="." instance=ExtResource("13_ojll7")]
+[node name="Goal0" parent="." instance=ExtResource("13_e8uxv")]
 position = Vector2(2142, 1312)
 
-[node name="Goal1" parent="." instance=ExtResource("13_ojll7")]
+[node name="Goal1" parent="." instance=ExtResource("13_e8uxv")]
 position = Vector2(3577, 157)
 goal_num = 1
 
-[node name="Goal2" parent="." instance=ExtResource("13_ojll7")]
+[node name="Goal2" parent="." instance=ExtResource("13_e8uxv")]
 modulate = Color(0.94902, 0.752941, 0.580392, 1)
 position = Vector2(1437, -90)
 goal_num = 2
 
-[node name="Goal3" parent="." instance=ExtResource("13_ojll7")]
+[node name="Goal3" parent="." instance=ExtResource("13_e8uxv")]
 modulate = Color(0.94902, 0.886275, 0.0196078, 1)
 position = Vector2(3706, -1446)
 goal_num = 3
 
 [node name="WinScene" type="CanvasLayer" parent="."]
 visible = false
-script = ExtResource("14_cax1h")
+script = ExtResource("14_juwuq")
 
 [node name="CenterContainer" type="CenterContainer" parent="WinScene"]
 anchors_preset = 8
@@ -486,27 +486,27 @@ text = "[center]Press ASDW or use [font=res://assets/fonts/promptfont.otf]⟵[/f
 fit_content = true
 
 [node name="AudioSfx" type="Node" parent="."]
-script = ExtResource("15_ud0bg")
+script = ExtResource("15_cj7gd")
 
 [node name="GoalReachedAudio" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("16_kqsno")
+stream = ExtResource("16_cec4y")
 bus = &"Sfx"
 
 [node name="GameWonAudio" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("17_uiuh6")
+stream = ExtResource("17_asgv0")
 bus = &"Sfx"
 
 [node name="WelcomeBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("18_uolwd")
+stream = ExtResource("18_ot054")
 autoplay = true
 bus = &"Music"
 
 [node name="GameBackgroundMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("19_o55dw")
+stream = ExtResource("19_utc4c")
 bus = &"Music"
 
 [node name="CreditsMusic" type="AudioStreamPlayer" parent="AudioSfx"]
-stream = ExtResource("20_puuma")
+stream = ExtResource("20_f65av")
 bus = &"Music"
 
 [node name="Credits" type="Control" parent="."]
@@ -669,8 +669,9 @@ flat = true
 [node name="Settings" type="CanvasLayer" parent="."]
 
 [node name="InputDetector" type="Node" parent="."]
-script = ExtResource("22_t2s0y")
+script = ExtResource("22_esm4i")
 
+[connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="distance_changed" from="Goal0" to="UI" method="_on_distance_changed"]
 [connection signal="goal_reached" from="Goal0" to="." method="_on_generic_goal_reached"]
