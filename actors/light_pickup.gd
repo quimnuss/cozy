@@ -24,17 +24,25 @@ func picked_up(player : Player):
     point_light_2d.visible = false
     is_pickable = false
 
-    for i in range(4):
+func spawn_gather(amount : int = 4):
+    for i in range(amount):
         var droplet : GatherDroplet = GatherDroplet.Instantiate(self.global_position, gather_ui_position)
         droplet.modulate = Color(0.949, 0.886, 0.02)
         self.add_child(droplet)
 
-func _physics_process(_delta):
+var elapsed = 0
+const LIGHT_PARTICLES = 1
+
+func _physics_process(delta):
     if invader:
         var invader_distance : float = self.global_position.distance_to(invader.global_position)
         # TODO use curve maybe its easier and we can make exp
         var ratio = 1 - clamp((invader_distance - light_range_min)/(light_range_max - light_range_min),0,1)
         invader.light(ratio)
+        elapsed += delta
+        if elapsed > (1-ratio)*LIGHT_PARTICLES + 0.5:
+            elapsed = 0
+            spawn_gather(1 + ratio*4)
 
 
 func _on_light_area_2d_body_entered(body):
