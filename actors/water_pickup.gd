@@ -13,8 +13,8 @@ func picked_up(player):
     player.water()
     animated_sprite_2d.play('dissolve')
     is_pickable = false
-    var screen_tranformer : Transform2D = (get_viewport().get_screen_transform() * get_viewport().get_canvas_transform()).affine_inverse()
-    var target_position : Vector2 = screen_tranformer*gather_ui_position
+    #var screen_tranformer : Transform2D = (get_viewport().get_screen_transform() * get_viewport().get_canvas_transform()).affine_inverse()
+    #var target_position : Vector2 = screen_tranformer*gather_ui_position
 
     #var sprite = Sprite2D.new()
     #sprite.global_position = target_position
