@@ -21,8 +21,8 @@ extends Node2D
 
 @export var next_level = 'res://scenes/level_1.tscn'
 
-enum GameStates {WELCOME, RUNNING, PAUSED, SPAWN}
-var game_state = GameStates.WELCOME
+enum GameStates {CUTSCENE, WELCOME, RUNNING, PAUSED, SPAWN}
+var game_state = GameStates.CUTSCENE
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,9 +34,7 @@ func _ready():
     for goal : Goal in goals:
         goal.goal_reached.connect(_on_goal_reached)
 
-    player.set_process(false)
-    trail_man.set_process(false)
-    player.can_move = false
+    stop_run()
 
     #var done = await get_tree().create_timer(1).timeout
     #win_scene.play_win()
@@ -82,7 +80,11 @@ func knockknock():
     input_knock_knock -= 1
 
 func _input(event):
-    if game_state == GameStates.WELCOME:
+    if game_state == GameStates.CUTSCENE:
+        if event.is_action_pressed("main_action") or event.is_action_pressed("move_up"):
+            print('TODO skip! TODO start on cutscene optional?')
+            game_state = GameStates.WELCOME
+    elif game_state == GameStates.WELCOME:
         var is_keyboard = (event.is_action_pressed("move_left") \
                         or event.is_action_pressed("move_right") \
                         or event.is_action_pressed("move_up") \
@@ -171,4 +173,11 @@ func _on_restart_button_pressed():
     get_tree().reload_current_scene()
 
 
+
+
+
+func _on_main_animation_player_animation_finished(anim_name):
+    if anim_name == 'fly_in_cutscene':
+        $MainAnimationPlayer/Dandelion.queue_free()
+        game_state = GameStates.WELCOME
 

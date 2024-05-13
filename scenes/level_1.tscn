@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://dvljdu2x2pktx"]
+[gd_scene load_steps=41 format=3 uid="uid://dvljdu2x2pktx"]
 
 [ext_resource type="Script" path="res://scenes/game_standard.gd" id="1_8ncto"]
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_ngjf4"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_0ysxt"]
+[ext_resource type="SpriteFrames" uid="uid://mmgmejqbpbmd" path="res://resources/dandelion_spriteframes.tres" id="4_162ut"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_njln4"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_tukx6"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_3oa70"]
@@ -44,6 +45,115 @@ gradient = SubResource("Gradient_sh4f2")
 gradient = SubResource("Gradient_sh4f2")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_pjsb1"]
+resource_name = "fly_in_cutscene"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1000, -500), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainAnimationPlayer/Dandelion:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(760, 1100), Vector2(2420, 1720)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainAnimationPlayer/Dandelion:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(5, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_moq6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainAnimationPlayer/Dandelion:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(760, 1100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainAnimationPlayer/Dandelion:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ij5bm"]
+_data = {
+"RESET": SubResource("Animation_moq6x"),
+"fly_in_cutscene": SubResource("Animation_pjsb1")
+}
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_e05q1"]
 
@@ -190,12 +300,25 @@ position = Vector2(2432, 1773)
 
 [node name="PlantSeed" parent="StartPosition" instance=ExtResource("3_0ysxt")]
 
+[node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ij5bm")
+}
+autoplay = "fly_in_cutscene"
+
+[node name="Dandelion" type="AnimatedSprite2D" parent="MainAnimationPlayer"]
+position = Vector2(760, 1100)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_162ut")
+autoplay = "default"
+frame = 7
+frame_progress = 0.0888641
+
 [node name="Player" parent="." instance=ExtResource("4_njln4")]
-visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(2432, 1773)
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
-position = Vector2(-1, -1)
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -539,6 +662,7 @@ Plants need [color=Gold]light[/color] for photosynthesis, the process that conve
 [/center]"
 fit_content = true
 
+[connection signal="animation_finished" from="MainAnimationPlayer" to="." method="_on_main_animation_player_animation_finished"]
 [connection signal="build_changed" from="Player" to="UI" method="_on_player_build_changed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="death" from="Player" to="Tutorial" method="_on_player_death"]
