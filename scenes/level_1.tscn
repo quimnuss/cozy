@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_0ysxt"]
 [ext_resource type="SpriteFrames" uid="uid://mmgmejqbpbmd" path="res://resources/dandelion_spriteframes.tres" id="4_162ut"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_njln4"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="5_tukx6"]
+[ext_resource type="Script" path="res://scripts/growth_camera.gd" id="5_tukx6"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_3oa70"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_217rk"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_uj5c1"]
@@ -45,6 +45,57 @@ gradient = SubResource("Gradient_sh4f2")
 gradient = SubResource("Gradient_sh4f2")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_moq6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainAnimationPlayer/Dandelion:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(760, 1100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainAnimationPlayer/Dandelion:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_pjsb1"]
 resource_name = "fly_in_cutscene"
@@ -96,57 +147,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_moq6x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MainAnimationPlayer/Dandelion:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(760, 1100)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MainAnimationPlayer/Dandelion:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Player:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ij5bm"]
@@ -318,13 +318,14 @@ frame_progress = 0.0888641
 modulate = Color(1, 1, 1, 0)
 position = Vector2(2432, 1773)
 
-[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("5_tukx6")
-player = NodePath("..")
 noise = SubResource("FastNoiseLite_e05q1")
+player = Object(CharacterBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 0),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(2432, 1773),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":2,"collision_mask":1,"collision_priority":1.0,"input_pickable":false,"motion_mode":0,"up_direction":Vector2(0, -1),"velocity":Vector2(0, 0),"slide_on_ceiling":true,"max_slides":4,"wall_min_slide_angle":0.261799,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.785398,"floor_snap_length":1.0,"platform_on_leave":0,"platform_floor_layers":4294967295,"platform_wall_layers":0,"safe_margin":0.08,"script":Resource("res://actors/player.gd"),"min_direction":Vector2(1, -0.1),"light_immune":false,"water_immune":false,"can_die":true)
+
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -10
@@ -412,6 +413,7 @@ visible = false
 
 [node name="Goal0" parent="." instance=ExtResource("12_ob230")]
 position = Vector2(2871, -525)
+goal_num = 1
 
 [node name="Goal3" parent="." instance=ExtResource("12_ob230")]
 modulate = Color(0.94902, 0.886275, 0.0196078, 1)
@@ -562,10 +564,8 @@ custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme = ExtResource("22_8iteh")
 bbcode_enabled = true
-text = "[center]Big drops of [color=dodgerblue]water[/color],
-will give you a [color=seagreen][wave]permanent[/wave][/color] upgrade!
-Try to grab some   →
-And see the water reservoir increase
+text = "[center]Big stars of [color=Gold]light[/color]
+will give you a [color=seagreen][wave]level-persistent[/wave][/color] upgrade!
 [/center]"
 fit_content = true
 

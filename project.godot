@@ -12,6 +12,7 @@ config_version=5
 
 config/name="CozyGrowth"
 config/description="Discover the world as a new plant sprout"
+run/main_scene="res://scenes/level_0.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://assets/splash.png"
 config/icon="res://icon.svg"

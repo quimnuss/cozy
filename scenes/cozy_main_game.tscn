@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_5xydq"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_f2tsh"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_iiulg"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="5_im4dx"]
+[ext_resource type="Script" path="res://scripts/growth_camera.gd" id="5_im4dx"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_lpitc"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_v1ygh"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_andhy"]

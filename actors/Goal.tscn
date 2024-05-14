@@ -500,9 +500,8 @@ autoplay = "default"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c2wrn")
-animation = &"goal_3"
+animation = &"goal_1"
 autoplay = "default"
-frame_progress = 0.108089
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

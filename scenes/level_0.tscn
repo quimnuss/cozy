@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_t3ws7"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_2uw7r"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_da3wa"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="5_pgv8e"]
+[ext_resource type="Script" path="res://scripts/growth_camera.gd" id="5_pgv8e"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_y3to0"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_in3sw"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_3qhfx"]
@@ -194,14 +194,15 @@ visible = false
 position = Vector2(2432, 1773)
 light_immune = true
 
-[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1, -1)
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("5_pgv8e")
-player = NodePath("..")
 noise = SubResource("FastNoiseLite_e05q1")
+player = Object(CharacterBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(2432, 1773),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":2,"collision_mask":1,"collision_priority":1.0,"input_pickable":false,"motion_mode":0,"up_direction":Vector2(0, -1),"velocity":Vector2(0, 0),"slide_on_ceiling":true,"max_slides":4,"wall_min_slide_angle":0.261799,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.785398,"floor_snap_length":1.0,"platform_on_leave":0,"platform_floor_layers":4294967295,"platform_wall_layers":0,"safe_margin":0.08,"script":Resource("res://actors/player.gd"),"min_direction":Vector2(1, -0.1),"light_immune":true,"water_immune":false,"can_die":true)
+
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -10
@@ -457,8 +458,8 @@ custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme = ExtResource("21_b7ih6")
 bbcode_enabled = true
-text = "[center]Big drops of [color=dodgerblue]water[/color],
-will give you a [color=seagreen][wave]permanent[/wave][/color] upgrade!
+text = "[center]Big drops of [color=dodgerblue]water[/color]
+will give you a [color=seagreen][wave]level-presistent[/wave][/color] upgrade!
 Try to grab some   →
 And see the water reservoir increase
 [/center]"
