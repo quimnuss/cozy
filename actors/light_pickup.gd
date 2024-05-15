@@ -7,7 +7,7 @@ var is_pickable : bool = true
 var invader : Player
 
 @onready var light_collision_shape_2d : CollisionShape2D = $LightArea2D/CollisionShape2D
-@onready var burn_collision_shape_2d = $BurnArea2D/CollisionShape2D
+@onready var burn_collision_shape_2d : CollisionShape2D = $BurnArea2D/CollisionShape2D
 
 var gather_ui_position : Vector2 = Vector2(200, 50)
 
@@ -17,6 +17,14 @@ var light_range_min : float
 func _ready():
     light_range_max = light_collision_shape_2d.shape.radius
     light_range_min = burn_collision_shape_2d.shape.radius
+    
+    if OS.is_debug_build():
+        var debug_cam = Camera2D.new()
+        add_child(debug_cam)
+
+func _draw():
+    draw_arc(self.global_position, light_collision_shape_2d.shape.radius, 0, 2*PI, 50, Color(1,1,0), 5)
+    draw_arc(self.global_position, burn_collision_shape_2d.shape.radius, 0, 2*PI, 50, Color(1,0.2,0), 5)
 
 func picked_up(player : Player):
     player.light()
@@ -50,7 +58,7 @@ func _on_light_area_2d_body_entered(body):
         animated_sprite_2d.play('light')
         point_light_2d.energy = 0.7
         invader = body as Player
-
+        queue_redraw()
 
 func _on_light_area_2d_body_exited(body):
     if body is Player:
@@ -63,6 +71,7 @@ func _on_light_area_2d_body_exited(body):
 func _on_burn_area_2d_body_entered(body):
     if body is Player:
         body.set_burn(true)
+        queue_redraw()
 
 
 func _on_burn_area_2d_body_exited(body):

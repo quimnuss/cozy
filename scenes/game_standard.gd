@@ -10,6 +10,7 @@ extends Node2D
 @onready var outro_animation_player = $WinScene/SceneModulate/AnimationPlayer
 @onready var final_phrase_label = $WinScene/CenterContainer/FinalPhraseLabel
 @onready var info = $Info
+@onready var main_animation_player = $MainAnimationPlayer
 
 @onready var sprout_label = $Info/SproutLabel
 @onready var goal_reached_audio = $AudioSfx/GoalReachedAudio
@@ -84,6 +85,7 @@ func _input(event):
         if event.is_action_pressed("main_action") or event.is_action_pressed("move_up"):
             print('TODO skip! TODO start on cutscene optional?')
             game_state = GameStates.WELCOME
+            main_animation_player.advance(10)
     elif game_state == GameStates.WELCOME:
         var is_keyboard = (event.is_action_pressed("move_left") \
                         or event.is_action_pressed("move_right") \
