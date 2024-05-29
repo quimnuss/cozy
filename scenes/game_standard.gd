@@ -10,7 +10,6 @@ extends Node2D
 @onready var outro_animation_player = $WinScene/SceneModulate/AnimationPlayer
 @onready var final_phrase_label = $WinScene/CenterContainer/FinalPhraseLabel
 @onready var info = $Info
-@onready var main_animation_player = $MainAnimationPlayer
 
 @onready var sprout_label = $Info/SproutLabel
 @onready var goal_reached_audio = $AudioSfx/GoalReachedAudio
@@ -23,7 +22,7 @@ extends Node2D
 @export var next_level = 'res://scenes/level_1.tscn'
 
 enum GameStates {CUTSCENE, WELCOME, RUNNING, PAUSED, SPAWN}
-var game_state = GameStates.CUTSCENE
+@export var game_state : GameStates = GameStates.CUTSCENE
 
 
 # Called when the node enters the scene tree for the first time.
@@ -85,7 +84,8 @@ func _input(event):
         if event.is_action_pressed("main_action") or event.is_action_pressed("move_up"):
             print('TODO skip! TODO start on cutscene optional?')
             game_state = GameStates.WELCOME
-            main_animation_player.advance(10)
+            if has_node("MainAnimationPlayer"): 
+                $MainAnimationPlayer.advance(10)
     elif game_state == GameStates.WELCOME:
         var is_keyboard = (event.is_action_pressed("move_left") \
                         or event.is_action_pressed("move_right") \
@@ -173,9 +173,6 @@ func _on_quit_button_pressed():
 
 func _on_restart_button_pressed():
     get_tree().reload_current_scene()
-
-
-
 
 
 func _on_main_animation_player_animation_finished(anim_name):

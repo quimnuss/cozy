@@ -136,11 +136,12 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wyyh"]
-size = Vector2(591, 255)
+size = Vector2(676, 255)
 
 [node name="Level_0" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_w6356")
+game_state = 1
 
 [node name="Ground" type="Sprite2D" parent="."]
 z_index = -5
@@ -194,13 +195,12 @@ visible = false
 position = Vector2(2432, 1773)
 light_immune = true
 
-[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1, -1)
 offset = Vector2(0, -150)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("5_pgv8e")
-player = NodePath("")
 noise = SubResource("FastNoiseLite_e05q1")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -404,6 +404,7 @@ offset_bottom = 40.0
 
 [node name="Area2D4" type="Area2D" parent="Tutorial"]
 process_mode = 3
+visible = false
 position = Vector2(2659, -836)
 collision_layer = 0
 collision_mask = 2
@@ -434,13 +435,14 @@ fit_content = true
 
 [node name="Area2D3" type="Area2D" parent="Tutorial"]
 process_mode = 3
+visible = false
 position = Vector2(2291, -565)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("22_0m2o4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial/Area2D3"]
-position = Vector2(294.5, 53.5)
+position = Vector2(337, 53.5)
 shape = SubResource("RectangleShape2D_7wyyh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/Area2D3"]
@@ -466,6 +468,7 @@ fit_content = true
 
 [node name="Area2D2" type="Area2D" parent="Tutorial"]
 process_mode = 3
+visible = false
 position = Vector2(2018, 533)
 collision_layer = 0
 collision_mask = 2
@@ -498,6 +501,7 @@ fit_content = true
 
 [node name="Area2D" type="Area2D" parent="Tutorial"]
 process_mode = 3
+visible = false
 position = Vector2(1861, 949)
 collision_layer = 0
 collision_mask = 2
@@ -530,17 +534,21 @@ fit_content = true
 process_mode = 3
 visible = false
 anchors_preset = 0
-offset_left = 2185.0
-offset_top = 1461.0
-offset_right = 2185.0
-offset_bottom = 1461.0
+offset_left = 2431.0
+offset_top = 1383.0
+offset_right = 2431.0
+offset_bottom = 1383.0
 script = ExtResource("24_nucv3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/TutorialMessageDying"]
-layout_mode = 0
-offset_top = -32.0
-offset_right = 500.0
-offset_bottom = 214.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_right = 350.0
+offset_bottom = 308.0
+grow_horizontal = 2
 theme_override_constants/separation = 30
 
 [node name="Accept" parent="Tutorial/TutorialMessageDying/VBoxContainer" instance=ExtResource("22_yu2di")]
@@ -549,11 +557,15 @@ text = " [center]Press [font=res://assets/fonts/promptfont.otf]{main_action}[/fo
 to [rainbow]Sprout[/rainbow] again[/center]"
 
 [node name="Dying" type="RichTextLabel" parent="Tutorial/TutorialMessageDying/VBoxContainer"]
-custom_minimum_size = Vector2(500, 100)
+custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
 theme = ExtResource("21_b7ih6")
 bbcode_enabled = true
-text = "[center]Dying is OK.
+text = "[center]If you run out of resources,
+ your sprout will die.
+
+Dying is [u]OK[/u].
+
 Plants grow several sprouts to explore the world
 [/center]"
 fit_content = true

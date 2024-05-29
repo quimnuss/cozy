@@ -13,5 +13,6 @@ func _input(event):
 
 func _on_body_entered(body):
     if body is Player:
+        visible = true
         is_reading = true
         get_tree().paused = true
