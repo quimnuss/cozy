@@ -3,6 +3,8 @@ extends Area2D
 
 var is_reading : bool = false
 
+func _ready():
+    add_to_group('tutorial')
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
