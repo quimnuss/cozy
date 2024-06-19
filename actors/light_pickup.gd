@@ -23,8 +23,8 @@ func _ready():
         add_child(debug_cam)
 
 func _draw():
-    draw_arc(self.global_position, light_collision_shape_2d.shape.radius, 0, 2*PI, 50, Color(1,1,0), 5)
-    draw_arc(self.global_position, burn_collision_shape_2d.shape.radius, 0, 2*PI, 50, Color(1,0.2,0), 5)
+    draw_arc(Vector2(0,0), light_collision_shape_2d.shape.radius, 0, 2*PI, 50, Color(1,1,0), 5)
+    draw_arc(Vector2(0,0), burn_collision_shape_2d.shape.radius, 0, 2*PI, 50, Color(1,0.2,0), 5)
 
 func picked_up(player : Player):
     player.light()

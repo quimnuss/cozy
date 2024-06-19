@@ -1,0 +1,125 @@
+[gd_scene load_steps=12 format=3 uid="uid://dc3j60lfjmprp"]
+
+[ext_resource type="Script" path="res://scenes/procedural_level.gd" id="1_m88nv"]
+[ext_resource type="Texture2D" uid="uid://wmsuk7m0cfgd" path="res://icon.svg" id="2_0nc1w"]
+[ext_resource type="Script" path="res://scripts/level_generator.gd" id="3_b65ay"]
+[ext_resource type="Script" path="res://scripts/rotating_tool.gd" id="3_ilayb"]
+[ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="4_iyu6y"]
+[ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="6_dp34o"]
+[ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="8_nruau"]
+[ext_resource type="PackedScene" uid="uid://b7hr6u3tlnrdy" path="res://actors/trail_man.tscn" id="9_ckuv3"]
+[ext_resource type="Script" path="res://scripts/simple_ui.gd" id="10_n0nmw"]
+
+[sub_resource type="GDScript" id="GDScript_p4pve"]
+script/source = "extends Camera2D
+
+class_name CozyCamera
+
+@export var player : Player
+
+@export var decay := 0.8 #How quickly shaking will stop [0,1].
+@export var max_offset := Vector2(100,75) #Maximum displacement in pixels.
+@export var max_roll := 0.1 #Maximum rotation in radians (use sparingly).
+@export var noise : FastNoiseLite #The source of random values.
+
+var noise_y = 0 #Value used to move through the noise
+
+var trauma := 0.0 #Current shake strength
+var trauma_pwr := 3 #Trauma exponent. Use [2,3]
+
+var trauma_offset : Vector2 = Vector2(0,0)
+
+var base_offset : Vector2
+
+func _ready():
+    randomize()
+    noise.seed = randi()
+    make_current()
+    base_offset = offset
+
+func add_trauma(amount : float):
+    trauma = min(trauma + amount, 1.0)
+
+func _process(delta):
+    if trauma:
+        trauma = max(trauma - decay * delta, 0)
+        shake()
+    elif trauma_offset.length() > 0 or rotation != 0:
+        lerp(offset.x,0.0,1)
+        lerp(offset.y,0.0,1)
+        lerp(rotation,0.0,1)
+
+    offset = base_offset + trauma_offset
+
+func shake():
+    var amt = pow(trauma, trauma_pwr)
+    noise_y += 1
+    rotation = max_roll * amt * noise.get_noise_2d(0, noise_y)
+    trauma_offset.x = max_offset.x * amt * noise.get_noise_2d(1000, noise_y)
+    trauma_offset.y = max_offset.y * amt * noise.get_noise_2d(2000, noise_y)
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nlok6"]
+
+[node name="ProceduralLevel" type="Node2D"]
+script = ExtResource("1_m88nv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(544, 564)
+rotation = 12018.8
+texture = ExtResource("2_0nc1w")
+script = ExtResource("3_ilayb")
+
+[node name="StartPoint" type="Marker2D" parent="."]
+position = Vector2(544, 564)
+
+[node name="LevelGenerator" type="Node2D" parent="."]
+script = ExtResource("3_b65ay")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelGenerator"]
+visible = false
+rotation = 10939.1
+texture = ExtResource("2_0nc1w")
+
+[node name="Holder" type="Node2D" parent="LevelGenerator"]
+
+[node name="Light" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
+position = Vector2(500, 400)
+
+[node name="Water" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
+position = Vector2(500, 300)
+
+[node name="Player" parent="." instance=ExtResource("8_nruau")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, -1)
+offset = Vector2(0, -150)
+limit_smoothed = true
+position_smoothing_enabled = true
+script = SubResource("GDScript_p4pve")
+noise = SubResource("FastNoiseLite_nlok6")
+
+[node name="TrailMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_ckuv3")]
+target = NodePath("../Player")
+
+[node name="SimpleUI" type="CanvasLayer" parent="."]
+script = ExtResource("10_n0nmw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SimpleUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LightLabel" type="Label" parent="SimpleUI/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.670588, 0.705882, 0, 1)
+text = "100"
+
+[node name="WaterLabel" type="Label" parent="SimpleUI/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.882353, 1)
+text = "100"
+
+[connection signal="build_changed" from="Player" to="SimpleUI" method="_on_player_build_changed"]
+[connection signal="light_changed" from="Player" to="SimpleUI" method="_on_player_light_changed"]
+[connection signal="water_changed" from="Player" to="SimpleUI" method="_on_player_water_changed"]
