@@ -1,4 +1,7 @@
 extends Node2D
+
+class_name LightPickup
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var point_light_2d = $PointLight2D
 
@@ -14,13 +17,18 @@ var gather_ui_position : Vector2 = Vector2(200, 50)
 var light_range_max : float
 var light_range_min : float
 
+@onready var pickup_name = $PickupName
+
 func _ready():
     light_range_max = light_collision_shape_2d.shape.radius
     light_range_min = burn_collision_shape_2d.shape.radius
-    
+
     if OS.is_debug_build():
         var debug_cam = Camera2D.new()
         add_child(debug_cam)
+
+func set_title():
+    pickup_name.set_text(self.name)
 
 func _draw():
     draw_arc(Vector2(0,0), light_collision_shape_2d.shape.radius, 0, 2*PI, 50, Color(1,1,0), 5)

@@ -84,7 +84,7 @@ func _input(event):
         if event.is_action_pressed("main_action") or event.is_action_pressed("move_up"):
             print('TODO skip! TODO start on cutscene optional?')
             game_state = GameStates.WELCOME
-            if has_node("MainAnimationPlayer"): 
+            if has_node("MainAnimationPlayer"):
                 $MainAnimationPlayer.advance(10)
     elif game_state == GameStates.WELCOME:
         var is_keyboard = (event.is_action_pressed("move_left") \

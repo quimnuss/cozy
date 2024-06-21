@@ -1,13 +1,20 @@
 extends Node2D
+
+class_name WaterPickup
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 var is_pickable : bool = true
 
 var gather_ui_position : Vector2 = Vector2(200, 50)
 
+@onready var pickup_name = $PickupName
+
 func _ready():
     animated_sprite_2d.play('default')
 
+func set_label():
+    pickup_name.set_text(self.name)
 
 func picked_up(player):
     player.water()

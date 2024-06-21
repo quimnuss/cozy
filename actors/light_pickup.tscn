@@ -158,6 +158,13 @@ animations = [{
 z_index = -1
 script = ExtResource("1_fiwrm")
 
+[node name="PickupName" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -33.0
+offset_right = 24.0
+offset_bottom = -13.0
+text = "test"
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
 position = Vector2(-4.24, 2.38419e-07)
@@ -166,6 +173,7 @@ color = Color(0.560784, 0.556863, 0, 1)
 polygon = PackedVector2Array(0, -3, -2, -1, 1, 1, -2, 5, 3, 2, 1, -1, 2, -5)
 
 [node name="BurnArea2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 3
 
@@ -173,6 +181,7 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_2ouom")
 
 [node name="LightArea2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
