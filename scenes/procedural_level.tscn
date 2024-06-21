@@ -72,313 +72,73 @@ position = Vector2(544, 564)
 position = Vector2(0, 1)
 script = ExtResource("3_b65ay")
 num_branches = Vector2i(3, 4)
-num_iterations = 4
+num_iterations = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelGenerator"]
 visible = false
-rotation = 50789.0
+rotation = 51873.0
 texture = ExtResource("2_0nc1w")
 
 [node name="Holder" type="Node2D" parent="LevelGenerator"]
 
-[node name="Light_3_60" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
+[node name="Light_1_60" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 z_index = -1
 position = Vector2(500, 500)
 script = ExtResource("5_yubtb")
 
-[node name="Water_3_61" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
+[node name="Water_1_61" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 z_index = -1
 position = Vector2(700, 400)
 script = ExtResource("7_bd83l")
 
-[node name="Light_2_62" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
+[node name="Light_0_62" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 z_index = -1
 position = Vector2(1392.82, 3.05176e-05)
 script = ExtResource("5_yubtb")
 
-[node name="Water_2_63" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
+[node name="Water_0_63" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 z_index = -1
 position = Vector2(1592.82, -100)
 script = ExtResource("7_bd83l")
 
-[node name="Light_1_64" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
+[node name="Light_0_64" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 z_index = -1
 position = Vector2(2285.64, -500)
 script = ExtResource("5_yubtb")
 
-[node name="Water_1_65" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
+[node name="Water_0_65" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 z_index = -1
 position = Vector2(2485.64, -600)
 script = ExtResource("7_bd83l")
 
-[node name="Light_0_66" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3178.46, -1000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_67" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3378.46, -1100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_68" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(4071.28, -1500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_69" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(4271.28, -1600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_1_70" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3178.46, -1000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_1_71" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3378.46, -1100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_72" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2685.64, -1500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_73" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2885.64, -1600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_74" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3578.46, -2000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_75" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3778.46, -2100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_2_76" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2285.64, -500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_2_77" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2485.64, -600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_1_78" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(1792.82, -1000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_1_79" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(1992.82, -1100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_80" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2685.64, -1500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_81" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2885.64, -1600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_82" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3578.46, -2000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_83" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3778.46, -2100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_1_84" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2685.64, -1500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_1_85" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2885.64, -1600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_86" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2192.82, -2000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_87" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2392.82, -2100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_88" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3085.64, -2500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_89" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3285.64, -2600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_3_90" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
+[node name="Light_1_66" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 z_index = -1
 position = Vector2(1392.82, 3.05176e-05)
 script = ExtResource("5_yubtb")
 
-[node name="Water_3_91" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
+[node name="Water_1_67" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 z_index = -1
 position = Vector2(1592.82, -100)
 script = ExtResource("7_bd83l")
 
-[node name="Light_2_92" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
+[node name="@Node2D@23681" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 z_index = -1
 position = Vector2(900, -500)
 script = ExtResource("5_yubtb")
 
-[node name="Water_2_93" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
+[node name="@Node2D@23682" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 z_index = -1
 position = Vector2(1100, -600)
 script = ExtResource("7_bd83l")
 
-[node name="Light_1_94" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
+[node name="Light_0_70" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 z_index = -1
 position = Vector2(1792.82, -1000)
 script = ExtResource("5_yubtb")
 
-[node name="Water_1_95" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
+[node name="Water_0_71" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 z_index = -1
 position = Vector2(1992.82, -1100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_96" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2685.64, -1500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_97" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2885.64, -1600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_98" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3578.46, -2000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_99" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3778.46, -2100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_1_100" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2685.64, -1500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_1_101" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2885.64, -1600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_102" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2192.82, -2000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_103" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2392.82, -2100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_104" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3085.64, -2500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_105" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3285.64, -2600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_2_106" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(1792.82, -1000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_2_107" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(1992.82, -1100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_1_108" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(1300, -1500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_1_109" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(1500, -1600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_110" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2192.82, -2000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_111" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2392.82, -2100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_112" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(3085.64, -2500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_113" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(3285.64, -2600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_1_114" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2192.82, -2000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_1_115" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2392.82, -2100)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_116" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(1700, -2500)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_117" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(1900, -2600)
-script = ExtResource("7_bd83l")
-
-[node name="Light_0_118" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
-position = Vector2(2592.82, -3000)
-script = ExtResource("5_yubtb")
-
-[node name="Water_0_119" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
-position = Vector2(2792.82, -3100)
 script = ExtResource("7_bd83l")
 
 [node name="Player" parent="." instance=ExtResource("8_nruau")]
