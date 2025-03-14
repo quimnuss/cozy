@@ -1,15 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc3j60lfjmprp"]
+[gd_scene load_steps=11 format=3 uid="uid://dc3j60lfjmprp"]
 
-[ext_resource type="Script" path="res://scenes/procedural_level.gd" id="1_m88nv"]
+[ext_resource type="Script" uid="uid://dyaal1tesixi7" path="res://scenes/procedural_level.gd" id="1_m88nv"]
 [ext_resource type="Texture2D" uid="uid://wmsuk7m0cfgd" path="res://icon.svg" id="2_0nc1w"]
-[ext_resource type="Script" path="res://scripts/level_generator.gd" id="3_b65ay"]
+[ext_resource type="Script" uid="uid://b8w8xswv4q2dd" path="res://scripts/level_generator.gd" id="3_b65ay"]
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="4_iyu6y"]
-[ext_resource type="Script" path="res://actors/light_pickup.gd" id="5_yubtb"]
 [ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="6_dp34o"]
-[ext_resource type="Script" path="res://actors/water_pickup.gd" id="7_bd83l"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="8_nruau"]
 [ext_resource type="PackedScene" uid="uid://b7hr6u3tlnrdy" path="res://actors/trail_man.tscn" id="9_ckuv3"]
-[ext_resource type="Script" path="res://scripts/simple_ui.gd" id="10_n0nmw"]
+[ext_resource type="Script" uid="uid://b2qlv5omq3tch" path="res://scripts/simple_ui.gd" id="10_n0nmw"]
 
 [sub_resource type="GDScript" id="GDScript_p4pve"]
 script/source = "extends Camera2D
@@ -81,65 +79,41 @@ texture = ExtResource("2_0nc1w")
 
 [node name="Holder" type="Node2D" parent="LevelGenerator"]
 
-[node name="Light_1_60" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
+[node name="Light_1_60" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 position = Vector2(500, 500)
-script = ExtResource("5_yubtb")
 
-[node name="Water_1_61" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
+[node name="Water_1_61" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 position = Vector2(700, 400)
-script = ExtResource("7_bd83l")
 
-[node name="Light_0_62" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
+[node name="Light_0_62" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 position = Vector2(1392.82, 3.05176e-05)
-script = ExtResource("5_yubtb")
 
-[node name="Water_0_63" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
+[node name="Water_0_63" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 position = Vector2(1592.82, -100)
-script = ExtResource("7_bd83l")
 
-[node name="Light_0_64" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
+[node name="Light_0_64" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 position = Vector2(2285.64, -500)
-script = ExtResource("5_yubtb")
 
-[node name="Water_0_65" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
+[node name="Water_0_65" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 position = Vector2(2485.64, -600)
-script = ExtResource("7_bd83l")
 
-[node name="Light_1_66" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
+[node name="Light_1_66" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 position = Vector2(1392.82, 3.05176e-05)
-script = ExtResource("5_yubtb")
 
-[node name="Water_1_67" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
+[node name="Water_1_67" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 position = Vector2(1592.82, -100)
-script = ExtResource("7_bd83l")
 
-[node name="@Node2D@23681" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
+[node name="@Node2D@23681" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 position = Vector2(900, -500)
-script = ExtResource("5_yubtb")
 
-[node name="@Node2D@23682" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
+[node name="@Node2D@23682" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 position = Vector2(1100, -600)
-script = ExtResource("7_bd83l")
 
-[node name="Light_0_70" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
-z_index = -1
+[node name="Light_0_70" parent="LevelGenerator/Holder" instance=ExtResource("4_iyu6y")]
 position = Vector2(1792.82, -1000)
-script = ExtResource("5_yubtb")
 
-[node name="Water_0_71" type="Node2D" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
-z_index = -1
+[node name="Water_0_71" parent="LevelGenerator/Holder" instance=ExtResource("6_dp34o")]
 position = Vector2(1992.82, -1100)
-script = ExtResource("7_bd83l")
 
 [node name="Player" parent="." instance=ExtResource("8_nruau")]
 

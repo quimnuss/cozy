@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmkgp6huri4ps"]
+
+[ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="1_kt0sb"]
+[ext_resource type="PackedScene" uid="uid://dy21sqe4fqm1v" path="res://actors/WaterPickup.tscn" id="2_ocm3q"]
+[ext_resource type="Script" uid="uid://bv338j5fhipo5" path="res://scripts/ruler.gd" id="3_3q1vb"]
+
+[node name="Setpiecebase" type="Node2D"]
+
+[node name="LightPickup" parent="." instance=ExtResource("1_kt0sb")]
+position = Vector2(406, 324)
+
+[node name="WaterPickup" parent="." instance=ExtResource("2_ocm3q")]
+position = Vector2(511, 257)
+
+[node name="Line2D" type="Line2D" parent="WaterPickup"]
+rotation = 24.962
+points = PackedVector2Array(0, 0, -110.747, 47.8759)
+width = 3.0
+script = ExtResource("3_3q1vb")
+
+[node name="Label" type="Label" parent="WaterPickup/Line2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.3735
+offset_top = 23.938
+offset_right = -22.3735
+offset_bottom = 43.938
+grow_horizontal = 2
+grow_vertical = 2
+text = "121.0"
+
+[node name="Ruler" type="Node2D" parent="."]

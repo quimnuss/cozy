@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bgcsi0kohhi4b"]
 
-[ext_resource type="Script" path="res://actors/spore.gd" id="1_rl77e"]
+[ext_resource type="Script" uid="uid://bhk7e8d4ca0yi" path="res://actors/spore.gd" id="1_rl77e"]
 [ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="2_oea22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_riand"]
@@ -172,8 +172,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4gx4f"]
 _data = {
-"RESET": SubResource("Animation_nijr3"),
-"fly_away": SubResource("Animation_olisf")
+&"RESET": SubResource("Animation_nijr3"),
+&"fly_away": SubResource("Animation_olisf")
 }
 
 [node name="Spore" type="Node2D"]

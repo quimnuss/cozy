@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://excc8c2neq53"]
 
-[ext_resource type="Script" path="res://actors/light_pickup.gd" id="1_fiwrm"]
+[ext_resource type="Script" uid="uid://pja1igd5lmek" path="res://actors/light_pickup.gd" id="1_fiwrm"]
 [ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="2_d7h6w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ouom"]

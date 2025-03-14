@@ -1,10 +1,10 @@
 [gd_scene load_steps=42 format=3 uid="uid://3k82qqi68q8v"]
 
-[ext_resource type="Script" path="res://scenes/cozy_main_game.gd" id="1_1h7a7"]
+[ext_resource type="Script" uid="uid://dnr0ha1725hgi" path="res://scenes/cozy_main_game.gd" id="1_1h7a7"]
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_5xydq"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_f2tsh"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_iiulg"]
-[ext_resource type="Script" path="res://scripts/growth_camera.gd" id="5_im4dx"]
+[ext_resource type="Script" uid="uid://bx7yfvsgakn36" path="res://scripts/growth_camera.gd" id="5_im4dx"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_lpitc"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_v1ygh"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_andhy"]
@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="11_bjikk"]
 [ext_resource type="PackedScene" uid="uid://dytbi11d84kv0" path="res://scenes/ui.tscn" id="12_ehgxc"]
 [ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="13_yqjiw"]
-[ext_resource type="Script" path="res://scenes/win_scene.gd" id="14_86wb7"]
-[ext_resource type="Script" path="res://actors/audiosfx.gd" id="15_3h83g"]
+[ext_resource type="Script" uid="uid://gmr81mo2i3to" path="res://scenes/win_scene.gd" id="14_86wb7"]
+[ext_resource type="Script" uid="uid://8dm670bsgvgj" path="res://actors/audiosfx.gd" id="15_3h83g"]
 [ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="16_h24re"]
 [ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="17_2wwpp"]
 [ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="18_imurd"]
@@ -151,9 +151,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6y52f"]
 _data = {
-"RESET": SubResource("Animation_41nk5"),
-"credits": SubResource("Animation_swu43"),
-"fade_in": SubResource("Animation_p5ojj")
+&"RESET": SubResource("Animation_41nk5"),
+&"credits": SubResource("Animation_swu43"),
+&"fade_in": SubResource("Animation_p5ojj")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqdbi"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=41 format=3 uid="uid://dvljdu2x2pktx"]
 
-[ext_resource type="Script" path="res://scenes/game_standard.gd" id="1_8ncto"]
+[ext_resource type="Script" uid="uid://tpi42qt85jfc" path="res://scenes/game_standard.gd" id="1_8ncto"]
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_ngjf4"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_0ysxt"]
 [ext_resource type="SpriteFrames" uid="uid://mmgmejqbpbmd" path="res://resources/dandelion_spriteframes.tres" id="4_162ut"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_njln4"]
-[ext_resource type="Script" path="res://scripts/growth_camera.gd" id="5_tukx6"]
+[ext_resource type="Script" uid="uid://bx7yfvsgakn36" path="res://scripts/growth_camera.gd" id="5_tukx6"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_3oa70"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_217rk"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_uj5c1"]
@@ -14,14 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://dytbi11d84kv0" path="res://scenes/ui.tscn" id="11_1c7ax"]
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="11_4rhej"]
 [ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="12_ob230"]
-[ext_resource type="Script" path="res://scenes/win_scene.gd" id="13_o4jml"]
-[ext_resource type="Script" path="res://actors/audiosfx.gd" id="14_ao37f"]
+[ext_resource type="Script" uid="uid://gmr81mo2i3to" path="res://scenes/win_scene.gd" id="13_o4jml"]
+[ext_resource type="Script" uid="uid://8dm670bsgvgj" path="res://actors/audiosfx.gd" id="14_ao37f"]
 [ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="15_x6rdk"]
 [ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="16_2avov"]
 [ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="17_auggo"]
 [ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="18_7kq07"]
-[ext_resource type="Script" path="res://scripts/input_detector.gd" id="19_wra7f"]
-[ext_resource type="Script" path="res://components/freeze.gd" id="20_2clli"]
+[ext_resource type="Script" uid="uid://bjg43d03hg2y" path="res://scripts/input_detector.gd" id="19_wra7f"]
+[ext_resource type="Script" uid="uid://dhtvq68dd676d" path="res://components/freeze.gd" id="20_2clli"]
 [ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="20_7nlwe"]
 [ext_resource type="PackedScene" uid="uid://co72v01qsy5wt" path="res://actors/bubble_accept.tscn" id="21_qx7eb"]
 [ext_resource type="Theme" uid="uid://b2omskbqfbyl2" path="res://resources/bubbletheme.tres" id="22_8iteh"]
@@ -151,8 +151,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ij5bm"]
 _data = {
-"RESET": SubResource("Animation_moq6x"),
-"fly_in_cutscene": SubResource("Animation_pjsb1")
+&"RESET": SubResource("Animation_moq6x"),
+&"fly_in_cutscene": SubResource("Animation_pjsb1")
 }
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_e05q1"]
@@ -240,9 +240,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6y52f"]
 _data = {
-"RESET": SubResource("Animation_41nk5"),
-"credits": SubResource("Animation_swu43"),
-"fade_in": SubResource("Animation_p5ojj")
+&"RESET": SubResource("Animation_41nk5"),
+&"credits": SubResource("Animation_swu43"),
+&"fade_in": SubResource("Animation_p5ojj")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wyyh"]
@@ -302,7 +302,7 @@ position = Vector2(2432, 1773)
 
 [node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ij5bm")
+&"": SubResource("AnimationLibrary_ij5bm")
 }
 autoplay = "fly_in_cutscene"
 
@@ -440,13 +440,13 @@ custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.282353, 0.54902, 0.0117647, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 16
 theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 16
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
-theme_override_font_sizes/italics_font_size = 64
-theme_override_font_sizes/bold_italics_font_size = 64
-theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 text = "[wave amp=40.0 freq=2.0 connected=1][fade start=30 length=6]Safe travels on a new journey . . . [/fade][/wave]"
 fit_content = true
@@ -458,7 +458,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WinScene/SceneModulate"]
 libraries = {
-"": SubResource("AnimationLibrary_6y52f")
+&"": SubResource("AnimationLibrary_6y52f")
 }
 
 [node name="Camera2D" type="Camera2D" parent="WinScene"]
@@ -478,8 +478,8 @@ offset_right = 3160.0
 offset_bottom = 1598.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_font_sizes/normal_font_size = 90
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 90
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
 Sunny Level

@@ -1,10 +1,10 @@
 [gd_scene load_steps=43 format=3 uid="uid://cju43wesa6ld3"]
 
-[ext_resource type="Script" path="res://scenes/level_final.gd" id="1_2ghin"]
+[ext_resource type="Script" uid="uid://bsu0o16h7b77g" path="res://scenes/level_final.gd" id="1_2ghin"]
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_qkxsb"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_eny8i"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_wuyq7"]
-[ext_resource type="Script" path="res://scripts/growth_camera.gd" id="5_138kn"]
+[ext_resource type="Script" uid="uid://bx7yfvsgakn36" path="res://scripts/growth_camera.gd" id="5_138kn"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_xmvx2"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_edbrd"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_cu06w"]
@@ -13,15 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="11_5cajf"]
 [ext_resource type="PackedScene" uid="uid://dytbi11d84kv0" path="res://scenes/ui.tscn" id="12_uk13g"]
 [ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="13_q37cj"]
-[ext_resource type="Script" path="res://scenes/win_scene.gd" id="14_oiomn"]
-[ext_resource type="Script" path="res://actors/audiosfx.gd" id="15_jqg6i"]
+[ext_resource type="Script" uid="uid://gmr81mo2i3to" path="res://scenes/win_scene.gd" id="14_oiomn"]
+[ext_resource type="Script" uid="uid://8dm670bsgvgj" path="res://actors/audiosfx.gd" id="15_jqg6i"]
 [ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="16_fiuwb"]
 [ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="17_il65j"]
 [ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="18_xwj4w"]
 [ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="19_gw3il"]
 [ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="20_6f3mk"]
 [ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="21_spa24"]
-[ext_resource type="Script" path="res://scripts/input_detector.gd" id="22_rhf05"]
+[ext_resource type="Script" uid="uid://bjg43d03hg2y" path="res://scripts/input_detector.gd" id="22_rhf05"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -152,9 +152,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6y52f"]
 _data = {
-"RESET": SubResource("Animation_41nk5"),
-"credits": SubResource("Animation_swu43"),
-"fade_in": SubResource("Animation_p5ojj")
+&"RESET": SubResource("Animation_41nk5"),
+&"credits": SubResource("Animation_swu43"),
+&"fade_in": SubResource("Animation_p5ojj")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqdbi"]

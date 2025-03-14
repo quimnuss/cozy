@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://co72v01qsy5wt"]
 
 [ext_resource type="Theme" uid="uid://b2omskbqfbyl2" path="res://resources/bubbletheme.tres" id="1_kcbyq"]
-[ext_resource type="Script" path="res://scripts/input_type_action_text.gd" id="2_uf58k"]
+[ext_resource type="Script" uid="uid://yoiw8ugk8yg" path="res://scripts/input_type_action_text.gd" id="2_uf58k"]
 
 [node name="Accept" type="RichTextLabel"]
 theme = ExtResource("1_kcbyq")

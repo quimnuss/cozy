@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmm5dwde6ag7l"]
 
 [ext_resource type="Texture2D" uid="uid://cyp8v7hp2lepa" path="res://assets/circle.png" id="1_5v1h8"]
-[ext_resource type="Script" path="res://actors/gather_droplet.gd" id="1_pal1d"]
+[ext_resource type="Script" uid="uid://dbgxdtj6jxkfm" path="res://actors/gather_droplet.gd" id="1_pal1d"]
 
 [node name="GatherDroplet" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)

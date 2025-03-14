@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=3 uid="uid://dytbi11d84kv0"]
 
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_cf8hv"]
-[ext_resource type="Script" path="res://scripts/focus_grabber.gd" id="2_amyht"]
+[ext_resource type="Script" uid="uid://dujemuf1tygr7" path="res://scenes/ui.gd" id="1_cf8hv"]
+[ext_resource type="Script" uid="uid://boefqxpudintf" path="res://scripts/focus_grabber.gd" id="2_amyht"]
 [ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="2_cpghh"]
-[ext_resource type="Script" path="res://scripts/status_bar.gd" id="3_675mn"]
+[ext_resource type="Script" uid="uid://umpise4crkth" path="res://scripts/status_bar.gd" id="3_675mn"]
 [ext_resource type="Curve" uid="uid://qdoxje4xv8l3" path="res://resources/sine_curve.tres" id="4_2bsas"]
 [ext_resource type="Texture2D" uid="uid://bpr44yetjdbkt" path="res://assets/light.png" id="5_n1qah"]
-[ext_resource type="Script" path="res://actors/goal_label.gd" id="6_gisdr"]
+[ext_resource type="Script" uid="uid://fmjpis5psok5" path="res://actors/goal_label.gd" id="6_gisdr"]
 [ext_resource type="FontFile" uid="uid://c2v4p4erjrwqw" path="res://assets/fonts/promptfont.otf" id="7_kvssb"]
 [ext_resource type="PackedScene" uid="uid://cej2h7op7s86b" path="res://scenes/menu.tscn" id="8_8dgh2"]
-[ext_resource type="Script" path="res://scripts/mute.gd" id="8_eh63v"]
+[ext_resource type="Script" uid="uid://cvn1bdrw2cu6q" path="res://scripts/mute.gd" id="8_eh63v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27s2j"]
 atlas = ExtResource("2_cpghh")

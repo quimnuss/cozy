@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7d55wvw4aetv"]
 
-[ext_resource type="Script" path="res://scripts/droplet_emitter.gd" id="1_g0vwc"]
+[ext_resource type="Script" uid="uid://coj0iu1h4bk0l" path="res://scripts/droplet_emitter.gd" id="1_g0vwc"]
 [ext_resource type="PackedScene" uid="uid://dmm5dwde6ag7l" path="res://actors/gather_droplet.tscn" id="2_pe3ie"]
 
 [node name="TestGathering" type="Node2D"]

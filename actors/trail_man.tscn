@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7hr6u3tlnrdy"]
 
-[ext_resource type="Script" path="res://scripts/trail_man.gd" id="1_qf1p0"]
+[ext_resource type="Script" uid="uid://vxjnfhcrxlhw" path="res://scripts/trail_man.gd" id="1_qf1p0"]
 
 [node name="TrailMan" type="Node2D" node_paths=PackedStringArray("target")]
 position = Vector2(0, -4)

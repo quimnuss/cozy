@@ -179,4 +179,3 @@ func _on_main_animation_player_animation_finished(anim_name):
     if anim_name == 'fly_in_cutscene':
         $MainAnimationPlayer/Dandelion.queue_free()
         game_state = GameStates.WELCOME
-

@@ -72,4 +72,3 @@ func _process(delta):
 
     if $Sprite2D:
         $Sprite2D.rotation += PI * delta
-

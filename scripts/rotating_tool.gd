@@ -13,9 +13,9 @@ func _ready():
 func spawn():
     var node = Node2D.new()
     var start_position : Vector2 = Vector2(500,1000)
-    
+
     var light_pickup_scene : PackedScene = preload('res://actors/light_pickup.tscn')
-    
+
     ###var start_position = start_point.global_position
     var light_pickup = light_pickup_scene.instantiate()
     #var water_pickup = water_pickup_scene.instantiate()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bm3sq6ecmjjf2"]
 
-[ext_resource type="Script" path="res://components/shakeable.gd" id="1_kntqm"]
-[ext_resource type="Script" path="res://actors/plant_seed.gd" id="1_xwmre"]
+[ext_resource type="Script" uid="uid://bmr5uv1vx5u55" path="res://components/shakeable.gd" id="1_kntqm"]
+[ext_resource type="Script" uid="uid://c2g57d57sh68x" path="res://actors/plant_seed.gd" id="1_xwmre"]
 
 [node name="PlantSeed" type="Node2D"]
 script = ExtResource("1_xwmre")

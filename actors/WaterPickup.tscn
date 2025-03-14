@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://dy21sqe4fqm1v"]
 
-[ext_resource type="Script" path="res://actors/water_pickup.gd" id="1_47xoe"]
+[ext_resource type="Script" uid="uid://ctc7cgyunvhdo" path="res://actors/water_pickup.gd" id="1_47xoe"]
 [ext_resource type="Texture2D" uid="uid://bdrlnwpkqpren" path="res://assets/drop.png" id="2_ogpej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eip28"]

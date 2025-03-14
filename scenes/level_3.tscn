@@ -1,10 +1,10 @@
 [gd_scene load_steps=43 format=3 uid="uid://bo2os0t77nr2t"]
 
-[ext_resource type="Script" path="res://scenes/game_standard.gd" id="1_atqfa"]
+[ext_resource type="Script" uid="uid://tpi42qt85jfc" path="res://scenes/game_standard.gd" id="1_atqfa"]
 [ext_resource type="Texture2D" uid="uid://boe8csxgvr3ss" path="res://assets/grasstransparent.png" id="2_v2i0r"]
 [ext_resource type="PackedScene" uid="uid://bm3sq6ecmjjf2" path="res://actors/plant_seed.tscn" id="3_vcyb1"]
 [ext_resource type="PackedScene" uid="uid://dmov2xrv47nx4" path="res://actors/player.tscn" id="4_cnytd"]
-[ext_resource type="Script" path="res://scripts/growth_camera.gd" id="5_agmar"]
+[ext_resource type="Script" uid="uid://bx7yfvsgakn36" path="res://scripts/growth_camera.gd" id="5_agmar"]
 [ext_resource type="Texture2D" uid="uid://cqf3xek2q6hls" path="res://assets/backgroundmirrored.png" id="6_ciuww"]
 [ext_resource type="Texture2D" uid="uid://dbxe4jtph5ra1" path="res://assets/Stars Small_2.png" id="7_ghry8"]
 [ext_resource type="Texture2D" uid="uid://beudwut7ac0jk" path="res://assets/Stars Small_1.png" id="8_jtvxh"]
@@ -13,15 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://excc8c2neq53" path="res://actors/light_pickup.tscn" id="11_e8s0i"]
 [ext_resource type="PackedScene" uid="uid://dytbi11d84kv0" path="res://scenes/ui.tscn" id="12_qorh6"]
 [ext_resource type="PackedScene" uid="uid://dv76m0v6d8lpg" path="res://actors/Goal.tscn" id="13_e8uxv"]
-[ext_resource type="Script" path="res://scenes/win_scene.gd" id="14_juwuq"]
-[ext_resource type="Script" path="res://actors/audiosfx.gd" id="15_cj7gd"]
+[ext_resource type="Script" uid="uid://gmr81mo2i3to" path="res://scenes/win_scene.gd" id="14_juwuq"]
+[ext_resource type="Script" uid="uid://8dm670bsgvgj" path="res://actors/audiosfx.gd" id="15_cj7gd"]
 [ext_resource type="AudioStream" uid="uid://nnvpfvoudmj2" path="res://assets/audio/goalsound.wav" id="16_cec4y"]
 [ext_resource type="AudioStream" uid="uid://b63tdwf43fyx8" path="res://assets/audio/gamewonsound.wav" id="17_asgv0"]
 [ext_resource type="AudioStream" uid="uid://dh2uqgpib4cdt" path="res://assets/audio/beforegamemusic.mp3" id="18_ot054"]
 [ext_resource type="AudioStream" uid="uid://oc1v3c76vrl4" path="res://assets/audio/backgroundmusic.mp3" id="19_utc4c"]
 [ext_resource type="AudioStream" uid="uid://bkc2vdrqnebaq" path="res://assets/audio/gameendmusic.mp3" id="20_f65av"]
 [ext_resource type="Texture2D" uid="uid://borkg2e3ipgmu" path="res://assets/dandelion.png" id="21_2nwqw"]
-[ext_resource type="Script" path="res://scripts/input_detector.gd" id="22_esm4i"]
+[ext_resource type="Script" uid="uid://bjg43d03hg2y" path="res://scripts/input_detector.gd" id="22_esm4i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5qvnr"]
 polygon = PackedVector2Array(2298, 1558, 2113, 1690, 1948, 1777, 2335, 1791, 2633, 1807, 2409, 1602)
@@ -152,9 +152,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6y52f"]
 _data = {
-"RESET": SubResource("Animation_41nk5"),
-"credits": SubResource("Animation_swu43"),
-"fade_in": SubResource("Animation_p5ojj")
+&"RESET": SubResource("Animation_41nk5"),
+&"credits": SubResource("Animation_swu43"),
+&"fade_in": SubResource("Animation_p5ojj")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqdbi"]
@@ -422,13 +422,13 @@ custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.282353, 0.54902, 0.0117647, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 16
 theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 16
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
-theme_override_font_sizes/italics_font_size = 64
-theme_override_font_sizes/bold_italics_font_size = 64
-theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 text = "[wave amp=40.0 freq=2.0 connected=1][fade start=30 length=6]Safe travels on a new journey . . . [/fade][/wave]"
 fit_content = true
@@ -440,7 +440,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WinScene/SceneModulate"]
 libraries = {
-"": SubResource("AnimationLibrary_6y52f")
+&"": SubResource("AnimationLibrary_6y52f")
 }
 
 [node name="Camera2D" type="Camera2D" parent="WinScene"]
@@ -461,8 +461,8 @@ offset_bottom = 1598.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_font_sizes/normal_font_size = 90
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 90
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
 Final Level
@@ -532,8 +532,8 @@ offset_bottom = 992.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_font_sizes/normal_font_size = 90
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 90
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
 Cozy Growth
@@ -550,8 +550,8 @@ offset_bottom = -1496.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_font_sizes/normal_font_size = 90
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 90
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][center][color=#488C03]
 Cozy Growth
@@ -567,8 +567,8 @@ offset_bottom = 576.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]
 A game by [color=#488C03]Clicli[/color] and [color=#F2E205]Starlight Killjoy[/color]
@@ -585,8 +585,8 @@ offset_bottom = -393.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]
 [color=#488C03]Clicli[/color]  concept and coding
@@ -608,8 +608,8 @@ offset_bottom = 191.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]
 [i]Spring: New Beginnings[/i]
@@ -633,8 +633,8 @@ offset_bottom = -864.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]
 
@@ -659,8 +659,8 @@ offset_left = 3904.0
 offset_top = -1800.0
 offset_right = 4215.0
 offset_bottom = -1720.0
-theme_override_colors/font_color = Color(0.368627, 0.807843, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.368627, 0.807843, 0.972549, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 text = "Go outside >"
